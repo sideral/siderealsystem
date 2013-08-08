@@ -1,4 +1,4 @@
 siderealsystem
 ==============
 
-Online sky chart
+Online Planetarium
