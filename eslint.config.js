@@ -1,3 +1,6 @@
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import eslint from '@eslint/js'
 import globals from 'globals'
 import svelte from 'eslint-plugin-svelte'
@@ -15,6 +18,16 @@ export default tseslint.config(
   ...svelte.configs['flat/recommended'],
   {
     ignores: ['dist/**', 'node_modules/**'],
+  },
+  {
+    files: ['scripts/**/*.ts'],
+    languageOptions: {
+      globals: globals.node,
+      parserOptions: {
+        project: './scripts/tsconfig.json',
+        tsconfigRootDir: dirname(fileURLToPath(import.meta.url)),
+      },
+    },
   },
   {
     files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
