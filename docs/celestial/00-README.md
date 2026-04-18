@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This folder holds the **living plan** for a browser-only **interactive celestial map** (Phase A) and, later, a **constellation-learning game** (Phase B). Documents are ordered by number; start with `**01-data-stars-and-dsos.md`** for data, then follow `**02`–`06**` for math and UI. The repo root `**AGENTS.md**` explains agent conventions; the Cursor meta-plan (outside this repo) lists policies in full.
+This folder holds the **living plan** for a browser-only **interactive celestial map** (Phase A) and, later, a **constellation-learning game** (Phase B). Documents are ordered by number; start with `**01-data-stars-and-dsos.md`** for data, then follow `**02`–`06`** for math and UI. The repo root `**AGENTS.md**` explains agent conventions; the Cursor meta-plan (outside this repo) lists policies in full.
 
 ## References
 

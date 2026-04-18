@@ -10,6 +10,36 @@ This repo is a **multi-day to multi-week** effort: build an **interactive celest
 
 ---
 
+## Mandatory — Git commits (read before any commit)
+
+This is **non-negotiable** for **all future commits** in this repository.
+
+### Why AGENTS text alone is not enough
+
+Cursor **injects** `git commit --trailer "Made-with: Cursor"` (or equivalent) when the **agent/shell** runs `git commit`, unless attribution is turned off in **Cursor config**. The model can ask for a plain `git commit -m "…"` and the **executed command can still include `--trailer`**—that is a **product default**, not something fixed by writing stricter prose here.
+
+### What actually disables it
+
+1. **This repo:** [`.cursor/cli.json`](.cursor/cli.json) sets **`attribution.attributeCommitsToAgent`** and **`attributePRsToAgent`** to **`false`** (merged by Cursor from the git root). Keep it committed.
+2. **Your machine:** also set the same under **`~/.cursor/cli-config.json`** if Cursor still adds the trailer (that file may need **`permissions`** and other required keys—see Cursor’s CLI config docs). Restart Cursor after changing global config.
+
+### Agent / Composer shell: the model is not adding the trailer
+
+When **this chat’s Shell tool** runs `git commit -m "…"`, **Cursor may still rewrite the executed command** to insert `git commit --trailer "Made-with: Cursor" …`. That happens in **Cursor’s agent/composer layer**, not in the text the model asked to run—so **stricter AGENTS instructions cannot stop it**, and **`cli.json` may not apply** to that execution path depending on version.
+
+**Reliable workarounds**
+
+- **You (human):** run **`git add` / `git commit` / `git push`** yourself in the **system terminal** or Cursor’s **user** integrated terminal (not delegated to the Agent for the commit step).
+- **Agents:** may **stage** files; for **commit + push**, output the exact **`git commit -m '…'`** message for the user to paste, or state that the user should commit locally if the trailer must be absent.
+
+### Scope
+
+No trailer on **new** commits; **past** history is not rewritten.
+
+Skipping the config wastes time on noisy history—treat it like the data policy.
+
+---
+
 ## Canonical roadmap (read this first)
 
 1. **`docs/celestial/00-README.md`** — Index of all planning docs. Each `NN-*.md` follows the meta-plan **§ Document template**: **`## Introduction`** → **`## References`** (seed **§ Kickstart references**) → **`## Overview`** → **`## Implementation route`**. If missing, scaffold per the meta-plan (see below).
@@ -51,6 +81,7 @@ Use it when you need the full appendix or the exact doc index table.
 - **Match the learning stance:** preserve clear math/data/rendering separation. **Low-level deps are OK** (e.g. vector/matrix math). **Do not** substitute a planetarium or full ephemeris SDK for core behavior—**sidereal time, catalog→observer sky, projection, and picking** stay in our TypeScript (document rare exceptions in `docs/celestial/*.md`).
 - **Stack defaults:** TypeScript, Vite (or equivalent), no required framework for the core map. **Do not add** a server/API for catalog or game logic unless the user explicitly changes this—keep the **static-only** model.
 - **Data:** follow **Data policy** above; treat **`01-data-stars-and-dsos.md`** as the contract for raw → script → dist (do this **before** deep-diving pure math).
+- **Git:** follow **§ Mandatory — Git commits** at the top of this file for every new commit.
 
 ---
 

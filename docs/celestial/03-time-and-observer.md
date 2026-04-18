@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Catalog positions are in **ICRS**; the **observer’s sky** depends on **when** and **where** they stand. This doc covers **Julian Date**, **Greenwich / local sidereal time**, and the **alt/az** “what you see” model. **`04`** composes this with catalog vectors to get altitude and azimuth.
+Catalog positions are in **ICRS**; the **observer’s sky** depends on **when** and **where** they stand. This doc covers **Julian Date**, **Greenwich / local sidereal time**, and the **alt/az** “what you see” model. `**04`** composes this with catalog vectors to get altitude and azimuth.
 
 ## References
 
@@ -20,9 +20,9 @@ Catalog positions are in **ICRS**; the **observer’s sky** depends on **when** 
 
 **Why it matters**
 
-- **Hour angle** links **RA** and **LST**; combined with **φ**, yields **alt/az** (implemented in **`04`**).
+- **Hour angle** links **RA** and **LST**; combined with **φ**, yields **alt/az** (implemented in `**04*`*).
 
-**Dependency:** none on **`01`** for pure formulas; tests can use fixed JD + observer.
+**Dependency:** none on `**01`** for pure formulas; tests can use fixed JD + observer.
 
 ## Implementation route
 

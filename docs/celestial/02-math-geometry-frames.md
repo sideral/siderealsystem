@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The sky is modeled as directions on **S²** embedded in **R³**. This doc fixes vocabulary—**ICRS equatorial**, **horizontal (alt/az)**, optional **ecliptic**—and the shift from spherical angles to **unit vectors** and **orthogonal transforms**, which **`04`** uses for the full pipeline.
+The sky is modeled as directions on **S²** embedded in **R³**. This doc fixes vocabulary—**ICRS equatorial**, **horizontal (alt/az)**, optional **ecliptic**—and the shift from spherical angles to **unit vectors** and **orthogonal transforms**, which `**04`** uses for the full pipeline.
 
 ## References
 
@@ -20,7 +20,7 @@ The sky is modeled as directions on **S²** embedded in **R³**. This doc fixes 
 **Outputs for later docs**
 
 - Conventions: right-handed systems, matrix–vector multiply order (column vectors).
-- No time or observer yet—that is **`03`**; full rotation chain is **`04`**.
+- No time or observer yet—that is `**03`**; full rotation chain is `**04`**.
 
 ## Implementation route
 
@@ -28,4 +28,4 @@ The sky is modeled as directions on **S²** embedded in **R³**. This doc fixes 
 2. **Paper check** — One manual conversion or consistency check (e.g. known RA/Dec for a bright star) using spherical relations from Meeus/Smart.
 3. **Vectors in TS** — Implement `radecToUnitVector(α, δ)` returning `[x,y,z]` in a fixed equatorial basis; unit-test ‖**v**‖ = 1 and equator/pole edge cases.
 
-**Done:** glossary-level clarity in writing; one tested `vec3` helper aligned with conventions used in **`04`**.
+**Done:** glossary-level clarity in writing; one tested `vec3` helper aligned with conventions used in `**04`**.
