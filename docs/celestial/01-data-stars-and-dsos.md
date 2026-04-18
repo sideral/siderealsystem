@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Before implementing sky math, we **vendor and merge** catalog data into typed offline files the browser loads. This doc is the contract for `**data/raw/`**, `**scripts/download/**`, `**scripts/build/**`, and `**data/dist/**`, plus the `**Star**` record shape (common name, scientific name, constellation, B−V, magnitude, optional blurb). For the **brightest / best-known** stars, we also merge a **short overview** from Wikipedia (fetched at **build time**, stored offline—same static-data rule as catalogs). It feeds `**04`–`06`** with clean inputs.
+Before implementing sky math, we **vendor and merge** catalog data into typed offline files the browser loads. This doc is the contract for `**data/raw/`**, `**scripts/download/`**, `**scripts/build/**`, and `**data/dist/**`, plus the `**Star**` record shape (common name, scientific name, constellation, B−V, magnitude, optional blurb). For the brightest / best-known stars, we also merge a short overview from Wikipedia (fetched at build time, stored offline—same static-data rule as catalogs). It feeds `**04`–`06**` with clean inputs.
 
 ## References
 
@@ -44,7 +44,7 @@ Before implementing sky math, we **vendor and merge** catalog data into typed of
 **Processing**
 
 - `**scripts/download/`** — one script per major source; writes to `data/raw/<name>/`.
-- `**scripts/build/**` — reads raw, emits `data/dist/*`; may call `**scripts/build/wiki-summaries.ts**` (or inline step) that reads the star list, requests summaries from the REST API with **throttling** (e.g. ≥1 req/s), writes `**data/raw/wikipedia/snapshots/`** and merges `**wikiSummary**` + attribution into the final star records.
+- `**scripts/build/`** — reads raw, emits `data/dist/`*; may call `**scripts/build/wiki-summaries.ts`** (or inline step) that reads the star list, requests summaries from the REST API with **throttling** (e.g. ≥1 req/s), writes `**data/raw/wikipedia/snapshots/`** and merges `**wikiSummary`** + attribution into the final star records.
 - `**package.json`:** `download:data`, `build:data`, optional `prepare:data` = both.
 
 ## Implementation route

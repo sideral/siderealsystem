@@ -20,7 +20,7 @@ Catalog positions are in **ICRS**; the **observer’s sky** depends on **when** 
 
 **Why it matters**
 
-- **Hour angle** links **RA** and **LST**; combined with **φ**, yields **alt/az** (implemented in `**04*`*).
+- **Hour angle** links **RA** and **LST**; combined with **φ**, yields **alt/az** (implemented in `**04`**).
 
 **Dependency:** none on `**01`** for pure formulas; tests can use fixed JD + observer.
 
