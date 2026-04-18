@@ -3,6 +3,8 @@ siderealsystem
 
 Online Planetarium
 
+**Stack:** Vite, TypeScript, Svelte 5.
+
 ## Development
 
 ```bash
@@ -17,10 +19,11 @@ pnpm build
 pnpm preview
 ```
 
-Lint and unit tests:
+Lint, typecheck (Svelte + TS), and unit tests:
 
 ```bash
 pnpm lint
+pnpm check
 pnpm test
 pnpm test:watch
 ```

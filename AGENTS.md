@@ -43,7 +43,7 @@ This repo is a **multi-day to multi-week** effort: build an **interactive celest
 
 - **Prefer updating `docs/celestial/*.md`** when scope, decisions, or milestones change—don’t rely on chat memory alone.
 - **Match the learning stance:** preserve clear math/data/rendering separation. **Low-level deps are OK** (e.g. vector/matrix math). **Do not** substitute a planetarium or full ephemeris SDK for core behavior—**sidereal time, catalog→observer sky, projection, and picking** stay in our TypeScript (document rare exceptions in `docs/celestial/*.md`).
-- **Stack defaults:** TypeScript, Vite (or equivalent), no required framework for the core map. **Do not add** a server/API for catalog or game logic unless the user explicitly changes this—keep the **static-only** model.
+- **Stack defaults:** TypeScript, Vite, **Svelte** for UI (core map math stays plain TS modules). **Do not add** a server/API for catalog or game logic unless the user explicitly changes this—keep the **static-only** model.
 - **Data:** follow **Data policy** above; treat **`01-data-stars-and-dsos.md`** as the contract for raw → script → dist (do this **before** deep-diving pure math).
 
 ---
