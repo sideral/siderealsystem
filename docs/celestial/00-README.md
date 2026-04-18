@@ -2,12 +2,11 @@
 
 ## Introduction
 
-This folder holds the **living plan** for a browser-only **interactive celestial map** (Phase A) and, later, a **constellation-learning game** (Phase B). Documents are ordered by number; start with `**01-data-stars-and-dsos.md`** for data, then follow `**02`–`06`** for math and UI. The repo root `**AGENTS.md**` explains agent conventions; the Cursor meta-plan (outside this repo) lists policies in full.
+This folder holds the **living plan** for a browser-only **interactive celestial map** (Phase A) and, later, a **constellation-learning game** (Phase B). Documents are ordered by number; start with `**01-data-stars-and-dsos.md`** for data, then follow `**02`–`06`** for math and UI. The repo root `**AGENTS.md`** explains agent conventions.
 
 ## References
 
-- Meta-plan: `~/.cursor/plans/celestial_map_learning_path_b16b381f.plan.md` — document tree, data policy, dependency policy, Kickstart references index.
-- `[AGENTS.md](../../AGENTS.md)` — architecture, data policy, rules for agents.
+- [`AGENTS.md`](../../AGENTS.md) — architecture, data policy, rules for agents.
 - [Vite guide](https://vitejs.dev/guide/) — static dev server and production build for a client-only app.
 - [MDN](https://developer.mozilla.org/) — structuring project docs (optional).
 
@@ -51,4 +50,4 @@ This folder holds the **living plan** for a browser-only **interactive celestial
 2. **Policies visible** — Ensure `01` documents `data/` and script commands; cross-link when app `package.json` exists.
 3. **Living docs** — As `02`–`06` gain decisions, add one-line pointers here (optional glossary subsection).
 
-**Done for this doc:** readers can navigate the set and find data vs math vs milestones without opening the meta-plan.
+**Done for this doc:** readers can navigate the set and find data vs math vs milestones from this index and `AGENTS.md`.
