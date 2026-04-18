@@ -2,26 +2,20 @@
 
 ## Introduction
 
-Before implementing sky math, we **vendor and merge** catalog data into typed offline files the browser loads. This doc is the contract for `**data/raw/`**, `**scripts/download/`**, `**scripts/build/**`, and `**data/dist/**`, plus the `**Star**` record shape (common name, scientific name, constellation, B−V, magnitude, optional blurb). For the brightest / best-known stars, we also merge a short overview from Wikipedia (fetched at build time, stored offline—same static-data rule as catalogs). It feeds `**04`–`06**` with clean inputs.
+Before implementing sky math, we **vendor and merge** catalog data into typed offline files the browser loads. This doc is the contract for `data/raw/`, `scripts/download/`, `scripts/build/`, and `data/dist/`, plus the **Star** record shape (common name, scientific name, constellation, B−V, magnitude, optional blurb). For the brightest / best-known stars, we also merge a short overview from Wikipedia (fetched at build time, stored offline—same static-data rule as catalogs). It feeds **04**–**06** with clean inputs.
 
 ## References
 
-- [ESA Hipparcos](https://www.cosmos.esa.int/web/hipparcos) — catalog documentation, epochs, photometric systems.
-- [Yale Bright Star Catalog](http://tdc-www.harvard.edu/catalogs/bsc5.html) — HR ids, Bayer–Flamsteed strings, spectral types (merge with Hipparcos on HR).
-- [OpenNGC](https://github.com/mattiaverga/OpenNGC) — machine-readable NGC/IC (check license).
-- **IAU constellation boundaries** — polygon data you vendor under `data/raw/` (cite source in a README).
-- [VizieR](https://vizier.cds.unistra.fr/) — ReadMe files for auxiliary tables (names, cross-matches).
-- [Node.js](https://nodejs.org/docs/) — `fetch`, `fs`, streams for download/build scripts.
-- [Wikipedia REST API](https://en.wikipedia.org/api/rest_v1/) — `page/summary/{title}` for a short extract (plaintext/HTML stripped to plain text in build). Use **only in `scripts/`** during `build:data` (or a dedicated `download:wiki` step); **never** from the browser for baseline content.
-- [Wikipedia: CC BY-SA](https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use) / [Reusing Wikipedia content](https://en.wikipedia.org/wiki/Wikipedia:Reusing_Wikipedia_content) — summaries are **CC BY-SA**; ship **attribution** (e.g. “From Wikipedia, the Free Encyclopedia” + article URL + license) in `data/dist` metadata or the app credits; keep a `**data/raw/wikipedia/`** snapshot or generated JSON with `title`, `revision`, `extract`, `content_urls` for traceability.
+- [Star catalogs and related sources](../reference/star-catalogs.md) — Hipparcos, Yale BSC, OpenNGC, IAU boundaries, VizieR, Node, Wikipedia API and licensing (background reading).
+- [Terminology (domain glossary)](../reference/terminology.md) — BSC strings, DSOs, coordinates, magnitudes, naming; not repo layout or schema (this doc is the contract for those).
 
 ## Overview
 
-**Inputs:** upstream archives (Hipparcos subset, BSC strings, IAU star names, optional OpenNGC, optional hand-authored `blurbs.json`), plus **optional Wikipedia fetches** for a defined set of “important” stars (see below).
+**Inputs:** upstream archives (Hipparcos subset, [BSC strings](../reference/terminology.md#bsc-strings), IAU star names, optional OpenNGC, optional hand-authored [`blurbs.json`](../reference/terminology.md#blurbs-json-and-blurb)), plus **optional Wikipedia fetches** for a defined set of “important” stars (see below).
 
-**Outputs:** `data/dist/stars.json` (and optionally `dsos.json`, `blurbs.json`) — plain JSON, documented schema, no runtime HTTP for these assets.
+**Outputs:** `data/dist/stars.json` (and optionally [`dsos.json`](../reference/terminology.md#dsosjson), [`blurbs.json`](../reference/terminology.md#blurbs-json-and-blurb)) — plain JSON, documented schema, no runtime HTTP for these assets.
 
-**Star fields (target)**
+**Star fields (target)** — domain-oriented column concepts: [terminology: typical stellar row](../reference/terminology.md#star-record-fields).
 
 
 | Field                          | Notes                                                                                                                                                                                          |

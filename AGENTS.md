@@ -15,6 +15,7 @@ This repo is a **multi-day to multi-week** effort: build an **interactive celest
 1. **`docs/celestial/00-README.md`** — Index of all planning docs. Each `NN-*.md` uses the same section order: **`## Introduction`** → **`## References`** → **`## Overview`** → **`## Implementation route`**. If missing, scaffold to match sibling docs.
 2. **`docs/celestial/07-milestones-map-project.md`** — Ordered vertical slices for the **map** phase; keep this checklist honest as work completes.
 3. Other files in **`docs/celestial/`** (`01-` … `08-`) — Deep dives in **recommended order:** **data first** (`01-data-stars-and-dsos.md`), then math, time, transforms, projection, UI; game stub last.
+4. **`docs/reference/`** — **Domain-only** reference (astronomy, catalogs, coordinates, map concepts, licensing context for reused text). **Do not** use it as the place for **repo layout**, **`data/` paths**, **scripts**, **`package.json`**, or other **implementation** details; those belong in **`docs/celestial/`** (especially **`01-data-stars-and-dsos.md`**) and this **`AGENTS.md`**. Occasional file or URL mentions there are fine when they **illustrate** a domain point.
 
 ---
 

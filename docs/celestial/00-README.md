@@ -7,6 +7,7 @@ This folder holds the **living plan** for a browser-only **interactive celestial
 ## References
 
 - [`AGENTS.md`](../../AGENTS.md) — architecture, data policy, rules for agents.
+- [`docs/reference/`](../reference/) — **domain** reference only (e.g. [star-catalogs.md](../reference/star-catalogs.md), [terminology.md](../reference/terminology.md)); not for repo paths or build commands. Celestial `NN-*.md` files stay the **implementation** contract.
 - [Vite guide](https://vitejs.dev/guide/) — static dev server and production build for a client-only app.
 - [MDN](https://developer.mozilla.org/) — structuring project docs (optional).
 
