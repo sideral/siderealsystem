@@ -78,7 +78,8 @@
 
   function onClick(event: MouseEvent): void {
     // Links and the hint button handle their own clicks
-    if (event.target instanceof Element && event.target.closest('a, button, input, textarea')) return
+    if (event.target instanceof Element && event.target.closest('a, button, input, textarea, select'))
+      return
     advance()
   }
 
@@ -86,7 +87,7 @@
     if (event.repeat || event.ctrlKey || event.metaKey || event.altKey) return
     if (
       event.target instanceof Element &&
-      event.target.closest('a, button, input, textarea, [contenteditable]')
+      event.target.closest('a, button, input, textarea, select, [contenteditable]')
     )
       return
     if (event.key === ' ' || event.key === 'Enter') {

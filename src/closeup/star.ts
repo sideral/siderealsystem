@@ -39,6 +39,17 @@ export interface Pulse {
   brightness: number
 }
 
+export interface Ring {
+  /** Inner and outer edge, in star radii */
+  inner: number
+  outer: number
+  /** How open the ring looks: 0 is edge-on (a thin line), 1 is face-on (a circle) */
+  tilt: number
+  /** sRGB hex of the glowing gas or sunlit dust */
+  color: string
+  brightness: number
+}
+
 export interface Companion {
   /** sRGB hex of the companion */
   color: string
@@ -88,6 +99,8 @@ export interface StarLook {
   /** Strength of the glare halo (default 1) */
   glare?: number
   companion?: Companion
+  /** A disc of gas or dust around the star's equator */
+  ring?: Ring
   /** Draw a two-lobed dust nebula around the star (Eta Carinae's Homunculus) */
   nebula?: boolean
 }

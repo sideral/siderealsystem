@@ -1,7 +1,7 @@
 <script lang="ts">
   /**
    * A slider of star close-ups: one star at a time, with its story typed out underneath.
-   * Move between stars with the side arrows, the dots, the ← / → keys or a sideways swipe.
+   * Move between stars with the side arrows, the drop-down list, the ← / → keys or a sideways swipe.
    * The current star is kept in the URL (?star=vega) so a view can be reloaded or shared.
    */
   import Narration from './Narration.svelte'
@@ -17,7 +17,7 @@
   const requested = new URLSearchParams(window.location.search).get('star')
   const initial = Math.max(0, STARS.findIndex((s) => s.id === requested))
 
-  /** The star the user has asked for; the dots follow this at once. */
+  /** The star the user has asked for; the counter and list follow this at once. */
   let selected = $state(initial)
   /** The star on screen; it follows `selected` after the fade-out. */
   let shown = $state(initial)
@@ -47,7 +47,7 @@
 
   function onKey(event: KeyboardEvent): void {
     if (event.ctrlKey || event.metaKey || event.altKey) return
-    if (event.target instanceof Element && event.target.closest('input, textarea, [contenteditable]'))
+    if (event.target instanceof Element && event.target.closest('input, textarea, select, [contenteditable]'))
       return
     if (event.key === 'ArrowLeft') show(selected - 1)
     if (event.key === 'ArrowRight') show(selected + 1)
@@ -106,19 +106,21 @@
     <button type="button" class="arrow next" onclick={() => show(selected + 1)} aria-label="Next star">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8" /></svg>
     </button>
-    <ol class="dots">
-      {#each STARS as item, i (item.id)}
-        <li>
-          <button
-            type="button"
-            class:current={i === selected}
-            aria-label={item.name}
-            aria-current={i === selected ? 'true' : undefined}
-            onclick={() => show(i)}
-          ></button>
-        </li>
-      {/each}
-    </ol>
+    <div class="picker">
+      <span>{selected + 1} / {STARS.length}</span>
+      <select
+        aria-label="Choose a star"
+        value={(STARS[selected] ?? STARS[0]).id}
+        onchange={(event) => {
+          show(STARS.findIndex((s) => s.id === event.currentTarget.value))
+          event.currentTarget.blur() // hand the keyboard back to the page
+        }}
+      >
+        {#each STARS as item (item.id)}
+          <option value={item.id}>{item.name}</option>
+        {/each}
+      </select>
+    </div>
   </nav>
 </div>
 
@@ -181,8 +183,7 @@
   .arrow:focus-visible {
     color: #fff;
   }
-  .arrow:focus-visible,
-  .dots button:focus-visible {
+  .arrow:focus-visible {
     outline: 1px solid #9aa6c4;
     outline-offset: 2px;
   }
@@ -202,45 +203,37 @@
     stroke-linejoin: round;
   }
 
-  .dots {
+  .picker {
     position: fixed;
-    top: calc(max(0.9rem, 3vh) + clamp(1.15rem, 0.95rem + 0.9vw, 1.6rem) + 2.6rem);
+    top: calc(max(0.9rem, 3vh) + clamp(1.15rem, 0.95rem + 0.9vw, 1.6rem) + 2.5rem);
     left: 50%;
     z-index: 2;
     display: flex;
-    gap: 2px;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    gap: 0.7rem;
     translate: -50% 0;
-    list-style: none;
+    color: #6f7a94;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
   }
-  /* 20px hit area around a 6px dot */
-  .dots button {
-    display: grid;
-    place-items: center;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: none;
+  select {
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #2f384d;
+    border-radius: 4px;
+    background: #05070c;
+    color: #9aa6c4;
+    font: inherit;
     cursor: pointer;
   }
-  .dots button::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #4b556e;
-    transition:
-      background 0.2s,
-      scale 0.2s;
+  select:hover,
+  select:focus-visible {
+    border-color: #9aa6c4;
+    color: #fff;
+    outline: none;
   }
-  .dots button:hover::before {
-    background: #9aa6c4;
-  }
-  .dots button.current::before {
-    background: #fff;
-    scale: 1.35;
+  option {
+    background: #0b0e16;
+    color: #dfe5f5;
   }
 </style>

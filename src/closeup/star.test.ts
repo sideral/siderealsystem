@@ -27,11 +27,16 @@ describe('STARS', () => {
   it('has unique URL-safe ids', () => {
     const ids = STARS.map((s) => s.id)
     expect(new Set(ids).size).toBe(ids.length)
-    for (const id of ids) expect(id).toMatch(/^[a-z]+(-[a-z]+)*$/)
+    for (const id of ids) expect(id).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/)
   })
 
   it.each(STARS.map((s) => [s.name, s] as const))('%s has valid colours and a story', (_, star) => {
-    const colours = [star.look.color, star.look.limbColor, star.look.companion?.color]
+    const colours = [
+      star.look.color,
+      star.look.limbColor,
+      star.look.companion?.color,
+      star.look.ring?.color,
+    ]
     for (const c of colours) if (c) expect(c).toMatch(/^#[0-9a-f]{6}$/)
 
     const beats = star.story('about 1 million km')

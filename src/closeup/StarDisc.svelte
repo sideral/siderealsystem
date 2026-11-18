@@ -4,7 +4,7 @@
    * Every visual feature maps to a physical input in `StarLook`: colour (temperature),
    * limb darkening, surface texture (convection), spots, flattening and gravity darkening
    * (fast spin), pulsation, a soft or lumpy edge (loose outer layers), a companion star,
-   * and a dust nebula. The halo is optical glare, not part of the star.
+   * a ring of gas or dust, and a dust nebula. The halo is optical glare, not part of the star.
    */
   import { onMount } from 'svelte'
   import { DEFAULT_RADIUS, type StarLook } from './star'
@@ -52,6 +52,8 @@ uniform vec3 uCompColor;
 uniform float uCompBright;
 uniform float uCompGlare;
 uniform float uNebula;
+uniform vec4 uRing;         // inner, outer (star radii), tilt (0 edge-on, 1 face-on), brightness
+uniform vec3 uRingColor;
 
 float hash(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
 float noise(vec3 x){
@@ -136,7 +138,18 @@ void main(){
     nebula = dust * (shell * (0.55 + 0.9 * coarse) * (0.75 + 0.5 * fine) * 0.8 + skirt) * uNebula;
   }
 
-  vec3 col = nebula + glare + cglare;
+  // Disc of gas or dust in the star's equatorial plane, seen at a tilt
+  vec3 ring = vec3(0.0);
+  float ringFront = 0.0;
+  if (uRing.w > 0.0) {
+    vec2 rp = vec2(p.x, p.y / max(uRing.z, 0.02)) / uRadius;
+    float rr = length(rp);
+    float band = smoothstep(uRing.x, uRing.x * 1.2, rr) * (1.0 - smoothstep(uRing.y * 0.6, uRing.y, rr));
+    ring = uRingColor * uRing.w * band * (0.7 + 0.6 * fbm(vec3(rp * 1.5, uTime * 0.02)));
+    ringFront = step(p.y, 0.0); // the near half passes in front of the star
+  }
+
+  vec3 col = nebula + glare + cglare + ring;
   if (uCompPos.z > 0.0) {
     col = mix(col, disc, inside);
     col = mix(col, cdisc, cinside);
@@ -144,6 +157,7 @@ void main(){
     col = mix(col, cdisc, cinside);
     col = mix(col, disc, inside);
   }
+  col += 0.45 * ring * ringFront * inside; // thin gas barely shows against the star itself
   gl_FragColor = vec4(col, 1.0);
 }`
 
@@ -229,6 +243,10 @@ void main(){
       f('uWobble', look.wobble ?? 0)
       f('uGlare', look.glare ?? 1)
       f('uNebula', look.nebula ? 1 : 0)
+
+      const ring = look.ring
+      gl.uniform4f(at('uRing'), ring?.inner ?? 0, ring?.outer ?? 0, ring?.tilt ?? 0, ring?.brightness ?? 0)
+      if (ring) v3('uRingColor', hexToRgb(ring.color))
 
       const companion = look.companion
       if (companion) {
