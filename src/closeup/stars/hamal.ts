@@ -16,18 +16,16 @@ export const hamal: CloseupStar = {
     texture: { amplitude: 0.13, scale: 12, speed: 0.05, cells: 0.6 }, // fine grain for a giant, and nothing else: a clean disc
     glare: 0.9,
   },
-  story: (distance) => [
-    `This is Hamal, the brightest star of Aries the Ram, from ${distance} away.`,
-    'It is an orange giant: about 4,500 K.',
-    'Two thousand years ago it marked the start of spring. At the March equinox the Sun crossed the sky’s equator close to it.',
+  story: [
+    'Hamal once marked the start of spring.',
+    'Two thousand years ago, the Sun crossed the sky’s equator close to it each March.',
     'Earth’s slow wobble has since moved that crossing point into Pisces. Astronomers still call it the First Point of Aries.',
-    'Size: about 15 times as wide as the Sun, but only one and a half times as heavy. It gives off around 90 times as much light.',
+    'It is the brightest star of Aries the Ram. Its name is Arabic for “the lamb”.',
+    'It is an orange giant: cooler than the Sun, 15 times as wide, and as bright as 90 Suns.',
     'Its disc has been measured directly, which is rare. Astronomers use it to check the sizes they work out for other stars.',
     'Even the way it dims toward its edge has been measured, not just worked out. That dimming is drawn strongly here.',
-    'Type: K2 III. “K” is an orange star. “III” marks a giant that has used up the hydrogen in its core.',
-    'Estimated age: about 3.4 billion years.',
+    'A planet nearly twice as heavy as Jupiter circles it. Its year is about as long as ours.',
     'It is 66 light-years away.',
-    'In 2011 a planet was found circling it: nearly twice the mass of Jupiter, with a year of 381 days.',
-    'Its name is Arabic for “the lamb”.',
+    'More orange giants: Pollux, Arcturus and Kochab.',
   ],
 }

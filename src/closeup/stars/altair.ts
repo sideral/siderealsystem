@@ -17,20 +17,18 @@ export const altair: CloseupStar = {
     equatorColor: '#f8f2ea', // under 7,000 K
     waves: [{ l: 3, m: 2, amplitude: 0.02, seconds: 3 }], // it also quivers: the brightest Delta Scuti star
   },
-  story: (distance) => [
-    `This is Altair, seen through a dark filter from ${distance} away. It spins so fast that it is visibly squashed.`,
-    'Altair turns once in about 9 hours. The Sun takes nearly a month.',
+  story: [
+    'Altair spins so fast that it is visibly squashed.',
+    'It turns once in about 9 hours. The Sun takes nearly a month.',
     'The spin makes it a fifth wider at the equator than from pole to pole.',
-    'It is white, but its poles are about 8,500 K and its stretched equator under 7,000 K, so the middle band is dimmer.',
-    'In 2007 it became the first ordinary star other than the Sun to have its surface imaged. The picture showed exactly this.',
-    'Size: about twice as wide as the Sun at the equator and 1.8 times as heavy. It gives off 11 times as much light.',
-    'Type: A7 V. “A” is a hot white star. “V” means it is in its prime, fusing hydrogen like the Sun.',
-    'Estimated age: uncertain. Estimates run from about 100 million to a billion years.',
-    'It is 16.7 light-years away, one of the closest stars you can see without a telescope.',
-    'With Vega and Deneb it forms the Summer Triangle.',
-    'Its name is from the Arabic for “the flying eagle”.',
-    'In China it is Niulang, the Cowherd, kept from his Weaver Girl, Vega, by the river of the Milky Way.',
-    'For Māori it is Poutūterangi, the pillar of the sky, and gives its name to a month of the harvest season.',
+    'The poles sit closer to the hot core, so they glow brighter. The stretched equator is the dimmer band across the middle.',
+    'In 2007 it became the first ordinary star after the Sun to have its surface imaged. The picture showed exactly this.',
+    'It also quivers, many times a day. The faint ripples crossing it are drawn stronger than they really are.',
+    'It is white, a third hotter than the Sun, about twice as wide and 11 times as bright.',
+    'It is under 17 light-years away. Few stars you can see without a telescope are closer.',
+    'With Vega and Deneb it forms the Summer Triangle. Its name is from the Arabic for “the flying eagle”.',
+    'In China it is the Cowherd, kept from his Weaver Girl by the river of the Milky Way. Their story is told at Vega.',
     'For the Kulin peoples of Australia it is Bunjil, the wedge-tailed eagle and creator. The stars beside him are his two wives.',
+    'More stars spun flat: Vega, Regulus and Achernar.',
   ],
 }

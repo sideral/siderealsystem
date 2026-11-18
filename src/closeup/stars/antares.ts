@@ -1,7 +1,7 @@
 import type { CloseupStar } from '../star'
 
 /**
- * Figures: Ohnaka et al. 2013 and 2017 (VLTI size and surface map). Boorong: Stanbridge (1857).
+ * Figures: Ohnaka et al. 2013 and 2017 (VLTI size and surface map).
  * The blue-green point is Antares B, a hot star about 530 AU away: really blue-white, but beside
  * Antares it looks green. The amber haze is the gas and dust Antares has shed, lit by the star.
  */
@@ -34,21 +34,19 @@ export const antares: CloseupStar = {
       },
     ],
   },
-  story: (distance) => [
-    `This is Antares, the heart of the Scorpion, from ${distance} away. Placed where the Sun is, it would reach past Mars.`,
-    'It glows orange-red because its surface is only about 3,660 K.',
-    'Like Betelgeuse, it boils in a few enormous cells, so it looks patchy, and its edge is blurred by thin outer gas.',
-    'In 2017 astronomers mapped its surface and the gas churning above it, the most detailed picture then made of another star.',
-    'The amber haze around it is gas and dust that Antares has shed, lit up by the star’s own light.',
-    'The blue-green point is its companion, a hot star about 530 times farther from it than Earth is from the Sun.',
-    'Size: around 680 times as wide as the Sun and about 15 times as heavy. It gives off some 75,000 times as much light.',
-    'Type: M1.5 Iab. “M” is the coolest, reddest class of star. “Iab” marks a supergiant.',
-    'Estimated age: 11 to 15 million years. It is near its end and will explode as a supernova.',
-    'It is roughly 550 light-years away, and the brightest member of the nearest group of young, heavy stars.',
+  story: [
+    'Antares is the red heart of the Scorpion. It is so large that in the Sun’s place it would swallow Mars.',
     'Its name is Greek for “rival of Mars”. The red planet passes close by it in the sky every couple of years, and they look alike.',
+    'It is red because it is cool: more than a third cooler than the Sun.',
+    'It boils in a few enormous cells, so it looks patchy. Thin outer gas blurs its edge.',
+    'In 2017 astronomers mapped its surface and the gas churning above it. No star but the Sun had been pictured in such detail.',
+    'The amber haze is gas and dust that Antares has shed, lit up by the star’s own light.',
+    'The blue-green point is its companion, a hot star far outside. It is drawn closer in than it really is.',
+    'It is really blue-white. Beside red Antares it only looks green.',
+    'Antares gives off the light of some 75,000 Suns, from about 550 light-years away. The light you see left in the 1400s.',
+    'It is only about 12 million years old and already near its end. It will explode as a supernova.',
     'In China it is the Fire Star, the heart of the Azure Dragon. Its place in the evening sky set the calendar 3,000 years ago.',
-    'For Māori it is Rehua, a chief among the stars. In ancient Persia it was a royal star, the watcher of the west.',
-    'For the Cherokee it was a dog guarding one end of the Milky Way, the Path of Souls, with Sirius at the other.',
-    'To the Boorong people of Australia it was Djuit, son of Marpeankurrk, the star Arcturus. The stars beside him are his wives.',
+    'For the Cherokee it was a dog guarding one end of the Milky Way, the Path of Souls. Sirius guards the other.',
+    'More red supergiants: Betelgeuse, the Garnet Star and VV Cephei.',
   ],
 }

@@ -26,27 +26,21 @@ export const alphaCentauri: CloseupStar = {
       { color: '#ff8a4f', radius: 0.0085, brightness: 0.8, glare: 0.06, place: { at: [-0.41, 0.33] } }, // Proxima: about 3,000 K
     ],
   },
-  story: (distance) => [
-    `This is Alpha Centauri A, the larger of the Sun’s two nearest bright neighbours, from ${distance} away.`,
-    'It looks almost exactly like the Sun because it almost is one: 5,790 K, barely hotter.',
-    'Like the Sun, its surface is a fine grain of rising and sinking gas with a few dark spots, and its edge is dimmer than its centre.',
-    'The bright point beside it is its partner, Alpha Centauri B: a slightly smaller, cooler, more orange star at 5,260 K.',
-    'The two circle each other every 80 years. They come as close as Saturn is to the Sun and swing out nearly as far as Pluto.',
-    'From here, B is a dazzling point, hundreds of times brighter than our full Moon.',
-    'Size: A is 1.22 times as wide as the Sun and 1.1 times as heavy. B is 0.86 times as wide and 0.9 times as heavy.',
-    'A gives off 1.5 times the Sun’s light. B gives off about half.',
-    'Types: G2 V, the same as the Sun, and K1 V. Both are in their prime, fusing hydrogen.',
-    'Estimated age: about 5 billion years, a little older than the Sun.',
-    'They are 4.37 light-years away. The faint red point is a third star, Proxima. It orbits far outside the pair and is slightly nearer to us.',
-    'Proxima has at least one planet where water could stay liquid. It is far too dim to see without a telescope.',
-    'From Earth the pair blur into one point, the third-brightest star of the night. It never rises for most of the northern hemisphere.',
-    'With its neighbour Beta Centauri it forms the Pointers, which lead the eye to the Southern Cross.',
+  story: [
+    'Alpha Centauri is the nearest star system to the Sun: just over four light-years away.',
+    'Even so, the fastest probe to leave the Solar System would need 70,000 years to get there.',
+    'It is three stars. The one filling the view is almost a copy of the Sun. It has the same colour, and is a little larger and brighter.',
+    'The bright point is its partner, a slightly smaller, more orange star. The two circle each other every 80 years.',
+    'They swing in as close as Saturn is to the Sun, then out nearly as far as Pluto.',
+    'The faint red point is the third star, Proxima: a red dwarf far outside the pair. It is the single nearest star to us.',
+    'Both points are drawn closer in than they really are.',
+    'Proxima has at least one planet where water could stay liquid.',
+    'From Earth the pair blur into one point, the third-brightest star of the night. From most of the northern hemisphere it never rises.',
+    'With its neighbour Hadar it forms the Pointers. They lead the eye to the Southern Cross.',
     // How people have seen it. Andes: Urton, "At the Crossroads of the Earth and the Sky" (1981).
-    // Boorong: Stanbridge (1857). /Xam: Bleek & Lloyd, "Specimens of Bushman Folklore" (1911).
-    'In the Andes, the Inca saw animals in the dark clouds of the Milky Way. Alpha and Beta Centauri are Llamaq Ñawin, the eyes of the llama.',
-    'To the Boorong people of Australia the two stars were the Bermbermgle, brothers who speared Tchingal, the giant emu.',
-    'The /Xam of southern Africa said they were two men who became lions.',
-    'Its old names survive: Rigil Kentaurus, Arabic for “the foot of the centaur”, for A, and Toliman, “the ostriches”, for B.',
-    'In China it is the Second Star of the Southern Gate.',
+    // Boorong: Stanbridge (1857).
+    'In the Andes, the Inca saw animals in the dark clouds of the Milky Way. Alpha Centauri and Hadar are the eyes of the llama.',
+    'To the Boorong people of Australia the two stars were the Bermbermgle. These brothers speared Tchingal, the giant emu.',
+    'More near twins of the Sun: 18 Scorpii, Tau Ceti and Eta Cassiopeiae. More close neighbours: Sirius and Epsilon Eridani.',
   ],
 }

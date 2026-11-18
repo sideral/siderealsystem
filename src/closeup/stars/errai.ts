@@ -27,20 +27,17 @@ export const errai: CloseupStar = {
       { color: '#ff9a55', radius: 0.017, brightness: 0.7, glare: 0.25, place: { at: [0.37, 0.3] } }, // the red dwarf: about 3,300 K
     ],
   },
-  story: (distance) => [
-    `This is Errai, at the peak of the house-shaped figure of Cepheus the King, from ${distance} away.`,
-    'It may be the first star around which anyone detected a planet. But nobody believed it for fifteen years.',
+  story: [
+    'Errai may be the first star around which anyone detected a planet. Nobody believed it for fifteen years.',
     'In 1988 Canadian astronomers saw the star wobble, as if a planet were tugging it. They were cautious, and in 1992 withdrew the claim.',
     'In 2003 better measurements showed the wobble was real. By then other planets had taken the title of first found.',
-    'The small dot is the planet, drawn far closer in than true. It is heavier than Jupiter, with a year of two and a half Earth years.',
-    'The faint red point is a second, small star in the system. It circles every 67 years, about as far out as Uranus is from the Sun.',
+    'The small dot is the planet, drawn far closer in, and larger, than it really is. It is heavier than Jupiter, and its year lasts two and a half of ours.',
+    'The faint red point is a second, small star. It circles every 67 years, about as far out as Uranus is from the Sun.',
     'So the planet lives in a double-star system. That was once thought too unstable for planets.',
-    'The main star is orange: about 4,800 K. It has just left its prime and begun to swell.',
-    'Size: about 4.9 times as wide as the Sun and 1.4 times as heavy. It gives off 11 times as much light.',
-    'Type: K1 III-IV. “K” is an orange star, on its way to becoming a giant.',
-    'Estimated age: about 3 billion years.',
-    'It is 45 light-years away.',
-    'Earth’s axis slowly wobbles. In about a thousand years Errai will be nearer the pole than Polaris: the next North Star.',
+    'The main star is orange and cooler than the Sun. It is nearly five times as wide and 11 times as bright. It has just begun to swell into a giant.',
+    'It is 45 light-years away, at the peak of the house-shaped figure of Cepheus the King.',
+    'Earth’s axis slowly wobbles. In about a thousand years Errai will be nearer the pole than Polaris. It is the next North Star.',
     'Its name is Arabic for “the shepherd”.',
+    'More giants with planets: Pollux, Hamal and Kochab. More pole stars, past and future: Polaris and Thuban.',
   ],
 }

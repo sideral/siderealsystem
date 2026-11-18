@@ -22,18 +22,15 @@ export const rasalhague: CloseupStar = {
       { color: '#ffc38a', radius: 0.0085, brightness: 0.6, glare: 0.12, place: { at: [-0.36, 0.17] } }, // about 4,300 K
     ],
   },
-  story: (distance) => [
-    `This is Rasalhague, the head of Ophiuchus the Serpent Bearer, from ${distance} away.`,
-    'It spins once in about 14 hours, so fast that it bulges at the equator. It is a fifth wider there than from pole to pole.',
-    'It is turning at nearly nine-tenths of the speed that would tear it apart.',
+  story: [
+    'Rasalhague spins at nearly nine-tenths of the speed that would tear it apart.',
+    'It turns once in about 14 hours, so fast that it bulges. It is a fifth wider at the equator than from pole to pole.',
+    'We see it almost exactly side-on. Astronomers have imaged that squashed shape directly.',
     'The poles sit closer to the hot core, so they are hotter and brighter than the equator.',
-    'It is white: about 8,000 K on average.',
-    'Size: about 2.6 times as wide as the Sun and 2.4 times as heavy. It gives off 25 times as much light.',
-    'A small orange star circles it every 8.6 years. It is the faint point here.',
-    'Type: A5 III-IV. “A” is a white star, hotter than the Sun. It is just starting to leave its prime.',
-    'Estimated age: about 800 million years.',
-    'It is 49 light-years away.',
-    'Its name is from the Arabic for “the head of the serpent collector”.',
+    'The star is white, hotter than the Sun and 25 times as bright. It is about two and a half times as wide.',
+    'A small orange star circles it every nine years. It is the faint point here, drawn closer in than it really is.',
+    'It is 49 light-years away, and marks the head of Ophiuchus the Serpent Bearer.',
     'It sits a few degrees from Rasalgethi, the head of Hercules. The two giants are drawn head to head, upside down to each other.',
+    'More stars spun flat: Altair, Alderamin and Regulus.',
   ],
 }

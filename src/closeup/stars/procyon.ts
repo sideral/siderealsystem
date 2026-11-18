@@ -24,18 +24,17 @@ export const procyon: CloseupStar = {
       { color: '#f3f2fb', radius: 0.0085, brightness: 1, glare: 0.18, place: { at: [0.38, -0.08] } }, // Procyon B, the white dwarf: about 7,700 K
     ],
   },
-  story: (distance) => [
-    `This is Procyon, the eighth-brightest star in the night sky, seen through a dark filter from ${distance} away.`,
-    'It is white with a trace of yellow: 6,530 K, a little hotter than the Sun.',
-    'Like the Sun it has a finely grained, bubbling surface, and its edge is dimmer than its centre.',
-    'Size: twice as wide as the Sun and 1.5 times as heavy. It gives off about 7 times as much light.',
-    'Type: F5 IV–V. “F” is a yellow-white star. “IV–V” means it is just leaving its prime and starting to swell.',
-    'Estimated age: under 2 billion years. Being heavier than the Sun, it has aged faster.',
-    'It is 11.5 light-years away, one of our nearest neighbours.',
-    'Like Sirius, it has a white dwarf companion. It is the small white point: a burnt-out star the size of Earth that circles it every 41 years.',
+  story: [
+    'Procyon is one of our nearest neighbours, and like Sirius it hides a dead star.',
+    'The small white point is a white dwarf: a burnt-out star the size of Earth. It circles Procyon every 41 years.',
+    'It is drawn closer in than it really is.',
+    'Procyon itself is on the same road. It is just leaving its prime and starting to swell.',
+    'Procyon is white with a trace of yellow and a little hotter than the Sun. It is twice as wide and seven times as bright.',
+    'Only a thin skin of it boils, so its grain is fine and faint. It also rings faintly: the ripples are drawn stronger than they really are.',
+    'It is 11.5 light-years away, and the eighth-brightest star in the night sky.',
     'With Sirius and Betelgeuse it forms the Winter Triangle.',
     'The name is Greek for “before the dog”. It rises just ahead of Sirius, the Dog Star.',
-    'Arab astronomers called it the Northern Sirius.',
-    'Inuit named it Sikuliarsiujuittuq: a man too heavy to go hunting on the new sea ice, who lived by taking food from others.',
+    'Inuit named it for a man too heavy to go hunting on the new sea ice. He lived by taking food from others.',
+    'More stars with a white dwarf in tow: Sirius, 40 Eridani and Mira.',
   ],
 }

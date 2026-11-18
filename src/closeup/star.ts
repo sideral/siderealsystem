@@ -4,8 +4,6 @@
  * surface texture from convection, flattening from spin, and so on.
  */
 
-export const RSUN_KM = 695_700
-
 /** Default on-screen disc radius, as a fraction of the viewport's short side. */
 export const DEFAULT_RADIUS = 0.26
 
@@ -14,9 +12,6 @@ export const MAX_COMPANIONS = 4
 
 /** How many pulsation waves one star can be drawn with. */
 export const MAX_WAVES = 2
-
-/** Field of view assumed when saying how far away the viewer is. */
-const FIELD_OF_VIEW_DEG = 60
 
 export interface SurfaceTexture {
   /** Contrast of the mottling: 0.05 is barely visible, 0.5 is a boiling red supergiant */
@@ -308,21 +303,12 @@ export interface CloseupStar {
   name: string
   /** Bayer designation, e.g. 'α Canis Majoris' */
   designation: string
-  /** Radius in solar radii; sets how far away the viewpoint is */
+  /** Radius in solar radii (the real star's size; the drawn size is `look.radius`) */
   radiusSun: number
   look: StarLook
-  /** Narration beats, one idea each. `distance` reads like "about 4.1 million km". */
-  story: (distance: string) => string[]
-}
-
-/** How far away you would be for a star to appear with the given on-screen radius. */
-export function viewDistanceKm(radiusSun: number, screenRadius = DEFAULT_RADIUS): number {
-  const halfAngle = Math.atan(2 * screenRadius * Math.tan((FIELD_OF_VIEW_DEG / 2) * (Math.PI / 180)))
-  return (radiusSun * RSUN_KM) / Math.sin(halfAngle)
-}
-
-/** A distance in plain words, to two significant figures: "about 4.1 million km". */
-export function describeDistance(km: number): string {
-  const [value, unit] = km >= 1e9 ? [km / 1e9, 'billion'] : [km / 1e6, 'million']
-  return `about ${Number(value.toPrecision(2))} ${unit} km`
+  /**
+   * Narration beats, one idea each: the name and why the star is interesting, then what makes it
+   * so, then how it compares with the Sun, then any story worth telling, then similar stars.
+   */
+  story: readonly string[]
 }

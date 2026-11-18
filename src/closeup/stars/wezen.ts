@@ -17,18 +17,16 @@ export const wezen: CloseupStar = {
     glare: 1.3,
     envelope: { color: '#ffd9a6', strength: 0.14, reach: 0.25, streaks: 3, clumps: 0.4, speed: 0.06 }, // a slow wind
   },
-  story: (distance) => [
-    `This is Wezen, in the hindquarters of Canis Major, the Great Dog, from ${distance} away.`,
-    'It looks like one more bright star below Sirius. It is really one of the most powerful stars you can see.',
-    'Sirius is bright because it is close: 8.6 light-years. Wezen is about 1,600 light-years away.',
-    'Moved to where Sirius is, it would shine about as brightly as a half Moon, and cast shadows.',
-    'It is yellow-white: about 6,000 K, close to the Sun’s temperature. But it is a supergiant.',
-    'Size: about 215 times as wide as the Sun. Put where the Sun is, it would reach to Earth’s orbit.',
-    'It weighs about 17 Suns and gives off some 80,000 times as much light.',
+  story: [
+    'Wezen looks like one more bright star below Sirius. It is really one of the most powerful stars you can see.',
+    'Sirius is bright because it is close: under 9 light-years. Wezen is about 1,600 light-years away.',
+    'Moved to where Sirius is, it would shine about as brightly as a half Moon. It would cast shadows.',
+    'It gives off the light of some 80,000 Suns.',
+    'It is close to the Sun’s colour and temperature, but about 200 times as wide. In the Sun’s place it would reach to Earth’s orbit.',
     'A star this bright cannot hold on to all its gas. The soft glow at its edge is a slow wind drifting away.',
-    'Type: F8 Ia. “F” is a yellow-white star. “Ia” marks the most luminous kind of supergiant.',
-    'Estimated age: about 10 million years. Its core hydrogen is already gone, and it is swelling and cooling.',
-    'It will become a red supergiant, and then explode as a supernova, probably within the next 100,000 years or so.',
+    'It is about 10 million years old. Its core hydrogen is already gone, and it is swelling and cooling.',
+    'It will become a red supergiant, then explode as a supernova. That is probably less than 100,000 years away.',
     'Its name is Arabic for “weight”. Nobody is sure why. One guess: it hangs low and seems to struggle to rise.',
+    'More yellow supergiants: Sadr, Mirfak and Canopus.',
   ],
 }

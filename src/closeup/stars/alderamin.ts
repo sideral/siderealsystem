@@ -20,20 +20,16 @@ export const alderamin: CloseupStar = {
     equatorColor: '#eef0fb', // about 6,600 K
     envelope: { color: '#c9d8ff', strength: 0.12, reach: 0.15 }, // hot gas that gives off X-rays
   },
-  story: (distance) => [
-    `This is Alderamin, the brightest star of Cepheus the King, from ${distance} away.`,
-    'It spins once in about 12 hours. The Sun takes nearly a month.',
+  story: [
+    'Alderamin spins so fast that it is squashed, and one day it will be the North Star.',
+    'It turns once in about 12 hours. The Sun takes nearly a month.',
     'The spin flings its equator outward. It is about a fifth wider across than it is from pole to pole.',
-    'The poles sit closer to the hot core, so they are hotter and brighter than the equator.',
-    'We see it at a tilt, with one pole turned our way. That pole is the brighter patch low on the disc.',
-    'Astronomers have mapped that shape directly, by linking telescopes spread across a mountaintop in California.',
-    'The thin glow at its edge is hot gas that gives off X-rays: a sign of magnetic unrest, rare in a star this hot.',
-    'It is white: about 7,700 K on average.',
-    'Size: about 2.5 times as wide as the Sun and twice as heavy. It gives off 17 times as much light.',
-    'Type: A8 V. “A” is a white star, hotter than the Sun. It is close to the end of its prime.',
-    'Estimated age: about 800 million years.',
-    'It is 49 light-years away.',
-    'Earth’s axis slowly wobbles, so the North Star changes. In about 5,500 years it will be Alderamin.',
-    'Its name is from the Arabic for “the right arm”, of the king.',
+    'The poles sit closer to the hot core, so they are hotter and brighter. One is turned our way: the brighter patch low on the disc.',
+    'Astronomers mapped that shape by linking telescopes on a Californian mountaintop.',
+    'The thin glow at its edge is hot gas that gives off X-rays. It is a sign of magnetic unrest, rare in a star this hot.',
+    'It is white and hotter than the Sun, and about two and a half times as wide. It shines like 17 Suns.',
+    'It is 49 light-years away, the brightest star of Cepheus the King.',
+    'Earth’s axis slowly wobbles, so the North Star changes. In about 5,500 years the job will pass to Alderamin.',
+    'More stars spun flat: Altair, Rasalhague and Regulus. More pole stars, past and future: Thuban and Vega.',
   ],
 }

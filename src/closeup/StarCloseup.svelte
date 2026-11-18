@@ -5,16 +5,12 @@
    */
   import Narration from './Narration.svelte'
   import StarDisc from './StarDisc.svelte'
-  import { type CloseupStar, DEFAULT_RADIUS, describeDistance, viewDistanceKm } from './star'
+  import { type CloseupStar, DEFAULT_RADIUS } from './star'
 
   let { star, onclose }: { star: CloseupStar; onclose: () => void } = $props()
 
   // Where the disc sits. Shared with the narration through CSS variables so the text hangs below it.
   const CENTER_Y = 0.42 // fraction of viewport height
-
-  const beats = $derived(
-    star.story(describeDistance(viewDistanceKm(star.radiusSun, star.look.radius ?? DEFAULT_RADIUS))),
-  )
 
   function onKey(event: KeyboardEvent): void {
     if (event.key === 'Escape') onclose()
@@ -30,7 +26,7 @@
     <p>{star.designation}</p>
   </header>
   {#key star.id}
-    <Narration {beats} />
+    <Narration beats={star.story} />
   {/key}
 
   <button type="button" class="back" onclick={onclose}>

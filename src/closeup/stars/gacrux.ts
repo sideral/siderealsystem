@@ -21,18 +21,16 @@ export const gacrux: CloseupStar = {
     glare: 0.9,
     envelope: { color: '#ff6a36', strength: 0.07, reach: 0.22 }, // thin outer gas
   },
-  story: (distance) => [
-    `This is Gacrux, the top of the Southern Cross, from ${distance} away. It is the nearest red giant to the Sun.`,
+  story: [
+    'Gacrux is the top of the Southern Cross, and the nearest red giant to the Sun.',
     'The other bright stars of the Cross are blue. This one is plainly orange, and you can see the difference without a telescope.',
-    'It is orange-red because it is cool: about 3,690 K. Its surface churns in large, slow cells.',
-    'Its brightness wavers slightly over weeks and months as its swollen outer layers shift.',
-    'Size: about 120 times as wide as the Sun, but only about one and a half times as heavy.',
-    'Put it where the Sun is and it would fill more than half of Earth’s orbit. It gives off around 800 times the Sun’s light.',
-    'Type: M3.5 III. “M” is the coolest, reddest class of star. “III” marks a giant near the end of its life.',
-    'Estimated age: a few billion years, though it is not well measured.',
-    'It is 89 light-years away, far closer than the blue stars of the Cross. The Cross is only a pattern seen from here.',
-    'It carries an odd excess of the metal barium. It probably took that from a partner that has since died, now a white dwarf.',
-    'A line from Gacrux through Acrux, carried on four and a half times as far, lands close to the south pole of the sky.',
-    'To the Boorong people of Australia it was Bunya the possum, who ran up a tree to hide from Tchingal the emu.',
+    'It is also far closer than they are: 89 light-years. The Cross is only a pattern seen from here.',
+    'It is a third cooler than the Sun and about 120 times as wide. In the Sun’s place it would reach past Mercury’s orbit.',
+    'Yet it weighs barely more than the Sun. It gives off the light of about 800 Suns.',
+    'Its surface churns in large, slow cells. Its brightness wavers over weeks and months as its swollen outer layers shift.',
+    'It carries an odd excess of the metal barium. It probably took that from a partner that has since died and become a white dwarf.',
+    'Draw a line from Gacrux through Acrux and carry it on four and a half times as far. It lands close to the south pole of the sky.',
+    'To the Boorong people of Australia it was Bunya the possum. He ran up a tree to hide from Tchingal the emu.',
+    'The rest of the Cross here: Acrux and Mimosa. More red giants: Mira and Rasalgethi.',
   ],
 }

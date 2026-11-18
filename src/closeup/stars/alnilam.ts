@@ -2,7 +2,7 @@ import type { CloseupStar } from '../star'
 
 /**
  * Figures: Puebla et al. 2016; Searle et al. 2008. Its distance is uncertain (1,200 to 2,000 ly).
- * Lakota: Goodman, "Lakota Star Knowledge" (1992). Seri: Moser & Marlett (2005). Yolŋu: Norris & Norris (2009).
+ * Lakota: Goodman, "Lakota Star Knowledge" (1992). Yolŋu: Norris & Norris (2009).
  */
 export const alnilam: CloseupStar = {
   id: 'alnilam',
@@ -24,21 +24,18 @@ export const alnilam: CloseupStar = {
     glare: 1.45,
     envelope: { color: '#86a6ff', strength: 0.3, reach: 0.4, streaks: 3, clumps: 0.7, speed: 0.3 }, // the wind, in clumps
   },
-  story: (distance) => [
-    `This is Alnilam, the middle star of Orion’s Belt, seen through a dark filter from ${distance} away.`,
-    'It is intensely blue-white: about 27,000 K, nearly five times the Sun’s temperature. Most of its light is ultraviolet.',
-    'The surface is smooth, and it blows a wind at 2,000 km/s that carries off gas millions of times faster than the Sun’s does.',
-    'The blue haze streaming off it here is that wind, drawn brighter than it would look.',
-    'Size: around 30 times as wide as the Sun and some 40 times as heavy.',
-    'It gives off several hundred thousand times the Sun’s light, making it one of the most powerful stars you can see.',
-    'Type: B0 Ia. “B0” is among the hottest blue stars. “Ia” marks the most luminous kind of supergiant.',
-    'Estimated age: under 6 million years. Within a million more it will swell into a red supergiant and then explode.',
-    'It is somewhere between 1,200 and 2,000 light-years away, probably farther than the two Belt stars beside it.',
+  story: [
+    'Alnilam is the middle star of Orion’s Belt. It is one of the most powerful stars you can see.',
+    'It gives off several hundred thousand times the Sun’s light. Most of it is ultraviolet, invisible to us.',
+    'It only looks like an ordinary bright star because it is so far away. It lies somewhere between 1,200 and 2,000 light-years from us.',
+    'It blows a wind fast enough to cross from Earth to the Moon in about three minutes.',
+    'The blue haze streaming off it is that wind, drawn brighter than it really is.',
+    'It is blue-white, nearly five times as hot as the Sun, and about 30 times as wide.',
+    'It is under 6 million years old and already ageing. Within a million more it will swell into a red supergiant, then explode.',
     'Its name is from the Arabic for “string of pearls”.',
-    'The Belt is three stars in a row, and almost every people has named it: the Three Kings, the Three Marys, the Three Sisters.',
+    'The Belt is three stars in a row, and almost every people has named it. The Three Kings, the Three Marys, the Three Sisters.',
     'For the Lakota the Belt is the backbone of a bison. The Pleiades are its head.',
-    'The Seri of Mexico see three animals shot by a hunter. The middle one, Alnilam, is a mule deer.',
-    'For the Yolŋu of northern Australia the Belt is three brothers in a canoe, swept into the sky for eating a forbidden fish.',
-    'For Māori it is Tautoru, “the three”.',
+    'For the Yolŋu of northern Australia the Belt is three brothers in a canoe. They were swept into the sky for eating a forbidden fish.',
+    'The rest of the Belt: Alnitak and Mintaka. More blue supergiants: Rigel and Deneb.',
   ],
 }

@@ -2,8 +2,8 @@ import type { CloseupStar } from '../star'
 
 /**
  * Figures: Hatzes et al. 2012 (star and planet); Aurière et al. 2009 (weak magnetic field).
- * Boorong: Stanbridge (1857). The planet's real orbit is about 39 star radii out: it is drawn
- * far closer in, and larger, than true.
+ * The planet's real orbit is about 39 star radii out: it is drawn far closer in, and larger,
+ * than true.
  */
 export const pollux: CloseupStar = {
   id: 'pollux',
@@ -25,18 +25,16 @@ export const pollux: CloseupStar = {
       { color: '#dccab4', radius: 0.035, brightness: 0.03, glare: 0, lit: 0.9, place: { orbit: { distance: 2.7, seconds: 28, inclinationDeg: 62, nodeDeg: 22 } } },
     ],
   },
-  story: (distance) => [
-    `This is Pollux, the brighter of the Twins, seen through a dark filter from ${distance} away.`,
-    'It is orange because it is cool: about 4,600 K, more than 1,000 K cooler than the Sun.',
-    'Its surface churns gently, and its edge is dimmer and redder than its centre.',
-    'Size: 9 times as wide as the Sun and almost twice as heavy. It gives off about 33 times as much light.',
-    'Type: K0 III. “K” is an orange star. “III” marks a giant that has used up the hydrogen in its core.',
-    'Estimated age: about 700 million years. It began as a hotter, whiter star, something like Sirius.',
-    'It is 34 light-years away, the nearest giant star to the Sun.',
-    'The small dot is its planet, Thestias: at least twice as heavy as Jupiter, circling every 590 days. It is drawn far closer in than true.',
-    'Pollux is brighter than its twin Castor, yet it was labelled “beta”. Nobody is sure why.',
-    'In Greek myth the twins were brothers. Pollux was the immortal one, a boxer, who shared his immortality with Castor.',
-    'In China it is the third star of the North River.',
-    'To the Boorong people of Australia, Castor and Pollux were Yurree and Wanjel, two hunters chasing Purra the kangaroo.',
+  story: [
+    'Pollux is the nearest giant star to the Sun, and it has a planet.',
+    'The small dot is that planet, Thestias. It is at least twice as heavy as Jupiter, with a year of about 19 months.',
+    'It is drawn far closer in, and larger, than it really is.',
+    'Pollux is an orange giant, cooler than the Sun. It is nine times as wide, and as bright as about 30 Suns.',
+    'It began as a hotter, whiter star, something like Sirius. Now its core hydrogen is gone, and it has swollen and cooled.',
+    'Its surface churns gently, and its edge is dimmer and redder than its centre. The faint spots mark its weak magnetism.',
+    'It is 34 light-years away.',
+    'It is brighter than its twin Castor, yet it was labelled “beta”. Nobody is sure why.',
+    'In Greek myth he is the immortal twin, a boxer. His story is told at Castor.',
+    'More orange giants with planets: Hamal, Kochab and Errai. His twin: Castor.',
   ],
 }

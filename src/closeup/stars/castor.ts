@@ -30,19 +30,17 @@ export const castor: CloseupStar = {
       { color: '#ff946a', radius: 0.0147, brightness: 0.7, glare: 0.07, place: { at: [-0.325, -0.205] } }, // red dwarfs
     ],
   },
-  story: (distance) => [
-    `This is Castor, the second of the Twins, from ${distance} away. To the eye it is one star. It is really six.`,
-    'This is the brightest of them: a blue-white star of about 10,300 K, smooth like Sirius.',
-    'The bright point is a second, similar star about 100 times as far away as Earth is from the Sun. The two circle each other every 460 years.',
-    'Each of them has a small red dwarf star tucked in close. This one’s is the red ball circling it, drawn nearer than it is.',
+  story: [
+    'Castor looks like one star. It is really six.',
+    'This is the brightest of them: a white star, smooth like Sirius. The bright point is a second, similar star.',
+    'Each of them has a small red dwarf tucked in close. This one’s is the red ball circling it.',
     'The two dim red points are a third pair: red dwarfs that eclipse each other. They take thousands of years to circle the rest.',
-    'Size: the brightest star is about twice as wide as the Sun and 2.4 times as heavy.',
-    'Types: A1 V and A2 V for the bright pair: hot white stars in their prime. The other four are all cool red dwarfs.',
-    'Estimated age: about 300 million years.',
-    'It is 51 light-years away.',
+    'So: three pairs, each pair circling the others. All the companions here are drawn closer in than they really are.',
     'In 1803 William Herschel showed that its two bright stars were slowly circling each other.',
-    'It was the first proof that gravity works beyond the Solar System.',
+    'It was the first evidence that one star can orbit another. Gravity reaches beyond the Solar System.',
+    'The main star is nearly twice as hot as the Sun and twice as wide. It is 51 light-years away.',
     'In Greek myth Castor was the mortal twin, a horseman. When he died, his brother Pollux shared his own immortality with him.',
-    'To the Boorong people of Australia, Castor and Pollux were Yurree and Wanjel, two hunters chasing Purra the kangaroo.',
+    'So the two spend half their time in the underworld and half in the sky, together.',
+    'More stars that are secretly several: Mizar, Capella and Epsilon Lyrae. His twin: Pollux.',
   ],
 }

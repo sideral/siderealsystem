@@ -22,17 +22,17 @@ export const sadr: CloseupStar = {
     // The glowing hydrogen of the Sadr region, crossed by dark dust: an even backdrop, not lit by the star
     nebula: { kind: 'cloud', color: '#ff5d6c', outerColor: '#d63c5a', brightness: 0.2, scale: 3.5, lanes: 0.8 },
   },
-  story: (distance) => [
-    `This is Sadr, from ${distance} away: the star at the centre of the Northern Cross, where the Swan’s wings meet its body.`,
-    'It is yellow-white, close to the Sun’s temperature: about 6,000 K. But it is a supergiant.',
-    'Size: about 150 times as wide as the Sun. Put where the Sun is, it would reach most of the way to Venus.',
-    'It weighs about 12 Suns and gives off some 33,000 times as much light.',
-    'Type: F8 Iab. “F” is a yellow-white star. “Iab” marks a supergiant.',
-    'Estimated age: about 12 million years. Heavy stars burn out fast, and this one has already left its prime.',
-    'It is roughly 1,800 light-years away. That it looks so bright from so far shows how powerful it is.',
-    'The red glow behind it is a huge field of gas clouds in the Milky Way, crossed by dark dust. They only look close: they lie far behind it.',
+  story: [
+    'Sadr sits at the centre of the Northern Cross, where the Swan’s wings meet its body.',
+    'It looks like an ordinary bright star. It is a supergiant, seen from roughly 1,800 light-years away.',
+    'To look that bright from that far, it has to give off the light of some 30,000 Suns.',
+    'It is close to the Sun’s colour and temperature, but about 150 times as wide. In the Sun’s place it would reach nearly to Venus.',
+    'It is only about 12 million years old. Heavy stars burn out fast, and this one has already left its prime.',
     'Its light flickers slightly, with no steady rhythm.',
+    'The red glow behind it is a huge field of gas clouds in the Milky Way. Dark dust crosses it.',
+    'They only look close. The real clouds lie far behind the star, and are not lit by it.',
     'Its name is Arabic for “the breast”, of the hen that Arab astronomers saw here.',
-    'In China it is the central star of the Celestial Ford, a crossing over the river of the Milky Way.',
+    'In China it is part of the Celestial Ford, a crossing over the river of the Milky Way.',
+    'More yellow supergiants: Wezen, Mirfak and Polaris. Its neighbours in the Swan: Deneb and Albireo.',
   ],
 }

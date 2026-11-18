@@ -1,7 +1,7 @@
 import type { CloseupStar } from '../star'
 
 /**
- * Figures: Pigulski et al. 2016; Ausseloos et al. 2006. Lore: Best, "Tuhoe" (Māori); Snedegar 1995 (Khoikhoi).
+ * Figures: Pigulski et al. 2016; Ausseloos et al. 2006. Lore: Snedegar 1995 (Khoikhoi).
  * The twin is drawn far closer in than it is, on a less stretched orbit than the real one
  * (e = 0.82), and the 357-day orbit is sped up. The point is Hadar B. The ripples are exaggerated.
  */
@@ -36,20 +36,16 @@ export const hadar: CloseupStar = {
       { color: '#b3c6ff', radius: 0.029, brightness: 1, glare: 0.35, place: { at: [-0.3, 0.33] } }, // Hadar B, far outside
     ],
   },
-  story: (distance) => [
-    `This is Hadar, seen through a dark filter from ${distance} away. It and Alpha Centauri are the two Pointers to the Southern Cross.`,
-    'The two look like neighbours. They are not: Alpha Centauri is 4 light-years away, and Hadar is about 390.',
-    'It is blue-white and very hot: about 25,000 K, more than four times the Sun’s temperature.',
-    'It is really three stars. Two near-twins circle each other every 357 days on a long, stretched orbit. The third is the point farther out.',
-    'Here the twins are drawn far closer together than they are, and their year is sped up to seconds.',
-    'The surface also pulses every few hours. The ripples crossing it here are drawn far stronger than the real ones.',
-    'Size: each of the twins is about 9 times as wide as the Sun and 11 or 12 times as heavy.',
-    'Together they give off tens of thousands of times the Sun’s light.',
-    'Type: B1 III. “B” is a hot blue-white star. “III” marks a giant that has finished the hydrogen in its core.',
-    'Estimated age: about 14 million years. Both twins are heavy enough to end as supernovas.',
-    'It is the 11th-brightest star in the night sky, and never rises for most of Europe or North America.',
-    'Its name is Arabic, and seems to mean “ground”. Its other old name, Agena, may mean “the knee”.',
-    'For Māori the Pointers are the rope of an anchor, the Southern Cross, belonging to a great sky canoe.',
-    'In southern Africa, Khoikhoi herders called the Pointers Mura, “the eyes” of a great beast.',
+  story: [
+    'Hadar is one of the two Pointers that lead the eye to the Southern Cross.',
+    'The other is Alpha Centauri. The two look like neighbours. They are not: Alpha Centauri is 4 light-years away, and Hadar about 390.',
+    'In southern Africa, Khoikhoi herders called the Pointers Mura. They were “the eyes” of a great beast.',
+    'Up close it is three stars. Two near-twins circle each other in just under a year, on a long, stretched orbit. The third is the point farther out.',
+    'Here the twins are drawn far closer together than they really are. Their orbit is rounder, and sped up.',
+    'The surface also pulses every few hours. The ripples crossing it are drawn far stronger than they really are.',
+    'Each twin is blue-white, more than four times as hot as the Sun, and about 9 times as wide.',
+    'Together they give off the light of tens of thousands of Suns. Both are heavy enough to end as supernovas.',
+    'It is the 11th-brightest star in the night sky. For most of Europe and North America it never rises.',
+    'More hot blue stars that pulse: Mimosa, Shaula and Spica.',
   ],
 }

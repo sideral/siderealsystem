@@ -21,19 +21,18 @@ export const rCoronaeBorealis: CloseupStar = {
     // Soot: clouds of carbon dust that gather over the star and black it out, then blow away
     dust: { darkness: 0.97, scale: 1.6, cover: 0.92, seconds: 34, seed: 9 },
   },
-  story: (distance) => [
-    `This is R Coronae Borealis, from ${distance} away. Most variable stars flare up. This one blacks out.`,
-    'Usually it sits at the edge of naked-eye visibility. Then, without warning, it fades by a factor of thousands.',
+  story: [
+    'R Coronae Borealis is a star that blacks out.',
+    'Most variable stars flare up. This one sits at the edge of naked-eye sight. Then, without warning, it fades thousands of times over.',
     'It can stay dark for months or years. From 2007 it stayed dim for most of a decade, its longest blackout on record.',
     'The cause is soot. The star puffs out clouds of carbon, which cool into black dust and block its light.',
-    'When the soot blows away, the star returns. Here the fading is shown as a steady cycle; the real one is random.',
-    'It is yellow-white: about 6,750 K, a little hotter than the Sun.',
-    'Size: about 85 times as wide as the Sun, yet it weighs less than the Sun. It gives off around 10,000 times as much light.',
-    'It has almost no hydrogen. It is nine-tenths helium, with a great deal of carbon.',
-    'The likeliest explanation is that it formed when two white dwarfs, the dead cores of old stars, spiralled together and merged.',
-    'Type: a carbon-rich yellow supergiant. Only about 150 stars like it are known in the galaxy.',
-    'Estimated age: unknown. The stars that merged were billions of years old, but this new one may be very young.',
+    'When the soot blows away, the star returns. Here the fading runs on a steady cycle. The real one is random.',
+    'It is strange in other ways. It has almost no hydrogen: it is nine-tenths helium, with a great deal of carbon.',
+    'It probably formed when two white dwarfs spiralled together and merged. White dwarfs are the dead cores of old stars.',
+    'Only about 150 stars like it are known in the galaxy.',
+    'The star is yellow-white and a little hotter than the Sun. It is about 85 times as wide, yet lighter. It shines like 10,000 Suns.',
     'It is about 4,500 light-years away, inside the little arc of the Northern Crown.',
     'The English astronomer Edward Pigott discovered its fading in 1795.',
+    'More stars veiled by their own dust: La Superba and Betelgeuse. Its neighbour in the Crown: Alphecca.',
   ],
 }

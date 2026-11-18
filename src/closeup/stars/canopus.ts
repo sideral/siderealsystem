@@ -1,6 +1,6 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Cruzalèbes et al. 2013 (radius, temperature). Boorong: Stanbridge (1857). */
+/** Figures: Cruzalèbes et al. 2013 (radius, temperature). */
 export const canopus: CloseupStar = {
   id: 'canopus',
   name: 'Canopus',
@@ -16,20 +16,18 @@ export const canopus: CloseupStar = {
     texture: { amplitude: 0.07, scale: 16, speed: 0.06, cells: 0.4 }, // convection has only just begun: fine, faint grain
     glare: 1.45,
   },
-  story: (distance) => [
-    `This is Canopus, the second-brightest star in the night sky, seen through a dark filter from ${distance} away.`,
-    'It is almost pure white, with a hint of yellow: about 7,400 K, hotter than the Sun’s 5,772 K but cooler than Sirius.',
-    'At this temperature the outer layers have just begun to churn, so the surface is only faintly mottled.',
-    'Size: about 71 times as wide as the Sun and 8 to 10 times as heavy. It gives off more than 10,000 times as much light.',
-    'Type: A9 II. “A9” is a white star on the edge of yellow. “II” marks a bright giant, swollen after leaving its prime.',
-    'Estimated age: about 25 to 30 million years. It has already burned through the hydrogen in its core.',
-    'It is about 310 light-years away, 36 times farther than Sirius. It only comes second because of that distance.',
-    'Spacecraft steer by it. Probes from Mariner to Voyager have locked a sensor on Canopus to keep their bearings.',
-    'It lies far to the south and never rises for anyone north of about 37° latitude.',
+  story: [
+    'Canopus is the second-brightest star in the night sky, and the one spacecraft steer by.',
+    'Probes from Mariner to Voyager have locked a sensor on Canopus to keep their bearings.',
+    'It comes second only because of distance. It is about 310 light-years away, 36 times farther than Sirius.',
+    'It is far more powerful. It gives off the light of more than 10,000 Suns. Sirius manages 25.',
+    'It is almost pure white, a little hotter than the Sun, and about 70 times as wide. In the Sun’s place it would reach most of the way to Mercury.',
+    'At this temperature its outer layers have only just begun to churn. Its surface is faintly mottled.',
+    'It is young, under 30 million years old, but heavy. It has already left its prime and swollen.',
+    'It lies far to the south. North of a line through San Francisco, Athens and Seoul, it never rises.',
     'The Greeks named it after the pilot of King Menelaus’s ship. To Arab travellers it was Suhayl, a guide across the desert.',
     'In China it is the Old Man of the South Pole, the god of long life. Seeing it was a sign of peace.',
-    'The Navajo call it the Coyote Star.',
-    'For Māori it is Atutahi, a star so sacred that it stands apart, outside the basket of the Milky Way.',
-    'To the Boorong people of Australia it was War, the crow, who first brought fire to people.',
+    'For Māori it is Atutahi, a star so sacred that it stands apart. It hangs outside the basket of the Milky Way.',
+    'More white and yellow supergiants: Mirfak, Wezen and Polaris.',
   ],
 }

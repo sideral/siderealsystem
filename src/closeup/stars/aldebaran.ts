@@ -1,6 +1,6 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Richichi & Roccatagliata 2005; Hatzes et al. 2015. Seri names: Moser & Marlett dictionary (2005). */
+/** Figures: Richichi & Roccatagliata 2005; Hatzes et al. 2015. */
 export const aldebaran: CloseupStar = {
   id: 'aldebaran',
   name: 'Aldebaran',
@@ -19,20 +19,17 @@ export const aldebaran: CloseupStar = {
     fuzz: 0.012,
     envelope: { color: '#ff5d52', strength: 0.15, reach: 0.06 }, // chromosphere and the foot of a slow wind
   },
-  story: (distance) => [
-    `This is Aldebaran, the red eye of Taurus the Bull, seen through a dark filter from ${distance} away.`,
-    'It is orange because it is cool: about 3,900 K, two-thirds of the Sun’s temperature.',
+  story: [
+    'Aldebaran is the red eye of Taurus the Bull.',
+    'It seems to sit among the Hyades, the V of stars that makes the Bull’s face. It does not: the cluster is more than twice as far away.',
+    'It is an orange giant, a third cooler than the Sun and about 45 times as wide. In the Sun’s place it would reach halfway to Mercury.',
+    'Yet it weighs barely more than the Sun. This is what a Sun-like star becomes once the hydrogen in its core runs out.',
     'Its surface churns in large, slow cells, and its brightness wanders slightly as it does.',
     'The red rim is thin gas lifting off the surface. A giant this size sheds its outer layers in a slow wind.',
-    'Size: about 45 times as wide as the Sun, yet only a little heavier. It gives off over 400 times as much light.',
-    'Type: K5 III. “K” is an orange star. “III” marks a giant that has used up the hydrogen in its core.',
-    'Estimated age: about 6 billion years, older than the Sun.',
-    'It is 65 light-years away. It seems to sit among the Hyades star cluster, but the cluster is more than twice as far.',
+    'It gives off the light of over 400 Suns, from 65 light-years away. The light you see left in the early 1960s.',
     'The Pioneer 10 probe is drifting in its direction. It will take about 2 million years to get there.',
-    'Its name is Arabic for “the follower”: it rises after the Pleiades and trails them across the sky.',
-    'In ancient Persia it was one of four royal stars, the watcher of the east.',
-    'In India it is Rohini, the favourite wife of the Moon.',
-    'The Seri of north-west Mexico call it “the star that goes ahead”, and name their October moon “Aldebaran’s path”.',
-    'In one Aboriginal story from eastern Australia it is Karambal, who stole another man’s wife and was lifted into the sky.',
+    'Its name is Arabic for “the follower”. It rises after the Pleiades and trails them across the sky.',
+    'In India it is Rohini, the Moon’s favourite among his 27 wives. For neglecting the others he was cursed to wane each month.',
+    'More orange giants: Arcturus, Pollux and Eltanin.',
   ],
 }

@@ -17,17 +17,15 @@ export const alphard: CloseupStar = {
     glare: 1.3,
     envelope: { color: '#ff9a4d', strength: 0.1, reach: 0.8 }, // the solitary one: nothing near it but its own warm glow
   },
-  story: (distance) => [
-    `This is Alphard, the heart of Hydra the Water Snake, from ${distance} away.`,
-    'Its name is Arabic for “the solitary one”. It sits alone in a wide, dim stretch of sky with no other bright star near it.',
-    'It is an orange giant: about 4,100 K. Its surface churns slowly in large cells.',
-    'Size: about 50 times as wide as the Sun and 3 times as heavy. It gives off nearly 800 times as much light.',
-    'Type: K3 II-III. “K” is an orange star. It sits between a giant and a bright giant.',
-    'Estimated age: about 400 million years.',
-    'It is 177 light-years away.',
+  story: [
+    'Alphard is “the solitary one”: a lone orange star in a wide, dim stretch of sky.',
+    'That is what its Arabic name means. No other bright star lies anywhere near it.',
+    'The astronomer Tycho Brahe called it Cor Hydrae, the heart of Hydra. The Water Snake is the longest constellation of all.',
+    'It is alone up close as well. Nothing shares the view but the giant and its own warm glow.',
+    'It is an orange giant: cooler than the Sun and about 50 times as wide. Its surface churns slowly in large cells.',
+    'It gives off the light of nearly 800 Suns, from about 180 light-years away.',
     'It holds slightly too much of the metal barium. That usually means a star was once showered with material from a dying partner.',
-    'The astronomer Tycho Brahe called it Cor Hydrae, “the heart of the snake”.',
     'In ancient China it was the Bird Star. Seeing it due south at dusk marked the middle of spring.',
-    'On Brazil’s flag it stands for the state of Mato Grosso do Sul.',
+    'More orange giants: Arcturus, Aldebaran and Kochab. Another star with borrowed barium: Gacrux.',
   ],
 }

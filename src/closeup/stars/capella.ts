@@ -6,6 +6,7 @@ import type { CloseupStar } from '../star'
  * radii; it is drawn at 7.8 so that both discs are large enough to show their surfaces.
  * The orbit (104 days) is sped up. The two red points are the red dwarf pair, drawn thousands of
  * times closer in than true. The pale glow stands for the coronae, which really shine in X-rays.
+ * Boorong: Stanbridge (1857).
  */
 export const capella: CloseupStar = {
   id: 'capella',
@@ -36,18 +37,17 @@ export const capella: CloseupStar = {
       { color: '#ff8c56', radius: 0.04, brightness: 1, glare: 0.05, place: { at: [0.385, 0.352] } },
     ],
   },
-  story: (distance) => [
-    `This is Capella, from ${distance} away. To the eye it is one golden star. Up close it is two giants circling each other.`,
-    'The larger one is 4,970 K and deeper gold. The smaller is 5,730 K, almost exactly the Sun’s colour.',
-    'They orbit every 104 days, about as far apart as Venus is from the Sun. Here the orbit is sped up, and drawn a little over half its true width.',
-    'Size: 12 and 9 times as wide as the Sun. Each weighs about 2.5 Suns and gives off more than 70 times the Sun’s light.',
-    'Types: G8 III and G0 III, both yellow giants. They have finished burning hydrogen in their cores and begun to swell.',
-    'Estimated age: about 600 million years. The slightly heavier one is a step further along.',
-    'They are 43 light-years away, and together make the sixth-brightest star in the night sky.',
-    'The two faint red points are red dwarfs that belong to the system too. They circle the giants from thousands of times farther out than shown.',
-    'Both giants have hot, active outer atmospheres, drawn here as a pale glow. Capella was one of the first stars seen to shine in X-rays.',
+  story: [
+    'Capella looks like one golden star. Up close it is two giants circling each other.',
+    'The larger is deeper gold. The smaller is almost exactly the Sun’s colour. Each is about ten times as wide as the Sun.',
+    'They orbit every 104 days, about as far apart as Venus is from the Sun.',
+    'Here the orbit is sped up. The two are drawn a little over half as far apart as they really are.',
+    'Both have finished the hydrogen in their cores and begun to swell. The slightly heavier one is a step further along.',
+    'Both have hot, stormy outer atmospheres, drawn here as a pale glow. Capella was one of the first stars seen to shine in X-rays.',
+    'The two faint red points are red dwarfs that belong to the system too. They really circle thousands of times farther out.',
+    'Together the giants shine like 150 Suns from 43 light-years away. They make the sixth-brightest star in the night sky.',
     'The name is Latin for “little she-goat”: the goat that nursed the infant Zeus. Three faint stars nearby are her kids.',
-    'In India it is the Heart of Brahma. In China it is one of the Five Chariots.',
-    'To the Boorong people of Australia it was Purra, the kangaroo, chased across the sky by two hunters, Castor and Pollux.',
+    'To the Boorong people of Australia it was Purra, the kangaroo. Two hunters chase it across the sky: the stars Castor and Pollux.',
+    'More stars that are secretly several: Castor, Mizar and Alpha Centauri.',
   ],
 }

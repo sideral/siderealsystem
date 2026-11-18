@@ -23,18 +23,16 @@ export const cygni61: CloseupStar = {
       { color: '#ffc083', radius: 0.0085, brightness: 1, glare: 0.4, place: { at: [-0.36, 0.24] } }, // B: 4,080 K
     ],
   },
-  story: (distance) => [
-    `This is 61 Cygni A, from ${distance} away. It is the first star whose distance was ever measured.`,
-    'In 1838 the German astronomer Friedrich Bessel watched it shift slightly against the far stars as Earth circled the Sun.',
-    'From that tiny shift he worked out its distance: about 10 light-years. For the first time, the scale of the stars was known.',
-    'He chose it because it moves. It crosses the sky faster than almost any other star you can see: a Moon’s width in 350 years.',
+  story: [
+    '61 Cygni is the first star whose distance was ever measured.',
+    'In 1838 Friedrich Bessel saw it shift against the far stars as Earth circled the Sun.',
+    'From that tiny shift he worked out how far away it was: about 10 light-years. For the first time, people knew the scale of the stars.',
+    'He chose it because it moves. It crosses the sky faster than almost any other star you can see. It moves a Moon’s width in 350 years.',
     'A star that seems to move that fast is probably close. An earlier astronomer had named it the Flying Star.',
-    'It is an orange dwarf: about 4,530 K, cooler and dimmer than the Sun, with dark spots that come and go over seven years.',
-    'The point beside it is its partner, 61 Cygni B: slightly smaller and cooler, about 4,080 K.',
-    'The two take about 700 years to circle each other, twice as far apart as Pluto is from the Sun.',
-    'Size: A is two-thirds as wide as the Sun and gives off a seventh as much light. B is a little smaller and half as bright as A.',
-    'Types: K5 V and K7 V. “K” is an orange star. “V” means it is in its prime, fusing hydrogen.',
-    'Estimated age: about 6 billion years, older than the Sun.',
-    'They are 11.4 light-years away. Under a dark sky you can just see them, as one faint star in the Swan.',
+    'It is really two orange dwarfs. One fills the view. The point beside it is the other, drawn closer in than it really is.',
+    'They take about 700 years to circle each other. They are twice as far apart as Pluto is from the Sun.',
+    'Both are smaller, cooler and much dimmer than the Sun. The dark spots on this one come and go over seven years, sped up here.',
+    'They are 11 light-years away. Under a dark sky you can just see them, as one faint star in the Swan.',
+    'More of the Sun’s small orange neighbours: Epsilon Eridani, Epsilon Indi and 40 Eridani.',
   ],
 }
