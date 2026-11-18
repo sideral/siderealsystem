@@ -34,4 +34,6 @@ This doc implements the **core astronomy path**: **ICRS RA/Dec** (or a unit vect
 3. **Tests** — Tabulated alt/az for known observer/time from a reference (Skyfield/astropy script or almanac); tolerance in arcminutes documented.
 4. **Batch** — Map over `stars.json` entries, filter *a* > 0 for “up” hemisphere if needed.
 
+**Status:** implemented in `src/sky/frames.ts` by the vector path: precession from J2000 (IAU 1976), then one rotation to **east-north-up**. Azimuth is north = 0° through east. Tested against Meeus 13.b and 21.b and against astropy (tolerance 0.02°, i.e. about an arcminute; nutation and aberration are left out).
+
 **Done:** `horizontalFromEquatorial({ ra, dec }, observer, jd)` (or vector equivalent), tested; conventions file or header comment for azimuth zero and east/west.

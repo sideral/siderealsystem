@@ -43,7 +43,8 @@ This folder holds the **living plan** for a browser-only **interactive celestial
 | [06-input-ui-and-detail.md](./06-input-ui-and-detail.md)                 | Pan/zoom/pick, detail UI              |
 | [07-milestones-map-project.md](./07-milestones-map-project.md)           | Map phase milestones                  |
 | [08-game-constellation-learning.md](./08-game-constellation-learning.md) | Game layer (after map MVP)            |
-| [09-star-closeups.md](./09-star-closeups.md)                             | Star close-up slider (side feature)   |
+| [09-star-closeups.md](./09-star-closeups.md)                             | Star close-ups (opened from the sky)  |
+| [10-sky-view.md](./10-sky-view.md)                                       | Phone-orientation sky view (home)     |
 
 
 ## Implementation route

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:phone": "vite --host --mode phone",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings 0",
@@ -16,7 +17,9 @@
     "download:bsc": "tsx scripts/download/bsc.ts",
     "download:iau-star-names": "tsx scripts/download/iau-star-names.ts",
     "download:iau-constellation-boundaries": "tsx scripts/download/iau-constellation-boundaries.ts",
-    "download:openngc": "tsx scripts/download/openngc.ts"
+    "download:openngc": "tsx scripts/download/openngc.ts",
+    "build:data": "tsx scripts/build/closeup-stars.ts",
+    "build:closeup-stars": "tsx scripts/build/closeup-stars.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

@@ -15,6 +15,15 @@ Before implementing sky math, we **vendor and merge** catalog data into typed of
 
 **Outputs:** `data/dist/stars.json` (and optionally [`dsos.json`](../reference/terminology.md#dsosjson), [`blurbs.json`](../reference/terminology.md#blurbs-json-and-blurb)) — plain JSON, documented schema, no runtime HTTP for these assets.
 
+**Built so far: `data/dist/closeup-stars.json`** — positions for the hundred close-up stars only, a first small artifact ahead of the merged `stars.json`.
+
+- Built by `scripts/build/closeup-stars.ts` (`pnpm build:data`) from `data/raw/bsc/catalog.dat` (run `pnpm download:bsc` first). `data/dist/` is committed, so a fresh clone builds and runs without the raw catalogues.
+- Shape: `{ source, epoch, stars: { [id]: { hr, raDeg, decDeg, magV } } }`. `id` is the close-up star's id; `hr` its Bright Star Catalogue number.
+- `raDeg`, `decDeg`: equinox and epoch J2000.0, degrees, as given by the catalogue (FK5, close enough to ICRS here). Proper motion is not applied.
+- `magV`: the catalogue's visual magnitude. Close pairs the eye sees as one (Alpha Centauri, Acrux, Castor, Mizar, Albireo, Gamma Velorum, 61 Cygni) are summed; Eta Carinae is overridden to 4.3 because the catalogue value is decades out of date.
+- Each entry in the script names the designation the catalogue row must carry, so a mistyped HR number fails the build. `src/sky/catalog.test.ts` fails if the script's list and `src/closeup/stars/` drift apart.
+- Loaded by `src/sky/catalog.ts` with a plain `import` (bundled; no runtime request).
+
 **Star fields (target)** — domain-oriented column concepts: [terminology: typical stellar row](../reference/terminology.md#star-record-fields).
 
 

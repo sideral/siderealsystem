@@ -32,4 +32,6 @@ Directions (**alt/az** or tilted view) map to **2D** via a chosen **projection**
 3. **Field** — Draw all visible stars from `data/dist/stars.json` with size from mag and color from B−V.
 4. **Polish** — Horizon clip, optional DSO ellipses, grid overlay for debugging.
 
+**Status:** stereographic projection centred on the view direction, in `src/sky/camera.ts` (`project`, `unproject`, `horizonOnScreen`); Canvas 2D rendering in `src/sky/SkyView.svelte`. Details and reasons in [10-sky-view.md](./10-sky-view.md). Colour from B−V is still open: stars use their close-up colour.
+
 **Done:** stable projection module + render path chosen; inverse used by pick logic in **`06`**.

@@ -1,0 +1,39 @@
+import type { CloseupStar } from '../star'
+
+/** Figures: Shenar et al. 2015; Hartmann 1904 (interstellar calcium). Its distance is uncertain. */
+export const mintaka: CloseupStar = {
+  id: 'mintaka',
+  name: 'Mintaka',
+  designation: 'δ Orionis',
+  radiusSun: 16.5,
+  look: {
+    color: '#a6bdff', // about 29,500 K
+    limbColor: '#b8c9fd',
+    limbDarkening: 0.3,
+    whiten: 0.45,
+    radius: 0.12,
+    spinSeconds: 70,
+    glare: 1.5,
+    companion: {
+      color: '#adc2ff', // about 25,000 K
+      radius: 0.4,
+      brightness: 0.8,
+      glare: 0.2,
+      place: { orbit: { distance: 2.6, seconds: 14, inclinationDeg: 76 } },
+    },
+  },
+  story: (distance) => [
+    `This is Mintaka, the western star of Orion’s Belt, seen through a dark filter from ${distance} away.`,
+    'It lies almost exactly on the sky’s equator. So it rises due east and sets due west, wherever on Earth you stand.',
+    'It is a crowd of at least five stars. The brightest is a blue giant of about 29,500 K.',
+    'A smaller hot star circles that giant every 5.7 days. Each partly hides the other in turn, and the light dips slightly.',
+    'Here the orbit is sped up to a few seconds.',
+    'Size: the main star is about 16 times as wide as the Sun and 24 times as heavy. It gives off around 190,000 times as much light.',
+    'Type: O9.5 II. “O” is the hottest class of star. “II” marks a bright giant.',
+    'Estimated age: a few million years. It will end as a supernova.',
+    'It is roughly 1,200 light-years away.',
+    'In 1904 Johannes Hartmann studied its light and found a trace of calcium that did not move as the stars circled each other.',
+    'The calcium was not in the stars. It was in the space between them and us: the first proof that space is not empty.',
+    'Its name is Arabic for “the belt”. In Scandinavia the Belt was Frigg’s distaff, the rod she spun thread from.',
+  ],
+}

@@ -31,4 +31,6 @@ Catalog positions are in **ICRS**; the **observer’s sky** depends on **when** 
 3. **LST** — Add λ; log degrees vs hours clearly.
 4. **Sanity** — Compare one instant to Skyfield/astropy (Python) or Meeus table; document ΔUT1 vs UTC if you ignore it initially.
 
+**Status:** implemented in `src/sky/time.ts` (`julianDate`, `greenwichSiderealTimeRadians`, `localSiderealTimeRadians`) and tested against Meeus examples 7.a, 12.a, 12.b. Mean sidereal time; UTC used as UT1. The observer struct `{ latRad, lonRad }` is in `src/sky/frames.ts`.
+
 **Done:** exported functions `julianDate(utc)`, `localSiderealTimeRadians(jd, lonRad)` (or equivalent), tested; observer struct `{ latRad, lonRad }` for the app.

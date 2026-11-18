@@ -18,21 +18,16 @@ and open the template in the editor.
 
 html,
 body {
-  /* sideways swipes go to the page (the star slider), not the browser */
+  /* sideways swipes go to the page, not the browser's back/forward gesture */
   touch-action: pan-y;
   margin: 0;
   width: 100%;
   height: 100%;
   background: black;
   overflow: hidden;
-}
-
-#sky {
-  display: block;
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  overscroll-behavior: none; /* no rubber-banding or pull-to-refresh while dragging the sky */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #logo {
@@ -41,8 +36,9 @@ body {
   height: 50px;
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
   z-index: 1;
+  max-width: 70vw;
   translate: -50% 0;
   background: url('/img/sidereal-system-logo.svg') no-repeat center / contain;
   transition: filter 0.25s ease-out;

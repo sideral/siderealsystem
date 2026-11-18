@@ -40,6 +40,20 @@ pnpm install
 pnpm dev
 ```
 
+To open the dev server **on a phone** (same Wi-Fi), serve it over https: phones only share motion and location data with secure pages.
+
+```bash
+pnpm dev:phone
+```
+
+Open the `https://<your-computer's-address>:5173/` URL it prints and accept the warning about the self-signed certificate (made once with `openssl`). On an iPhone, touch the sky once to be asked for motion access.
+
+Rebuild the star positions in `data/dist/` from the raw catalogues (after `pnpm download:bsc`):
+
+```bash
+pnpm build:data
+```
+
 Build for production and preview the static output:
 
 ```bash

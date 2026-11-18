@@ -2,8 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidereal System - Online Planetarium</title>
+    <!-- viewport-fit=cover: draw under the notch and home bar; the UI pads itself with safe-area insets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="The sky above you right now: point your phone at a star and see it up close." />
+    <!-- Add to Home Screen: open full-screen, without the browser's bars -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Sidereal" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/img/sidereal-system-icon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <title>Sidereal System</title>
   </head>
   <body>
     <div id="app"></div>

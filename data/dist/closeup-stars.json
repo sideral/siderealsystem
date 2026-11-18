@@ -1,0 +1,606 @@
+{
+  "source": "Yale Bright Star Catalogue, 5th revised ed. (Hoffleit & Warren 1991), CDS V/50",
+  "epoch": "J2000.0",
+  "stars": {
+    "sirius": {
+      "hr": 2491,
+      "raDeg": 101.28708,
+      "decDeg": -16.71611,
+      "magV": -1.46
+    },
+    "polaris": {
+      "hr": 424,
+      "raDeg": 37.95292,
+      "decDeg": 89.26417,
+      "magV": 2.02
+    },
+    "betelgeuse": {
+      "hr": 2061,
+      "raDeg": 88.79292,
+      "decDeg": 7.40694,
+      "magV": 0.5
+    },
+    "vega": {
+      "hr": 7001,
+      "raDeg": 279.23458,
+      "decDeg": 38.78361,
+      "magV": 0.03
+    },
+    "eta-carinae": {
+      "hr": 4210,
+      "raDeg": 161.265,
+      "decDeg": -59.68417,
+      "magV": 4.3
+    },
+    "algol": {
+      "hr": 936,
+      "raDeg": 47.04208,
+      "decDeg": 40.95556,
+      "magV": 2.12
+    },
+    "mira": {
+      "hr": 681,
+      "raDeg": 34.83625,
+      "decDeg": -2.9775,
+      "magV": 3.04
+    },
+    "alpha-centauri": {
+      "hr": 5459,
+      "raDeg": 219.89958,
+      "decDeg": -60.83528,
+      "magV": -0.29
+    },
+    "rigel": {
+      "hr": 1713,
+      "raDeg": 78.63458,
+      "decDeg": -8.20167,
+      "magV": 0.12
+    },
+    "albireo": {
+      "hr": 7417,
+      "raDeg": 292.68042,
+      "decDeg": 27.95972,
+      "magV": 2.92
+    },
+    "canopus": {
+      "hr": 2326,
+      "raDeg": 95.98792,
+      "decDeg": -52.69583,
+      "magV": -0.72
+    },
+    "arcturus": {
+      "hr": 5340,
+      "raDeg": 213.91542,
+      "decDeg": 19.1825,
+      "magV": -0.04
+    },
+    "capella": {
+      "hr": 1708,
+      "raDeg": 79.1725,
+      "decDeg": 45.99806,
+      "magV": 0.08
+    },
+    "procyon": {
+      "hr": 2943,
+      "raDeg": 114.82542,
+      "decDeg": 5.225,
+      "magV": 0.38
+    },
+    "achernar": {
+      "hr": 472,
+      "raDeg": 24.42875,
+      "decDeg": -57.23667,
+      "magV": 0.46
+    },
+    "altair": {
+      "hr": 7557,
+      "raDeg": 297.69583,
+      "decDeg": 8.86833,
+      "magV": 0.77
+    },
+    "aldebaran": {
+      "hr": 1457,
+      "raDeg": 68.98,
+      "decDeg": 16.50917,
+      "magV": 0.85
+    },
+    "antares": {
+      "hr": 6134,
+      "raDeg": 247.35167,
+      "decDeg": -26.43194,
+      "magV": 0.96
+    },
+    "spica": {
+      "hr": 5056,
+      "raDeg": 201.29833,
+      "decDeg": -11.16139,
+      "magV": 0.98
+    },
+    "pollux": {
+      "hr": 2990,
+      "raDeg": 116.32875,
+      "decDeg": 28.02611,
+      "magV": 1.14
+    },
+    "fomalhaut": {
+      "hr": 8728,
+      "raDeg": 344.41292,
+      "decDeg": -29.62222,
+      "magV": 1.16
+    },
+    "deneb": {
+      "hr": 7924,
+      "raDeg": 310.35792,
+      "decDeg": 45.28028,
+      "magV": 1.25
+    },
+    "regulus": {
+      "hr": 3982,
+      "raDeg": 152.09292,
+      "decDeg": 11.96722,
+      "magV": 1.35
+    },
+    "castor": {
+      "hr": 2891,
+      "raDeg": 113.65,
+      "decDeg": 31.88833,
+      "magV": 1.59
+    },
+    "acrux": {
+      "hr": 4730,
+      "raDeg": 186.64958,
+      "decDeg": -63.09917,
+      "magV": 0.76
+    },
+    "gacrux": {
+      "hr": 4763,
+      "raDeg": 187.79125,
+      "decDeg": -57.11333,
+      "magV": 1.63
+    },
+    "adhara": {
+      "hr": 2618,
+      "raDeg": 104.65625,
+      "decDeg": -28.97222,
+      "magV": 1.5
+    },
+    "alnilam": {
+      "hr": 1903,
+      "raDeg": 84.05333,
+      "decDeg": -1.20194,
+      "magV": 1.7
+    },
+    "mizar": {
+      "hr": 5054,
+      "raDeg": 200.98125,
+      "decDeg": 54.92528,
+      "magV": 2.06
+    },
+    "thuban": {
+      "hr": 5291,
+      "raDeg": 211.09708,
+      "decDeg": 64.37583,
+      "magV": 3.65
+    },
+    "alcyone": {
+      "hr": 1165,
+      "raDeg": 56.87125,
+      "decDeg": 24.105,
+      "magV": 2.87
+    },
+    "eltanin": {
+      "hr": 6705,
+      "raDeg": 269.15167,
+      "decDeg": 51.48889,
+      "magV": 2.23
+    },
+    "sigma-octantis": {
+      "hr": 7228,
+      "raDeg": 317.1925,
+      "decDeg": -88.95639,
+      "magV": 5.47
+    },
+    "delta-cephei": {
+      "hr": 8571,
+      "raDeg": 337.29292,
+      "decDeg": 58.41528,
+      "magV": 3.75
+    },
+    "beta-lyrae": {
+      "hr": 7106,
+      "raDeg": 282.52,
+      "decDeg": 33.36278,
+      "magV": 3.45
+    },
+    "epsilon-aurigae": {
+      "hr": 1605,
+      "raDeg": 75.49208,
+      "decDeg": 43.82333,
+      "magV": 2.99
+    },
+    "r-coronae-borealis": {
+      "hr": 5880,
+      "raDeg": 237.14333,
+      "decDeg": 28.15667,
+      "magV": 5.85
+    },
+    "garnet-star": {
+      "hr": 8316,
+      "raDeg": 325.87667,
+      "decDeg": 58.78,
+      "magV": 4.08
+    },
+    "rho-cassiopeiae": {
+      "hr": 9045,
+      "raDeg": 358.59583,
+      "decDeg": 57.49944,
+      "magV": 4.54
+    },
+    "p-cygni": {
+      "hr": 7763,
+      "raDeg": 304.44667,
+      "decDeg": 38.03306,
+      "magV": 4.81
+    },
+    "gamma-cassiopeiae": {
+      "hr": 264,
+      "raDeg": 14.17708,
+      "decDeg": 60.71667,
+      "magV": 2.47
+    },
+    "zeta-ophiuchi": {
+      "hr": 6175,
+      "raDeg": 249.28958,
+      "decDeg": -10.56722,
+      "magV": 2.56
+    },
+    "naos": {
+      "hr": 3165,
+      "raDeg": 120.89625,
+      "decDeg": -40.00333,
+      "magV": 2.25
+    },
+    "gamma-velorum": {
+      "hr": 3207,
+      "raDeg": 122.38333,
+      "decDeg": -47.33667,
+      "magV": 1.68
+    },
+    "epsilon-eridani": {
+      "hr": 1084,
+      "raDeg": 53.2325,
+      "decDeg": -9.45833,
+      "magV": 3.73
+    },
+    "tau-ceti": {
+      "hr": 509,
+      "raDeg": 26.01708,
+      "decDeg": -15.9375,
+      "magV": 3.5
+    },
+    "61-cygni": {
+      "hr": 8085,
+      "raDeg": 316.7275,
+      "decDeg": 38.74583,
+      "magV": 4.79
+    },
+    "40-eridani": {
+      "hr": 1325,
+      "raDeg": 63.81792,
+      "decDeg": -7.65278,
+      "magV": 4.43
+    },
+    "beta-pictoris": {
+      "hr": 2020,
+      "raDeg": 86.82125,
+      "decDeg": -51.06639,
+      "magV": 3.85
+    },
+    "51-pegasi": {
+      "hr": 8729,
+      "raDeg": 344.36625,
+      "decDeg": 20.76889,
+      "magV": 5.49
+    },
+    "hadar": {
+      "hr": 5267,
+      "raDeg": 210.95583,
+      "decDeg": -60.37306,
+      "magV": 0.61
+    },
+    "mimosa": {
+      "hr": 4853,
+      "raDeg": 191.93,
+      "decDeg": -59.68861,
+      "magV": 1.25
+    },
+    "shaula": {
+      "hr": 6527,
+      "raDeg": 263.40208,
+      "decDeg": -37.10389,
+      "magV": 1.63
+    },
+    "bellatrix": {
+      "hr": 1790,
+      "raDeg": 81.28292,
+      "decDeg": 6.34972,
+      "magV": 1.64
+    },
+    "elnath": {
+      "hr": 1791,
+      "raDeg": 81.57292,
+      "decDeg": 28.6075,
+      "magV": 1.65
+    },
+    "alnitak": {
+      "hr": 1948,
+      "raDeg": 85.18958,
+      "decDeg": -1.94278,
+      "magV": 1.91
+    },
+    "mintaka": {
+      "hr": 1852,
+      "raDeg": 83.00167,
+      "decDeg": -0.29917,
+      "magV": 2.23
+    },
+    "alioth": {
+      "hr": 4905,
+      "raDeg": 193.50708,
+      "decDeg": 55.95972,
+      "magV": 1.77
+    },
+    "dubhe": {
+      "hr": 4301,
+      "raDeg": 165.93208,
+      "decDeg": 61.75083,
+      "magV": 1.79
+    },
+    "alkaid": {
+      "hr": 5191,
+      "raDeg": 206.885,
+      "decDeg": 49.31333,
+      "magV": 1.86
+    },
+    "kochab": {
+      "hr": 5563,
+      "raDeg": 222.67625,
+      "decDeg": 74.15556,
+      "magV": 2.08
+    },
+    "alphard": {
+      "hr": 3748,
+      "raDeg": 141.89667,
+      "decDeg": -8.65861,
+      "magV": 1.98
+    },
+    "alpheratz": {
+      "hr": 15,
+      "raDeg": 2.09708,
+      "decDeg": 29.09056,
+      "magV": 2.06
+    },
+    "hamal": {
+      "hr": 617,
+      "raDeg": 31.79333,
+      "decDeg": 23.4625,
+      "magV": 2
+    },
+    "denebola": {
+      "hr": 4534,
+      "raDeg": 177.265,
+      "decDeg": 14.57194,
+      "magV": 2.14
+    },
+    "rasalhague": {
+      "hr": 6556,
+      "raDeg": 263.73375,
+      "decDeg": 12.56,
+      "magV": 2.08
+    },
+    "nunki": {
+      "hr": 7121,
+      "raDeg": 283.81625,
+      "decDeg": -26.29667,
+      "magV": 2.02
+    },
+    "sadr": {
+      "hr": 7796,
+      "raDeg": 305.55708,
+      "decDeg": 40.25667,
+      "magV": 2.2
+    },
+    "mirfak": {
+      "hr": 1017,
+      "raDeg": 51.08083,
+      "decDeg": 49.86111,
+      "magV": 1.79
+    },
+    "wezen": {
+      "hr": 2693,
+      "raDeg": 107.09792,
+      "decDeg": -26.39333,
+      "magV": 1.84
+    },
+    "peacock": {
+      "hr": 7790,
+      "raDeg": 306.41208,
+      "decDeg": -56.735,
+      "magV": 1.94
+    },
+    "alderamin": {
+      "hr": 8162,
+      "raDeg": 319.645,
+      "decDeg": 62.58556,
+      "magV": 2.44
+    },
+    "zubeneschamali": {
+      "hr": 5685,
+      "raDeg": 229.25167,
+      "decDeg": -9.38306,
+      "magV": 2.61
+    },
+    "sualocin": {
+      "hr": 7906,
+      "raDeg": 309.90958,
+      "decDeg": 15.91194,
+      "magV": 3.77
+    },
+    "almach": {
+      "hr": 603,
+      "raDeg": 30.975,
+      "decDeg": 42.32972,
+      "magV": 2.16
+    },
+    "algieba": {
+      "hr": 4057,
+      "raDeg": 154.99292,
+      "decDeg": 19.84167,
+      "magV": 2.3
+    },
+    "rasalgethi": {
+      "hr": 6406,
+      "raDeg": 258.66208,
+      "decDeg": 14.39028,
+      "magV": 3.31
+    },
+    "alphecca": {
+      "hr": 5793,
+      "raDeg": 233.67208,
+      "decDeg": 26.71472,
+      "magV": 2.23
+    },
+    "porrima": {
+      "hr": 4825,
+      "raDeg": 190.415,
+      "decDeg": -1.44944,
+      "magV": 2.91
+    },
+    "cor-caroli": {
+      "hr": 4915,
+      "raDeg": 194.00708,
+      "decDeg": 38.31833,
+      "magV": 2.81
+    },
+    "izar": {
+      "hr": 5506,
+      "raDeg": 221.24667,
+      "decDeg": 27.07417,
+      "magV": 2.59
+    },
+    "epsilon-lyrae": {
+      "hr": 7051,
+      "raDeg": 281.085,
+      "decDeg": 39.67,
+      "magV": 3.83
+    },
+    "xi-ursae-majoris": {
+      "hr": 4375,
+      "raDeg": 169.54583,
+      "decDeg": 31.52917,
+      "magV": 3.86
+    },
+    "dschubba": {
+      "hr": 5953,
+      "raDeg": 240.08333,
+      "decDeg": -22.62167,
+      "magV": 1.9
+    },
+    "la-superba": {
+      "hr": 4846,
+      "raDeg": 191.2825,
+      "decDeg": 45.44028,
+      "magV": 4.99
+    },
+    "chi-cygni": {
+      "hr": 7564,
+      "raDeg": 297.64125,
+      "decDeg": 32.91417,
+      "magV": 4.23
+    },
+    "eta-aquilae": {
+      "hr": 7570,
+      "raDeg": 298.11833,
+      "decDeg": 1.00556,
+      "magV": 3.9
+    },
+    "vv-cephei": {
+      "hr": 8383,
+      "raDeg": 329.16292,
+      "decDeg": 63.62556,
+      "magV": 4.91
+    },
+    "theta1-orionis-c": {
+      "hr": 1895,
+      "raDeg": 83.81875,
+      "decDeg": -5.38972,
+      "magV": 5.13
+    },
+    "ae-aurigae": {
+      "hr": 1712,
+      "raDeg": 79.07583,
+      "decDeg": 34.31194,
+      "magV": 5.96
+    },
+    "errai": {
+      "hr": 8974,
+      "raDeg": 354.83667,
+      "decDeg": 77.6325,
+      "magV": 3.21
+    },
+    "epsilon-indi": {
+      "hr": 8387,
+      "raDeg": 330.84,
+      "decDeg": -56.78611,
+      "magV": 4.69
+    },
+    "eta-cassiopeiae": {
+      "hr": 219,
+      "raDeg": 12.275,
+      "decDeg": 57.81583,
+      "magV": 3.44
+    },
+    "delta-pavonis": {
+      "hr": 7665,
+      "raDeg": 302.18167,
+      "decDeg": -66.18194,
+      "magV": 3.56
+    },
+    "beta-hydri": {
+      "hr": 98,
+      "raDeg": 6.43792,
+      "decDeg": -77.25417,
+      "magV": 2.8
+    },
+    "18-scorpii": {
+      "hr": 6060,
+      "raDeg": 243.90542,
+      "decDeg": -8.36944,
+      "magV": 5.5
+    },
+    "zeta-reticuli": {
+      "hr": 1010,
+      "raDeg": 49.55375,
+      "decDeg": -62.50639,
+      "magV": 4.63
+    },
+    "upsilon-andromedae": {
+      "hr": 458,
+      "raDeg": 24.19917,
+      "decDeg": 41.40556,
+      "magV": 4.09
+    },
+    "55-cancri": {
+      "hr": 3522,
+      "raDeg": 133.14917,
+      "decDeg": 28.33083,
+      "magV": 5.95
+    },
+    "hr-8799": {
+      "hr": 8799,
+      "raDeg": 346.86958,
+      "decDeg": 21.13417,
+      "magV": 5.99
+    }
+  }
+}

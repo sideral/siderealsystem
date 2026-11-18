@@ -28,4 +28,6 @@ This doc covers **pan**, **zoom**, **pick** (which star is under the pointer), a
 3. **Pan** — Drag to rotate view or offset center; sync with projection.
 4. **Panel** — HTML/SVG overlay listing selected `Star` fields.
 
+**Status:** pan rotates the viewing direction (azimuth/altitude); zoom changes the field of view; pick unprojects the tap and takes the nearest star by dot product within 34 px (as an angle at the current zoom). On a phone the view direction comes from the orientation sensor instead ([10-sky-view.md](./10-sky-view.md)). The detail view is the star's close-up ([09](./09-star-closeups.md)).
+
 **Done:** end-to-end click-to-name flow; documented pick tolerance (angular radius).
