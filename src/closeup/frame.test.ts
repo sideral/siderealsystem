@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { dustCover, frameUniforms, hexToRgb, orbitPosition, overlapArea, pulseBeat } from './frame'
+import { dustCover, frameUniforms, hexToRgb, orbitPosition, overlapArea, pulseBeat, tideStrength } from './frame'
 import type { StarLook } from './star'
 
 const PLAIN: StarLook = { color: '#ffffff', limbColor: '#cccccc', limbDarkening: 0.5 }
@@ -44,6 +44,46 @@ describe('pulseBeat', () => {
     const pulse = { seconds: 5, radius: 0, brightness: 0.3, irregular: 0.5 }
     for (let t = 0; t < 200; t += 0.37) expect(Math.abs(pulseBeat(pulse, t))).toBeLessThanOrEqual(1)
     expect(pulseBeat(pulse, 1.25)).not.toBeCloseTo(pulseBeat(pulse, 6.25), 3)
+  })
+})
+
+describe('pulseBeat, alternating', () => {
+  it('dips deep and shallow in turn, and peaks alike', () => {
+    const pulse = { seconds: 8, radius: 0, brightness: 0.5, alternate: 0.5 }
+    expect(pulseBeat(pulse, 6)).toBeCloseTo(-1, 6) // deep
+    expect(pulseBeat(pulse, 14)).toBeCloseTo(0, 6) // shallow: half as deep
+    expect(pulseBeat(pulse, 22)).toBeCloseTo(-1, 6)
+    for (const t of [2, 10, 18]) expect(pulseBeat(pulse, t)).toBeCloseTo(1, 6)
+    for (let t = 0; t < 64; t += 0.21) expect(Math.abs(pulseBeat(pulse, t))).toBeLessThanOrEqual(1 + 1e-9)
+  })
+})
+
+describe('tideStrength', () => {
+  const partner = (eccentricity: number) => ({
+    color: '#ffffff',
+    radius: 0.5,
+    brightness: 1,
+    glare: 0,
+    place: { orbit: { distance: 4, seconds: 10, inclinationDeg: 60, eccentricity } },
+  })
+
+  it('is steady on a circular orbit and for a partner fixed in the background', () => {
+    expect(tideStrength(partner(0), 4)).toBe(1)
+    expect(tideStrength({ ...partner(0), place: { at: [0.3, 0.3] } }, 7)).toBe(1)
+    expect(tideStrength(undefined, 0)).toBe(1)
+  })
+
+  it('is full at closest approach and falls as the cube of the distance', () => {
+    expect(tideStrength(partner(0.5), 2)).toBeCloseTo(1, 9) // closest: 4 × (1 − 0.5)
+    expect(tideStrength(partner(0.5), 6)).toBeCloseTo(1 / 27, 9) // farthest: three times as far
+  })
+
+  it('stretches a star on a long orbit only while its partner sweeps past', () => {
+    const look: StarLook = { ...PLAIN, tide: 0.3, companions: [partner(0.6)] }
+    const near = component(look, 0, 'uTide', 2) // closest approach, off to the right
+    const far = component(look, 5, 'uTide', 2) // half an orbit later
+    expect(near).toBeCloseTo(0.3, 6)
+    expect(far).toBeLessThan(0.01)
   })
 })
 

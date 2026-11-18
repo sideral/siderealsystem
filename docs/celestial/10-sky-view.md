@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The home screen: **the sky as it is right now, from where you are**, showing only the hundred stars that have a close-up ([09-star-closeups.md](./09-star-closeups.md)), small and in place. On a phone the view **follows the phone**: hold it up and the stars on screen are the ones behind it, above the horizon or through the ground below. The primary target is an iPhone XR in portrait (414×896 CSS px, notch, home bar), but the layout is responsive and a desktop can drag to look around. There is **no interface on this screen by decision**: only the sky and the logo. Tapping a star opens its close-up.
+The home screen: **the sky as it is right now, from where you are**, showing only the 120 stars that have a close-up ([09-star-closeups.md](./09-star-closeups.md)), small and in place. On a phone the view **follows the phone**: hold it up and the stars on screen are the ones behind it, above the horizon or through the ground below. The primary target is an iPhone XR in portrait (414×896 CSS px, notch, home bar), but the layout is responsive and a desktop can drag to look around. There is **no interface on this screen by decision**: only the sky and the logo. Tapping a star opens its close-up.
 
 This is the first end-to-end slice of the Phase A map ([07-milestones-map-project.md](./07-milestones-map-project.md)): catalogue → time → horizontal → projection → screen → pick, all in our own TypeScript.
 
@@ -35,7 +35,7 @@ This is the first end-to-end slice of the Phase A map ([07-milestones-map-projec
 
 **Projection.** Stereographic, centred on the view direction: r = 2f·tan(θ/2), with the field of view (default 90°, 25°–130° by pinch or wheel) measured across the longer side of the screen. It keeps small shapes undistorted at wide fields and turns the horizon into an exact circle (radius 2f/|u_z|, centre 2f·(u_x, u_y)/u_z, with u the zenith in camera axes), which is how the ground is filled without sampling.
 
-**Drawing.** Canvas 2D (a hundred sprites and a circle per frame: WebGL would add nothing here). Each star is a pre-rendered glow sprite in its close-up colour, sized by magnitude (core radius 3.4 − 0.5·m px, clamped to 1–4.4). The ground is a faint veil; stars below the horizon show through it at 60% strength. **Nothing else is drawn**: no star names, no compass letters, no buttons or instructions. The screen is the stars, the horizon and the logo.
+**Drawing.** Canvas 2D (some 120 sprites and a circle per frame: WebGL would add nothing here). Each star is a pre-rendered glow sprite in its close-up colour, sized by magnitude (core radius 3.4 − 0.5·m px, clamped to 1–4.4). The ground is a faint veil; stars below the horizon show through it at 60% strength. **Nothing else is drawn**: no star names, no compass letters, no buttons or instructions. The screen is the stars, the horizon and the logo.
 
 **Following the phone**
 
@@ -66,13 +66,13 @@ This is the first end-to-end slice of the Phase A map ([07-milestones-map-projec
 
 ## Implementation route
 
-1. **Done** — Positions for the close-up stars (fifty, then a hundred) from the Bright Star Catalogue (`pnpm build:data`).
+1. **Done** — Positions for the close-up stars (fifty, then a hundred, then 120) from the Bright Star Catalogue (`pnpm build:data`).
 2. **Done** — Time, frames, camera and projection modules, unit-tested against Meeus and astropy.
 3. **Done** — Sky view: canvas, drag/pinch/pick, horizon and ground, phone following, silent permissions.
 4. **Done** — App shell for phones; `pnpm dev:phone`.
 5. **Next (open)** — Try it on an iPhone XR and an Android phone; fix what the real sensors show (heading semantics past upright, smoothing constants, landscape).
 6. **Next (open)** — Magnetic declination from a small bundled model, so compass north becomes true north.
-7. **Next (open)** — Grow from the hundred stars toward the merged catalogue in [01](./01-data-stars-and-dsos.md) (constellation lines, fainter stars, magnitude limit by field of view).
+7. **Next (open)** — Grow from the 120 stars toward the merged catalogue in [01](./01-data-stars-and-dsos.md) (constellation lines, fainter stars, magnitude limit by field of view).
 8. **Next (open)** — A service worker, so the installed app opens with no network at all.
 
 **Done for this doc:** a reader can follow a star from the catalogue file to a pixel, knows which sensor assumptions are untested, and can run it on a phone.

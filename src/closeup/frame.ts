@@ -41,12 +41,18 @@ export function hexToRgb(hex: string): Vec3 {
 
 /**
  * Where a star is in its pulse, from -1 (faintest) to 1 (brightest).
- * A skewed pulse climbs quickly and falls slowly; an irregular one never quite repeats.
+ * A skewed pulse climbs quickly and falls slowly; an irregular one never quite repeats;
+ * an alternating one dips deep and shallow in turn.
  */
 export function pulseBeat(pulse: Pulse | undefined, t: number): number {
   if (!pulse) return 0
   const phase = (TAU * t) / pulse.seconds
-  const beat = Math.sin(phase + (pulse.skew ?? 0) * Math.sin(phase))
+  let beat = Math.sin(phase + (pulse.skew ?? 0) * Math.sin(phase))
+  if (pulse.alternate) {
+    // A rhythm half as fast, timed to lift every second dip and leave the peaks alone
+    const lift = (1 - Math.cos(phase / 2 - (3 * Math.PI) / 4)) / 2
+    beat += pulse.alternate * (1 - beat) * lift
+  }
   const k = pulse.irregular ?? 0
   const drift = 0.6 * Math.sin(0.382 * phase + 1.7) + 0.4 * Math.sin(0.177 * phase + 4.1)
   return (1 - k) * beat + k * drift
@@ -128,6 +134,17 @@ function nebulaUniforms(nebula: Nebula | undefined): Uniforms {
         uNebColor2: nebula.tail ? hexToRgb(nebula.tail.color) : [0, 0, 0],
       }
   }
+}
+
+/**
+ * How strong the tide between a star and its partner is now, as a fraction of its strongest.
+ * A tide falls off as the cube of the distance, so on a stretched orbit it swells at each
+ * closest approach and all but vanishes in between.
+ */
+export function tideStrength(companion: Companion | undefined, separation: number): number {
+  if (!companion || !('orbit' in companion.place) || separation <= 0) return 1
+  const { distance, eccentricity = 0 } = companion.place.orbit
+  return Math.min(1, ((distance * (1 - eccentricity)) / separation) ** 3)
 }
 
 /** Where a companion is now, in star radii (z > 0 is in front of the star). */
@@ -224,8 +241,8 @@ export function frameUniforms(look: StarLook, t: number): Uniforms {
   const partner = look.companions?.[0]
   const separation = Math.hypot(...first)
   const onScreen = Math.hypot(first[0], first[1])
-  // Seen end-on, a star stretched toward its partner looks round
-  const sideways = separation > 0 ? onScreen / separation : 0
+  // Seen end-on, a star stretched toward its partner looks round; far from its partner, it is round
+  const sideways = (separation > 0 ? onScreen / separation : 0) * tideStrength(partner, separation)
   const toward = onScreen > 0 ? [first[0] / onScreen, first[1] / onScreen] : [1, 0]
   const partnerNode = partner && 'orbit' in partner.place ? rad(partner.place.orbit.nodeDeg ?? 0) : 0
   const disc = partner?.disc

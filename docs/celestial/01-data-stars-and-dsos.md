@@ -15,7 +15,7 @@ Before implementing sky math, we **vendor and merge** catalog data into typed of
 
 **Outputs:** `data/dist/stars.json` (and optionally [`dsos.json`](../reference/terminology.md#dsosjson), [`blurbs.json`](../reference/terminology.md#blurbs-json-and-blurb)) — plain JSON, documented schema, no runtime HTTP for these assets.
 
-**Built so far: `data/dist/closeup-stars.json`** — positions for the hundred close-up stars only, a first small artifact ahead of the merged `stars.json`.
+**Built so far: `data/dist/closeup-stars.json`** — positions for the 120 close-up stars only, a first small artifact ahead of the merged `stars.json`.
 
 - Built by `scripts/build/closeup-stars.ts` (`pnpm build:data`) from `data/raw/bsc/catalog.dat` (run `pnpm download:bsc` first). `data/dist/` is committed, so a fresh clone builds and runs without the raw catalogues.
 - Shape: `{ source, epoch, stars: { [id]: { hr, raDeg, decDeg, magV } } }`. `id` is the close-up star's id; `hr` its Bright Star Catalogue number.

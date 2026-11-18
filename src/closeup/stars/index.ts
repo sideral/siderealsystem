@@ -8,6 +8,7 @@ import { achernar } from './achernar'
 import { acrux } from './acrux'
 import { adhara } from './adhara'
 import { aeAurigae } from './ae-aurigae'
+import { ain } from './ain'
 import { albireo } from './albireo'
 import { alcyone } from './alcyone'
 import { aldebaran } from './aldebaran'
@@ -29,22 +30,27 @@ import { arcturus } from './arcturus'
 import { bellatrix } from './bellatrix'
 import { betaHydri } from './beta-hydri'
 import { betaLyrae } from './beta-lyrae'
+import { betaMonocerotis } from './beta-monocerotis'
 import { betaPictoris } from './beta-pictoris'
 import { betelgeuse } from './betelgeuse'
 import { canopus } from './canopus'
 import { capella } from './capella'
+import { caph } from './caph'
 import { castor } from './castor'
 import { chiCygni } from './chi-cygni'
 import { corCaroli } from './cor-caroli'
 import { deltaCephei } from './delta-cephei'
 import { deltaPavonis } from './delta-pavonis'
+import { deltaVelorum } from './delta-velorum'
 import { deneb } from './deneb'
 import { denebola } from './denebola'
 import { dschubba } from './dschubba'
 import { dubhe } from './dubhe'
 import { elnath } from './elnath'
 import { eltanin } from './eltanin'
+import { enif } from './enif'
 import { epsilonAurigae } from './epsilon-aurigae'
+import { epsilonCoronaeAustralis } from './epsilon-coronae-australis'
 import { epsilonEridani } from './epsilon-eridani'
 import { epsilonIndi } from './epsilon-indi'
 import { epsilonLyrae } from './epsilon-lyrae'
@@ -59,14 +65,20 @@ import { gammaVelorum } from './gamma-velorum'
 import { garnetStar } from './garnet-star'
 import { hadar } from './hadar'
 import { hamal } from './hamal'
+import { hd219134 } from './hd-219134'
 import { hr8799 } from './hr-8799'
+import { iotaOrionis } from './iota-orionis'
 import { izar } from './izar'
 import { kochab } from './kochab'
 import { laSuperba } from './la-superba'
+import { meissa } from './meissa'
+import { menkalinan } from './menkalinan'
 import { mimosa } from './mimosa'
 import { mintaka } from './mintaka'
 import { mira } from './mira'
+import { mirach } from './mirach'
 import { mirfak } from './mirfak'
+import { mirzam } from './mirzam'
 import { mizar } from './mizar'
 import { naos } from './naos'
 import { nunki } from './nunki'
@@ -76,11 +88,15 @@ import { polaris } from './polaris'
 import { pollux } from './pollux'
 import { porrima } from './porrima'
 import { procyon } from './procyon'
+import { rAquarii } from './r-aquarii'
 import { rCoronaeBorealis } from './r-coronae-borealis'
+import { rDoradus } from './r-doradus'
+import { rScuti } from './r-scuti'
 import { rasalgethi } from './rasalgethi'
 import { rasalhague } from './rasalhague'
 import { regulus } from './regulus'
 import { rhoCassiopeiae } from './rho-cassiopeiae'
+import { rhoOphiuchi } from './rho-ophiuchi'
 import { rigel } from './rigel'
 import { sadr } from './sadr'
 import { shaula } from './shaula'
@@ -88,16 +104,20 @@ import { sigmaOctantis } from './sigma-octantis'
 import { sirius } from './sirius'
 import { spica } from './spica'
 import { sualocin } from './sualocin'
+import { tauBootis } from './tau-bootis'
 import { tauCeti } from './tau-ceti'
 import { theta1OrionisC } from './theta1-orionis-c'
 import { thuban } from './thuban'
+import { uHydrae } from './u-hydrae'
 import { upsilonAndromedae } from './upsilon-andromedae'
 import { vega } from './vega'
 import { vvCephei } from './vv-cephei'
 import { wezen } from './wezen'
 import { xiUrsaeMajoris } from './xi-ursae-majoris'
+import { zetaAndromedae } from './zeta-andromedae'
 import { zetaOphiuchi } from './zeta-ophiuchi'
 import { zetaReticuli } from './zeta-reticuli'
+import { zeta1Scorpii } from './zeta1-scorpii'
 import { zubeneschamali } from './zubeneschamali'
 
 /** Every star with a close-up. The sky view shows exactly these; the grouping is only for reading. */
@@ -213,4 +233,28 @@ export const STARS: readonly [CloseupStar, ...CloseupStar[]] = [
   upsilonAndromedae,
   cancri55,
   hr8799,
+  // More bright stars with a story
+  mirach,
+  menkalinan,
+  caph,
+  enif,
+  mirzam,
+  ain,
+  meissa,
+  rhoOphiuchi,
+  // More pairs, and a triple
+  iotaOrionis,
+  deltaVelorum,
+  epsilonCoronaeAustralis,
+  zetaAndromedae,
+  betaMonocerotis,
+  // More giants near their end
+  rDoradus,
+  rScuti,
+  rAquarii,
+  uHydrae,
+  zeta1Scorpii,
+  // More stars with planets
+  tauBootis,
+  hd219134,
 ]

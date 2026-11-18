@@ -601,6 +601,126 @@
       "raDeg": 346.86958,
       "decDeg": 21.13417,
       "magV": 5.99
+    },
+    "mirach": {
+      "hr": 337,
+      "raDeg": 17.43292,
+      "decDeg": 35.62056,
+      "magV": 2.06
+    },
+    "menkalinan": {
+      "hr": 2088,
+      "raDeg": 89.88208,
+      "decDeg": 44.9475,
+      "magV": 1.9
+    },
+    "caph": {
+      "hr": 21,
+      "raDeg": 2.29458,
+      "decDeg": 59.14972,
+      "magV": 2.27
+    },
+    "enif": {
+      "hr": 8308,
+      "raDeg": 326.04667,
+      "decDeg": 9.875,
+      "magV": 2.39
+    },
+    "mirzam": {
+      "hr": 2294,
+      "raDeg": 95.675,
+      "decDeg": -17.95583,
+      "magV": 1.98
+    },
+    "ain": {
+      "hr": 1409,
+      "raDeg": 67.15417,
+      "decDeg": 19.18028,
+      "magV": 3.53
+    },
+    "meissa": {
+      "hr": 1879,
+      "raDeg": 83.78458,
+      "decDeg": 9.93417,
+      "magV": 3.39
+    },
+    "rho-ophiuchi": {
+      "hr": 6112,
+      "raDeg": 246.39667,
+      "decDeg": -23.44722,
+      "magV": 4.63
+    },
+    "iota-orionis": {
+      "hr": 1899,
+      "raDeg": 83.85833,
+      "decDeg": -5.91,
+      "magV": 2.77
+    },
+    "delta-velorum": {
+      "hr": 3485,
+      "raDeg": 131.17583,
+      "decDeg": -54.70833,
+      "magV": 1.96
+    },
+    "epsilon-coronae-australis": {
+      "hr": 7152,
+      "raDeg": 284.68083,
+      "decDeg": -37.1075,
+      "magV": 4.87
+    },
+    "zeta-andromedae": {
+      "hr": 215,
+      "raDeg": 11.83458,
+      "decDeg": 24.26722,
+      "magV": 4.06
+    },
+    "beta-monocerotis": {
+      "hr": 2356,
+      "raDeg": 97.20417,
+      "decDeg": -7.03278,
+      "magV": 3.92
+    },
+    "r-doradus": {
+      "hr": 1492,
+      "raDeg": 69.19,
+      "decDeg": -62.0775,
+      "magV": 5.4
+    },
+    "r-scuti": {
+      "hr": 7066,
+      "raDeg": 281.87083,
+      "decDeg": -5.705,
+      "magV": 5.2
+    },
+    "r-aquarii": {
+      "hr": 8992,
+      "raDeg": 355.95625,
+      "decDeg": -15.28444,
+      "magV": 6.36
+    },
+    "u-hydrae": {
+      "hr": 4163,
+      "raDeg": 159.38833,
+      "decDeg": -13.38444,
+      "magV": 4.82
+    },
+    "zeta1-scorpii": {
+      "hr": 6262,
+      "raDeg": 253.49875,
+      "decDeg": -42.36222,
+      "magV": 4.73
+    },
+    "tau-bootis": {
+      "hr": 5185,
+      "raDeg": 206.81542,
+      "decDeg": 17.45667,
+      "magV": 4.5
+    },
+    "hd-219134": {
+      "hr": 8832,
+      "raDeg": 348.32083,
+      "decDeg": 57.16833,
+      "magV": 5.56
     }
   }
 }

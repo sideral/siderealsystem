@@ -90,6 +90,8 @@ export interface Pulse {
   skew?: number
   /** 0 to 1: mixes in slower rhythms so the beat never quite repeats (semi-regular variables) */
   irregular?: number
+  /** 0 to 1: every other dip is this much shallower, as in an RV Tauri star (default 0: all alike) */
+  alternate?: number
   /** sRGB hex of the disc centre at minimum light; `color` is then the colour at maximum */
   dimColor?: string
 }
@@ -184,7 +186,7 @@ export interface Companion {
   lit?: number
   /** 1 - short axis / long axis: draws a flat disc seen at a slant in place of a ball */
   flattening?: number
-  /** How far it stretches toward the main star, as a star that fills its Roche lobe does */
+  /** How far it stretches toward the main star, as a star that fills its Roche lobe does (at closest approach) */
   tide?: number
   /** A disc of gas circling the companion. Outer edge in companion radii; tilt as for `Ring` */
   disc?: { outer: number; tilt: number; color: string; brightness: number }
@@ -279,7 +281,10 @@ export interface StarLook {
   gravityDarkening?: number
   /** sRGB hex of the cooler equator of a fast spinner; `color` is then the colour of the poles */
   equatorColor?: string
-  /** How far the star stretches toward its first companion, pulled into an egg or a teardrop */
+  /**
+   * How far the star stretches toward its first companion, pulled into an egg or a teardrop.
+   * On a stretched orbit this is the pull at closest approach; it falls off steeply farther out.
+   */
   tide?: number
   pulse?: Pulse
   /** Edge softness in disc radii, for stars with no sharp surface */
