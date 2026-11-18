@@ -1,6 +1,9 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Przybilla et al. 2006 and Moravveji et al. 2012 (temperature, radius, mass, variability). */
+/**
+ * Figures: Przybilla et al. 2006 and Moravveji et al. 2012 (temperature, radius, mass, variability).
+ * The point is Rigel B, itself three stars, drawn nearer than it would appear.
+ */
 export const rigel: CloseupStar = {
   id: 'rigel',
   name: 'Rigel',
@@ -12,10 +15,16 @@ export const rigel: CloseupStar = {
     limbDarkening: 0.4,
     whiten: 0.35,
     spinSeconds: 300,
+    axis: { rollDeg: -30 },
     texture: { amplitude: 0.04, scale: 4, speed: 0.02 },
-    pulse: { seconds: 11, radius: 0.004, brightness: 0.04 }, // slight, irregular in reality
-    fuzz: 0.015, // a strong wind softens the edge
-    glare: 1.25,
+    pulse: { seconds: 11, radius: 0.004, brightness: 0.04, irregular: 0.6 }, // slight and irregular
+    fuzz: 0.02, // a strong wind softens the edge
+    glare: 1.3,
+    envelope: { color: '#8fb0ff', strength: 0.26, reach: 0.35, streaks: 6, clumps: 0.5, speed: 0.25 }, // the wind, in streamers
+    companions: [
+      // Rigel B: three small stars that blur into one point, about 2,200 AU away
+      { color: '#c9d7ff', radius: 0.0085, brightness: 1, glare: 0.14, place: { at: [0.36, -0.2] } },
+    ],
   },
   story: (distance) => [
     `This is Rigel, the blue-white foot of Orion, from ${distance} away. Placed where the Sun is, it would reach nearly to Mercury.`,
@@ -30,7 +39,7 @@ export const rigel: CloseupStar = {
     'One day it will explode as a supernova, like its neighbour Betelgeuse.',
     'It is about 860 light-years away, and still the seventh-brightest star in the night sky.',
     'Its light makes a dust cloud 40 light-years from it shine blue: the Witch Head Nebula.',
-    'At least three smaller stars travel with it, hidden in its glare.',
+    'The small point beside it is really three stars, all far smaller than Rigel. From Earth they are almost lost in its glare.',
     'Its name is from the Arabic for “the foot”: the left foot of the figure we call Orion.',
     // How people have seen it. K'iche': Tedlock, "Popol Vuh" (1996). Wardaman: Harney & Cairns,
     // "Dark Sparklers" (2003).

@@ -17,16 +17,19 @@ export const cancri55: CloseupStar = {
     whiten: 0.16,
     radius: 0.11,
     spinSeconds: 180, // about 39 days in reality
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 },
+    texture: { amplitude: 0.15, scale: 20, speed: 0.22, cells: 1 },
     spots: { darkness: 0.5, size: 0.04, seed: 55 },
     glare: 0.8,
-    companion: {
-      color: '#ff8a4a',
-      radius: 0.04,
-      brightness: 0.3,
-      glare: 0,
-      place: { orbit: { distance: 3.5, seconds: 8, inclinationDeg: 83 } },
-    },
+    companions: [
+      {
+        color: '#ff7a3c', // planet e: a night side of glowing rock, a day side lit white-hot
+        radius: 0.045,
+        brightness: 0.35,
+        glare: 0.02,
+        lit: 0.9,
+        place: { orbit: { distance: 3.5, seconds: 8, inclinationDeg: 83 } },
+      },
+    ],
   },
   story: (distance) => [
     `This is 55 Cancri, from ${distance} away. Watch the small dot. That is a planet, and its year lasts under 18 hours.`,

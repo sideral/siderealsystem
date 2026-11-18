@@ -11,10 +11,13 @@ export const zetaOphiuchi: CloseupStar = {
     limbColor: '#b6c8fd',
     limbDarkening: 0.3,
     whiten: 0.4,
+    radius: 0.2,
     spinSeconds: 9,
+    axis: { rollDeg: 20 },
     flattening: 0.14,
     gravityDarkening: 0.3,
     glare: 1.5,
+    nebula: { kind: 'bowshock', color: '#ff9a5c', brightness: 0.5, angleDeg: 150, standoff: 0.38 },
   },
   story: (distance) => [
     `This is Zeta Ophiuchi, from ${distance} away: a runaway star, flung across the galaxy by an explosion.`,

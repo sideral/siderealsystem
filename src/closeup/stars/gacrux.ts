@@ -7,16 +7,19 @@ export const gacrux: CloseupStar = {
   designation: 'γ Crucis',
   radiusSun: 120,
   look: {
-    color: '#ffb26c', // about 3,690 K
-    limbColor: '#c85a22',
-    limbDarkening: 0.78,
-    whiten: 0.06,
+    color: '#ffab62', // about 3,690 K
+    limbColor: '#bd4c1d',
+    limbDarkening: 0.8,
+    whiten: 0.05,
     spinSeconds: 900,
-    texture: { amplitude: 0.4, scale: 3, speed: 0.035 },
-    pulse: { seconds: 24, radius: 0.008, brightness: 0.04 },
-    fuzz: 0.03,
-    wobble: 0.03,
+    axis: { rollDeg: -38 },
+    texture: { amplitude: 0.5, scale: 3, speed: 0.035, cells: 0.4 },
+    // A semi-regular variable: several slow rhythms at once, cooler and redder when faint
+    pulse: { seconds: 18, radius: -0.015, brightness: 0.12, irregular: 0.5, dimColor: '#ee6f34' },
+    fuzz: 0.05,
+    wobble: 0.04,
     glare: 0.9,
+    envelope: { color: '#ff6a36', strength: 0.07, reach: 0.22 }, // thin outer gas
   },
   story: (distance) => [
     `This is Gacrux, the top of the Southern Cross, from ${distance} away. It is the nearest red giant to the Sun.`,

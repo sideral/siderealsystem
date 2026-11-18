@@ -7,13 +7,15 @@ export const scorpii18: CloseupStar = {
   designation: 'HR 6060',
   radiusSun: 1.01,
   look: {
-    color: '#fff0e6', // about 5,810 K
-    limbColor: '#f5bf85',
-    limbDarkening: 0.6,
+    color: '#fff1e4', // about 5,810 K
+    limbColor: '#f2b877',
+    limbDarkening: 0.62,
     whiten: 0.2,
     spinSeconds: 115, // about 23 days in reality
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 },
-    spots: { darkness: 0.55, size: 0.045, seed: 77 },
+    axis: { rollDeg: -7 }, // tipped a little, as the Sun is seen from Earth
+    texture: { amplitude: 0.15, scale: 22, speed: 0.25, cells: 1 }, // fine Sun-like grain
+    // As on the Sun: spots keep to two belts either side of the equator, and come and go on a cycle
+    spots: { darkness: 0.75, size: 0.05, seed: 77, count: 9, beltDeg: 17, cycleSeconds: 42, faculae: 0.5 },
   },
   story: (distance) => [
     `This is 18 Scorpii, from ${distance} away. If it looks familiar, it should: it is the closest thing to a copy of the Sun.`,

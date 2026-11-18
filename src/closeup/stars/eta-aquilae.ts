@@ -1,19 +1,33 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Pigott 1785 (discovery); period 7.177 days; distance is uncertain, roughly 900 to 1,400 light-years. */
+/**
+ * Figures: Pigott 1785 (discovery); period 7.177 days; distance is uncertain, roughly 900 to 1,400 light-years.
+ * Evans 1991 (the hot companion, from ultraviolet spectra). Where the companion sits on screen is a guess.
+ */
 export const etaAquilae: CloseupStar = {
   id: 'eta-aquilae',
   name: 'Eta Aquilae',
   designation: 'η Aquilae',
   radiusSun: 60,
   look: {
-    color: '#fff1dc', // about 5,300 to 6,300 K through its cycle
-    limbColor: '#f2c48a',
+    color: '#fff3e2', // about 6,300 K at its brightest
+    limbColor: '#f2c284',
     limbDarkening: 0.62,
+    whiten: 0.2,
     spinSeconds: 500,
-    texture: { amplitude: 0.1, scale: 10, speed: 0.06 },
-    pulse: { seconds: 7, radius: -0.05, brightness: 0.36 },
-    glare: 1.1,
+    axis: { rollDeg: 35 },
+    texture: { amplitude: 0.13, scale: 10, speed: 0.06, cells: 0.5 },
+    // A very quick rise and a long fall, cooling to about 5,300 K at its dimmest
+    pulse: { seconds: 8, radius: -0.05, brightness: 0.3, skew: 0.85, dimColor: '#ffd296' },
+    companions: [
+      {
+        color: '#c0d0ff', // a hot companion, found from its ultraviolet light
+        radius: 0.0085,
+        brightness: 1,
+        glare: 0.3,
+        place: { at: [-0.34, 0.16] },
+      },
+    ],
   },
   story: (distance) => [
     `This is Eta Aquilae, in Aquila the Eagle, from ${distance} away. Watch it beat.`,
@@ -24,6 +38,7 @@ export const etaAquilae: CloseupStar = {
     'His friend and neighbour John Goodricke found Delta Cephei a few weeks later. The two worked together in York.',
     'Size: about 60 times as wide as the Sun and nearly 6 times as heavy. It gives off some 3,000 times as much light.',
     'Its colour shifts with the beat, from yellow-white at its brightest to deeper yellow at its dimmest.',
+    'The blue-white point is a smaller, hotter companion. Astronomers found it from its ultraviolet light, where the supergiant is faint.',
     'Type: F6 Ib to G4 Ib. A yellow supergiant whose type changes as it pulses.',
     'Estimated age: about 50 million years.',
     'It is roughly 1,000 light-years away.',

@@ -10,11 +10,13 @@ export const gammaCassiopeiae: CloseupStar = {
     color: '#aac0ff', // about 25,000 K
     limbColor: '#bbcbfd',
     limbDarkening: 0.35,
+    radius: 0.13,
     spinSeconds: 10,
+    axis: { rollDeg: -18 },
     flattening: 0.15,
     gravityDarkening: 0.3,
     glare: 1.2,
-    ring: { inner: 1, outer: 3, tilt: 0.4, color: '#ffd3e2', brightness: 0.26 },
+    ring: { inner: 1.05, outer: 3.3, tilt: 0.42, color: '#ff9fc2', brightness: 0.4, arm: 0.6 },
   },
   story: (distance) => [
     `This is Gamma Cassiopeiae, the middle star of the “W”, from ${distance} away. It is spinning itself apart.`,

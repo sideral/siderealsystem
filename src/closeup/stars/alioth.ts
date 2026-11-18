@@ -1,8 +1,9 @@
 import type { CloseupStar } from '../star'
 
 /**
- * Figures: Shulyak et al. 2010; Lueftinger et al. 2003 (surface maps). The patches drawn stand
- * for zones of different chemistry; on the real star they differ little in brightness.
+ * Figures: Shulyak et al. 2010; Lueftinger et al. 2003 (surface maps). The green band drawn
+ * stands for the belt of chromium around the magnetic equator; on the real star the zones differ
+ * little in brightness.
  */
 export const alioth: CloseupStar = {
   id: 'alioth',
@@ -14,14 +15,17 @@ export const alioth: CloseupStar = {
     limbColor: '#dde4fc',
     limbDarkening: 0.45,
     spinSeconds: 26, // 5.1 days in reality
-    spots: { darkness: 0.22, size: 0.22, seed: 71 },
+    axis: { rollDeg: 20, inclinationDeg: 45 },
+    // Chromium gathered in a band around the magnetic equator. The magnetic axis lies almost at
+    // right angles to the spin, so the band swings round edge-on, then face-on.
+    patches: { shape: 'belt', color: '#9fdccc', strength: 0.5, sizeDeg: 20, tiltDeg: 80, seed: 71 },
   },
   story: (distance) => [
     `This is Alioth, from ${distance} away: the brightest star of the Big Dipper, third from the end of the handle.`,
     'It is white: about 9,000 K. Its surface is patchy, but not with ordinary dark spots.',
     'Its magnetism sorts the chemical elements into zones. Some regions are rich in chromium, others in oxygen or europium.',
     'As the star turns, once every 5.1 days, those zones swing past, and its light and its colours change in step.',
-    'The patches drawn here stand for those zones. On the real star they differ in chemistry more than in brightness.',
+    'The green band drawn here stands for one such zone, a belt rich in chromium. On the real star it would hardly show.',
     'Size: about 4 times as wide as the Sun and 3 times as heavy. It gives off around 100 times as much light.',
     'Type: A1p. “A” is a white star, hotter than the Sun. The “p” is for peculiar: the odd chemistry.',
     'Estimated age: about 300 million years.',

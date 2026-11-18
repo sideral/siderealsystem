@@ -1,6 +1,6 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Lee et al. 2014 (planet); Hipparcos distance. */
+/** Figures: Lee et al. 2014 (planet); Tarrant et al. 2008 (its 4.6-day tremor); Hipparcos distance. */
 export const kochab: CloseupStar = {
   id: 'kochab',
   name: 'Kochab',
@@ -12,7 +12,14 @@ export const kochab: CloseupStar = {
     limbDarkening: 0.75,
     whiten: 0.08,
     spinSeconds: 700,
-    texture: { amplitude: 0.2, scale: 5, speed: 0.04 },
+    axis: { rollDeg: 20 },
+    texture: { amplitude: 0.24, scale: 6, speed: 0.04, cells: 0.55 },
+    // It trembles with a period of 4.6 days: broad zones brighten and dim in turn.
+    // The real change is a tiny fraction of a percent; drawn far stronger.
+    waves: [
+      { l: 2, m: 0, amplitude: 0.09, seconds: 9 },
+      { l: 3, m: 2, amplitude: 0.04, seconds: 14 },
+    ],
   },
   story: (distance) => [
     `This is Kochab, from ${distance} away: the brightest star in the bowl of the Little Dipper, and once the North Star.`,
@@ -20,6 +27,7 @@ export const kochab: CloseupStar = {
     'From about 1500 BC to AD 500, Kochab was the bright star nearest the pole. It was never as close as Polaris is now.',
     'With its neighbour Pherkad it still circles Polaris every night. Sailors called the pair the Guardians of the Pole.',
     'It is an orange giant: about 4,000 K, two-thirds of the Sun’s temperature.',
+    'It trembles slowly, brightening and dimming very slightly every 4.6 days. The broad ripples drawn here are far stronger than true.',
     'Size: about 42 times as wide as the Sun and twice as heavy. It gives off nearly 400 times as much light.',
     'Type: K4 III. “K” is an orange star. “III” marks a giant that has used up the hydrogen in its core.',
     'Estimated age: about 3 billion years.',

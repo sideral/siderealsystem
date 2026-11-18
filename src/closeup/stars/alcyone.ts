@@ -13,11 +13,21 @@ export const alcyone: CloseupStar = {
     color: '#bccdff', // about 12,300 K
     limbColor: '#cad6fd',
     limbDarkening: 0.4,
+    radius: 0.2,
     spinSeconds: 40,
+    axis: { rollDeg: -25 },
     flattening: 0.08,
     gravityDarkening: 0.2,
     glare: 1.2,
-    ring: { inner: 1.3, outer: 2.4, tilt: 0.3, color: '#ffd9e6', brightness: 0.1 },
+    ring: { inner: 1.3, outer: 2.2, tilt: 0.3, color: '#ffd9e6', brightness: 0.1 },
+    // The blue haze of the Pleiades: dust the cluster is drifting through, lit by its stars
+    nebula: { kind: 'cloud', color: '#7da2ff', outerColor: '#4f6fd6', brightness: 0.16, scale: 5, streak: 0.8, angleDeg: 35, falloff: 1.5 },
+    companions: [
+      { color: '#c3d2ff', radius: 0.011, brightness: 1, glare: 0.45, place: { at: [-0.34, 0.3] } }, // Atlas
+      { color: '#c8d6ff', radius: 0.011, brightness: 1, glare: 0.3, place: { at: [0.36, 0.12] } }, // Merope
+      { color: '#c6d4ff', radius: 0.011, brightness: 1, glare: 0.35, place: { at: [0.22, 0.38] } }, // Maia
+      { color: '#c0d0ff', radius: 0.011, brightness: 1, glare: 0.4, place: { at: [-0.4, -0.2] } }, // Electra
+    ],
   },
   story: (distance) => [
     `This is Alcyone, the brightest star of the Pleiades, seen through a dark filter from ${distance} away.`,
@@ -27,6 +37,7 @@ export const alcyone: CloseupStar = {
     'Type: B7 IIIe. “B” is a hot blue-white star, “III” a giant, and “e” marks the glowing gas around it.',
     'Estimated age: about 100 million years, like the rest of the Pleiades. The cluster holds over a thousand stars born together.',
     'It is about 440 light-years away. Most people can see six or seven of its sister stars without a telescope.',
+    'The bright points here are four of those sisters. The blue haze is dust the cluster is drifting through, lit by its stars.',
     'In Greek myth the Pleiades are seven sisters chased by Orion. Aboriginal Australian stories tell of sisters and a hunter too.',
     'The Kiowa tell of seven girls chased by a giant bear. The rock they stood on rose to the sky, and they became these stars.',
     'The Aztecs watched the Pleiades cross overhead at midnight once every 52 years, then lit the New Fire to begin time again.',

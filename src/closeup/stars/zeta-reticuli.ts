@@ -15,15 +15,13 @@ export const zetaReticuli: CloseupStar = {
     limbDarkening: 0.6,
     whiten: 0.2,
     spinSeconds: 100,
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 },
-    spots: { darkness: 0.5, size: 0.04, seed: 33 },
-    companion: {
-      color: '#ffefdf', // about 5,750 K
-      radius: 0.0085,
-      brightness: 0.8,
-      glare: 0.45,
-      place: { at: [0.34, 0.26] },
-    },
+    axis: { rollDeg: -30 },
+    texture: { amplitude: 0.15, scale: 20, speed: 0.22, cells: 1 },
+    // No spots: a slow, quiet star
+    companions: [
+      // ζ¹, the twin: about 5,750 K, and thousands of times farther off than the main star is wide
+      { color: '#ffefdc', radius: 0.0085, brightness: 1, glare: 0.42, place: { at: [-0.4, 0.34] } },
+    ],
   },
   story: (distance) => [
     `This is Zeta Reticuli, from ${distance} away: a pair of Sun-like stars deep in the southern sky.`,

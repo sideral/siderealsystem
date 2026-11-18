@@ -7,18 +7,23 @@ export const aldebaran: CloseupStar = {
   designation: 'α Tauri',
   radiusSun: 45,
   look: {
-    color: '#ffbe7a', // 3,900 K
-    limbColor: '#cf6226',
-    limbDarkening: 0.75,
-    whiten: 0.08,
+    color: '#ffb872', // 3,900 K
+    limbColor: '#c9581f',
+    limbDarkening: 0.77,
+    whiten: 0.07,
     spinSeconds: 700,
-    texture: { amplitude: 0.22, scale: 5, speed: 0.04 },
-    pulse: { seconds: 20, radius: 0.004, brightness: 0.03 },
+    axis: { rollDeg: -22 },
+    texture: { amplitude: 0.32, scale: 4.2, speed: 0.04, cells: 0.55 },
+    // A slow irregular variable: it wanders by a few percent with no fixed beat
+    pulse: { seconds: 22, radius: -0.006, brightness: 0.05, irregular: 0.4 },
+    fuzz: 0.012,
+    envelope: { color: '#ff5d52', strength: 0.15, reach: 0.06 }, // chromosphere and the foot of a slow wind
   },
   story: (distance) => [
     `This is Aldebaran, the red eye of Taurus the Bull, seen through a dark filter from ${distance} away.`,
     'It is orange because it is cool: about 3,900 K, two-thirds of the Sun’s temperature.',
     'Its surface churns in large, slow cells, and its brightness wanders slightly as it does.',
+    'The red rim is thin gas lifting off the surface. A giant this size sheds its outer layers in a slow wind.',
     'Size: about 45 times as wide as the Sun, yet only a little heavier. It gives off over 400 times as much light.',
     'Type: K5 III. “K” is an orange star. “III” marks a giant that has used up the hydrogen in its core.',
     'Estimated age: about 6 billion years, older than the Sun.',

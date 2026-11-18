@@ -14,15 +14,21 @@ export const alnilam: CloseupStar = {
     limbColor: '#b9cafd',
     limbDarkening: 0.35,
     whiten: 0.4,
+    radius: 0.24,
     spinSeconds: 200,
+    axis: { rollDeg: 12 },
     texture: { amplitude: 0.04, scale: 4, speed: 0.02 },
-    fuzz: 0.02,
-    glare: 1.4,
+    // It flickers with no fixed rhythm, as the most luminous supergiants do
+    pulse: { seconds: 14, radius: 0.008, brightness: 0.04, irregular: 0.5 },
+    fuzz: 0.03,
+    glare: 1.45,
+    envelope: { color: '#86a6ff', strength: 0.3, reach: 0.4, streaks: 3, clumps: 0.7, speed: 0.3 }, // the wind, in clumps
   },
   story: (distance) => [
     `This is Alnilam, the middle star of Orion’s Belt, seen through a dark filter from ${distance} away.`,
     'It is intensely blue-white: about 27,000 K, nearly five times the Sun’s temperature. Most of its light is ultraviolet.',
     'The surface is smooth, and it blows a wind at 2,000 km/s that carries off gas millions of times faster than the Sun’s does.',
+    'The blue haze streaming off it here is that wind, drawn brighter than it would look.',
     'Size: around 30 times as wide as the Sun and some 40 times as heavy.',
     'It gives off several hundred thousand times the Sun’s light, making it one of the most powerful stars you can see.',
     'Type: B0 Ia. “B0” is among the hottest blue stars. “Ia” marks the most luminous kind of supergiant.',

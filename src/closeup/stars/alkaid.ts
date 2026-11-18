@@ -1,6 +1,9 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Hipparcos distance; standard B3 V values. Lore: Hagar 1900 (Mi’kmaq). */
+/**
+ * Figures: Hipparcos distance; standard B3 V values. Lore: Hagar 1900 (Mi’kmaq).
+ * Drawn plain on purpose: a single, steady, smooth star, the standard its type is measured by.
+ */
 export const alkaid: CloseupStar = {
   id: 'alkaid',
   name: 'Alkaid',
@@ -9,11 +12,13 @@ export const alkaid: CloseupStar = {
   look: {
     color: '#b9ccff', // about 15,500 K
     limbColor: '#c8d5fd',
-    limbDarkening: 0.38,
-    whiten: 0.35,
+    limbDarkening: 0.4,
+    whiten: 0.45,
     spinSeconds: 30,
+    axis: { rollDeg: -6 },
     flattening: 0.03,
-    glare: 1.1,
+    texture: { amplitude: 0.02, scale: 4, speed: 0.01 }, // as smooth as a star gets
+    glare: 1.6,
   },
   story: (distance) => [
     `This is Alkaid, the star at the end of the Big Dipper’s handle, seen through a dark filter from ${distance} away.`,

@@ -10,9 +10,11 @@ export const canopus: CloseupStar = {
     color: '#f4f2ff', // about 7,400 K
     limbColor: '#f3e6d2',
     limbDarkening: 0.55,
-    whiten: 0.25,
+    whiten: 0.35,
     spinSeconds: 300,
-    texture: { amplitude: 0.07, scale: 8, speed: 0.04 },
+    axis: { rollDeg: -10 },
+    texture: { amplitude: 0.07, scale: 16, speed: 0.06, cells: 0.4 }, // convection has only just begun: fine, faint grain
+    glare: 1.45,
   },
   story: (distance) => [
     `This is Canopus, the second-brightest star in the night sky, seen through a dark filter from ${distance} away.`,

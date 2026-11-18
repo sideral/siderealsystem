@@ -10,13 +10,14 @@ export const deltaCephei: CloseupStar = {
   designation: 'δ Cephei',
   radiusSun: 44.5,
   look: {
-    color: '#fff0d9', // 5,500 to 6,600 K over its cycle
+    color: '#fff6e6', // 6,600 K at its brightest
     limbColor: '#f1c184',
     limbDarkening: 0.62,
     whiten: 0.2,
     spinSeconds: 400,
-    texture: { amplitude: 0.1, scale: 9, speed: 0.05 },
-    pulse: { seconds: 6, radius: -0.05, brightness: 0.38 },
+    texture: { amplitude: 0.12, scale: 9, speed: 0.05, cells: 0.5 },
+    // A quick rise and a slow fall, cooling to 5,500 K at its dimmest
+    pulse: { seconds: 6, radius: -0.05, brightness: 0.38, skew: 0.75, dimColor: '#ffd9a3' },
   },
   story: (distance) => [
     `This is Delta Cephei, from ${distance} away. Watch it beat. This star gave its name to the Cepheids.`,

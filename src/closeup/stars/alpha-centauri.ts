@@ -3,7 +3,8 @@ import type { CloseupStar } from '../star'
 /**
  * Figures: Kervella et al. 2017 (radii); Akeson et al. 2021 (masses, orbit).
  * Shows Alpha Centauri A, with B as a point in the background. At 11 to 36 AU, B would look
- * like a star hundreds of times brighter than the full Moon, not a disc.
+ * like a star hundreds of times brighter than the full Moon, not a disc. The faint red point is
+ * Proxima, about 13,000 AU out: from there, an ordinary dim star.
  */
 export const alphaCentauri: CloseupStar = {
   id: 'alpha-centauri',
@@ -16,15 +17,14 @@ export const alphaCentauri: CloseupStar = {
     limbDarkening: 0.6,
     whiten: 0.2,
     spinSeconds: 150, // about 22 days in reality
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 }, // fine Sun-like grain
-    spots: { darkness: 0.7, size: 0.07, seed: 11 }, // small, Sun-like
-    companion: {
-      color: '#ffe0c2', // 5,260 K
-      radius: 0.0085,
-      brightness: 1,
-      glare: 0.55,
-      place: { at: [0.34, 0.27] },
-    },
+    axis: { rollDeg: 12, inclinationDeg: 79 }, // tipped as the pair's orbit is
+    texture: { amplitude: 0.15, scale: 24, speed: 0.24, cells: 1 }, // fine Sun-like grain
+    // Sun-like spots in two belts, on a slow cycle of their own
+    spots: { darkness: 0.72, size: 0.05, seed: 9, count: 7, beltDeg: 20, cycleSeconds: 56, faculae: 0.45 },
+    companions: [
+      { color: '#ffd9b0', radius: 0.0085, brightness: 1, glare: 0.55, place: { at: [0.35, 0.22] } }, // B: 5,260 K
+      { color: '#ff8a4f', radius: 0.0085, brightness: 0.8, glare: 0.06, place: { at: [-0.41, 0.33] } }, // Proxima: about 3,000 K
+    ],
   },
   story: (distance) => [
     `This is Alpha Centauri A, the larger of the Sun’s two nearest bright neighbours, from ${distance} away.`,
@@ -37,7 +37,7 @@ export const alphaCentauri: CloseupStar = {
     'A gives off 1.5 times the Sun’s light. B gives off about half.',
     'Types: G2 V, the same as the Sun, and K1 V. Both are in their prime, fusing hydrogen.',
     'Estimated age: about 5 billion years, a little older than the Sun.',
-    'They are 4.37 light-years away. A third star, faint red Proxima, orbits far outside the pair and is slightly nearer to us.',
+    'They are 4.37 light-years away. The faint red point is a third star, Proxima. It orbits far outside the pair and is slightly nearer to us.',
     'Proxima has at least one planet where water could stay liquid. It is far too dim to see without a telescope.',
     'From Earth the pair blur into one point, the third-brightest star of the night. It never rises for most of the northern hemisphere.',
     'With its neighbour Beta Centauri it forms the Pointers, which lead the eye to the Southern Cross.',

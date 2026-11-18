@@ -8,17 +8,20 @@ export const epsilonEridani: CloseupStar = {
   radiusSun: 0.735,
   look: {
     color: '#ffdcb8', // 5,080 K
-    limbColor: '#eaa262',
-    limbDarkening: 0.65,
-    whiten: 0.15,
-    spinSeconds: 60, // about 11 days in reality
-    texture: { amplitude: 0.08, scale: 18, speed: 0.2 },
-    spots: { darkness: 0.75, size: 0.13, seed: 23 }, // young and active: big spots
+    limbColor: '#e89a55',
+    limbDarkening: 0.66,
+    whiten: 0.14,
+    spinSeconds: 45, // about 11 days in reality
+    axis: { rollDeg: 20, inclinationDeg: 55 },
+    texture: { amplitude: 0.16, scale: 20, speed: 0.25, cells: 1 },
+    spots: { darkness: 0.85, size: 0.13, seed: 23, count: 8, faculae: 0.8 }, // young and active: big spots
+    activity: { prominences: 0.8, flares: 0.9 },
   },
   story: (distance) => [
     `This is Epsilon Eridani, from ${distance} away: a young, restless version of the Sun, and one of our nearest neighbours.`,
     'It is a little cooler than the Sun, about 5,080 K, so its light is a warmer, more orange white.',
     'It is young and spins once in 11 days, more than twice as fast as the Sun. That winds up its magnetism and covers it in large dark spots.',
+    'The bright flashes are flares. The arcs at its edge are loops of gas held up by magnetism. Both are drawn larger than true.',
     'Size: about three-quarters as wide as the Sun and four-fifths as heavy. It gives off a third as much light.',
     'Type: K2 V. “K” is an orange star. “V” means it is in its prime, fusing hydrogen.',
     'Estimated age: 400 to 800 million years, about a tenth of the Sun’s age.',

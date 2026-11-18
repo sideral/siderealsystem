@@ -3,7 +3,8 @@ import type { CloseupStar } from '../star'
 /**
  * Figures: Mayor & Queloz 1995; Martins et al. 2015 (orbit tilt); Fuhrmann et al. 1997 (the star).
  * The star is drawn small so that the planet's whole orbit fits, at true scale. The planet's
- * size is not known (it never crosses the star), so it is drawn a little larger than Jupiter.
+ * size is not known (it never crosses the star), so it is drawn about twice as wide as Jupiter,
+ * as a puffed-up hot Jupiter may be. It shows phases: lit on the side that faces the star.
  */
 export const pegasi51: CloseupStar = {
   id: '51-pegasi',
@@ -15,17 +16,20 @@ export const pegasi51: CloseupStar = {
     limbColor: '#f5bf85',
     limbDarkening: 0.6,
     whiten: 0.2,
-    radius: 0.045,
+    radius: 0.048,
     spinSeconds: 110, // about 22 days in reality
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 },
+    texture: { amplitude: 0.15, scale: 12, speed: 0.2, cells: 1 },
     glare: 0.8,
-    companion: {
-      color: '#d49a6a',
-      radius: 0.16,
-      brightness: 0.4,
-      glare: 0,
-      place: { orbit: { distance: 9.2, seconds: 9, inclinationDeg: 80 } },
-    },
+    companions: [
+      {
+        color: '#e6b98f', // Dimidium: a dull glow of its own heat, and a day side lit by the star
+        radius: 0.18,
+        brightness: 0.07,
+        glare: 0,
+        lit: 0.9,
+        place: { orbit: { distance: 9.2, seconds: 10, inclinationDeg: 80, nodeDeg: 14 } },
+      },
+    ],
   },
   story: (distance) => [
     `This is 51 Pegasi, from ${distance} away. The small dot circling it changed astronomy.`,
@@ -34,6 +38,7 @@ export const pegasi51: CloseupStar = {
     'Nobody expected a planet like it. It has half the mass of Jupiter, but orbits seven times closer than Mercury does to the Sun.',
     'Its year lasts four days, and its sunlit side is about 1,000 °C. Astronomers named this new kind of world a hot Jupiter.',
     'The orbit here is drawn to scale. The real planet takes four days to go round, not a few seconds.',
+    'Watch it change like the Moon. On the far side of the star it shows its lit face. On the near side it shows its dark one.',
     'The star itself is nearly a twin of the Sun: 5,790 K, the same colour, with the same fine-grained surface.',
     'Size: 1.24 times as wide as the Sun and 1.1 times as heavy. It gives off a third more light.',
     'Type: G2 IV. “G2” is the Sun’s own class. “IV” means it is starting to run short of hydrogen and swell.',

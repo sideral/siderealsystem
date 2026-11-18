@@ -12,9 +12,15 @@ export const sigmaOctantis: CloseupStar = {
     limbDarkening: 0.55,
     whiten: 0.25,
     spinSeconds: 60,
-    flattening: 0.03,
-    texture: { amplitude: 0.05, scale: 8, speed: 0.04 },
-    pulse: { seconds: 7, radius: 0.004, brightness: 0.03 }, // real period: 2.3 hours
+    axis: { rollDeg: -22, inclinationDeg: 65 },
+    flattening: 0.04,
+    texture: { amplitude: 0.06, scale: 14, speed: 0.08, cells: 0.3 },
+    pulse: { seconds: 3, radius: -0.012, brightness: 0.06 }, // real period: 2.3 hours
+    // Delta Scuti stars ripple as well as swell; drawn far stronger than true
+    waves: [
+      { l: 8, m: 6, amplitude: 0.06, seconds: 3.4 },
+      { l: 5, m: 2, amplitude: 0.04, seconds: 4.7 },
+    ],
   },
   story: (distance) => [
     `This is Sigma Octantis, from ${distance} away. It is the south pole star, and almost nobody has ever seen it.`,
@@ -23,6 +29,7 @@ export const sigmaOctantis: CloseupStar = {
     'So southern sailors never steered by it. They used the Southern Cross, whose long bar points to the pole.',
     'The star itself is white: about 7,400 K, hotter than the Sun.',
     'It swells and shrinks very slightly every 2.3 hours. Here that is sped up to a few seconds.',
+    'Stars of this kind often ripple as well as swell. The ripples drawn here are far stronger than any real ones.',
     'Size: about 4 times as wide as the Sun and one and a half times as heavy. It gives off around 40 times as much light.',
     'Type: F0 III. “F” is a white star a little hotter than the Sun. “III” marks a giant that is starting to swell.',
     'Estimated age: between 1 and 2 billion years, judging by its mass.',

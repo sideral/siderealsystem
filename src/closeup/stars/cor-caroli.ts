@@ -14,14 +14,18 @@ export const corCaroli: CloseupStar = {
     limbColor: '#cfdafd',
     limbDarkening: 0.42,
     spinSeconds: 26, // 5.47 days in reality
-    spots: { darkness: 0.28, size: 0.26, seed: 47 },
-    companion: {
-      color: '#fbf7f2', // about 6,500 K
-      radius: 0.0085,
-      brightness: 0.5,
-      glare: 0.3,
-      place: { at: [-0.34, 0.26] },
-    },
+    axis: { rollDeg: -12, inclinationDeg: 70 },
+    // Rare metals gathered around the two magnetic poles, which sit far over from the spin axis
+    patches: { shape: 'caps', color: '#e6c4ff', strength: 0.62, sizeDeg: 38, tiltDeg: 70, seed: 47 },
+    companions: [
+      {
+        color: '#fbf7f2', // about 6,500 K
+        radius: 0.0085,
+        brightness: 0.5,
+        glare: 0.3,
+        place: { at: [-0.34, 0.26] },
+      },
+    ],
   },
   story: (distance) => [
     `This is Cor Caroli, the brightest star of Canes Venatici, the Hunting Dogs, from ${distance} away.`,

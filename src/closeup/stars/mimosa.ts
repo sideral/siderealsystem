@@ -12,14 +12,19 @@ export const mimosa: CloseupStar = {
     limbDarkening: 0.35,
     whiten: 0.4,
     spinSeconds: 60,
-    pulse: { seconds: 7, radius: 0.004, brightness: 0.02 },
-    glare: 1.3,
+    // Several rhythms at once (a Beta Cephei star); drawn far stronger than the real, tiny changes
+    waves: [
+      { l: 3, m: 3, amplitude: 0.1, seconds: 5 },
+      { l: 4, m: 2, amplitude: 0.08, seconds: 7.3 },
+    ],
+    glare: 1.35,
   },
   story: (distance) => [
     `This is Mimosa, from ${distance} away: the left arm of the Southern Cross, and the hottest of the sky’s brightest stars.`,
     'Its surface is about 27,000 K, nearly five times the Sun’s temperature. Among the 20 or so brightest stars, none is hotter.',
     'Most of its light is ultraviolet, which we cannot see. What reaches our eyes is a small part of what it gives off.',
     'It pulses in several rhythms at once, each a few hours long. Astronomers read them to probe its inside, as with earthquakes.',
+    'The ripples crossing its face here are those rhythms, drawn far stronger than true. The real ones are too slight to see.',
     'Size: about 8 times as wide as the Sun and 16 times as heavy. It gives off some 34,000 times as much light.',
     'Type: B0.5 III. “B” is a hot blue-white star. “III” marks a giant.',
     'Estimated age: about 10 million years. It will end as a supernova.',

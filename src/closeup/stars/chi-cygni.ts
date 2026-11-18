@@ -7,16 +7,20 @@ export const chiCygni: CloseupStar = {
   designation: 'χ Cygni',
   radiusSun: 400,
   look: {
-    color: '#ff8a48', // about 2,500 K
+    color: '#ff9450', // near its brightest and hottest; about 2,500 K on average
     limbColor: '#b03a16',
     limbDarkening: 0.82,
     whiten: 0,
+    radius: 0.23,
     spinSeconds: 1200,
-    texture: { amplitude: 0.55, scale: 2.5, speed: 0.03 },
-    pulse: { seconds: 16, radius: -0.14, brightness: 0.6 },
-    fuzz: 0.12,
-    wobble: 0.06,
-    glare: 0.7,
+    axis: { rollDeg: -10 },
+    texture: { amplitude: 0.5, scale: 2.4, speed: 0.03, cells: 0.35 },
+    // Real period 408 days. Smallest and hottest near maximum; swollen, cool and deep red at minimum
+    pulse: { seconds: 19, radius: -0.16, brightness: 0.75, skew: 0.35, dimColor: '#b93611' },
+    fuzz: 0.14,
+    wobble: 0.07,
+    glare: 0.75,
+    envelope: { color: '#d8431c', strength: 0.14, reach: 0.3 }, // loose outer layers where molecules form
   },
   story: (distance) => [
     `This is Chi Cygni, in the neck of the Swan, from ${distance} away. No star you can see changes brightness more.`,

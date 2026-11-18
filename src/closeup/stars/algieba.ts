@@ -10,19 +10,22 @@ export const algieba: CloseupStar = {
   designation: 'γ Leonis',
   radiusSun: 32,
   look: {
-    color: '#ffd29b', // about 4,470 K
-    limbColor: '#de8641',
+    color: '#ffd192', // about 4,470 K
+    limbColor: '#e08a36',
     limbDarkening: 0.7,
-    whiten: 0.1,
+    whiten: 0.12,
     spinSeconds: 600,
-    texture: { amplitude: 0.18, scale: 6, speed: 0.05 },
-    companion: {
-      color: '#ffe2bd', // about 4,980 K
-      radius: 0.0085,
-      brightness: 1,
-      glare: 0.5,
-      place: { at: [-0.34, 0.25] },
-    },
+    axis: { rollDeg: 18 },
+    texture: { amplitude: 0.22, scale: 6.5, speed: 0.05, cells: 0.6 },
+    companions: [
+      {
+        color: '#ffe5b0', // about 4,980 K: a paler, yellower gold
+        radius: 0.0085,
+        brightness: 1,
+        glare: 0.6,
+        place: { at: [-0.27, 0.24] },
+      },
+    ],
   },
   story: (distance) => [
     `This is Algieba, in the mane of Leo the Lion, from ${distance} away: two golden giants circling each other.`,

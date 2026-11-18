@@ -19,7 +19,7 @@ export const etaCarinae: CloseupStar = {
     radius: 0.05,
     fuzz: 0.9, // no surface: a glowing ball of opaque wind
     glare: 2.2,
-    nebula: true,
+    nebula: { kind: 'homunculus' },
   },
   story: () => [
     'This is Eta Carinae, seen from about a light-year away. The star itself is hidden inside the glowing point at the centre.',

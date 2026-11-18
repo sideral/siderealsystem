@@ -15,15 +15,13 @@ export const etaCassiopeiae: CloseupStar = {
     limbDarkening: 0.6,
     whiten: 0.2,
     spinSeconds: 90,
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 },
-    spots: { darkness: 0.5, size: 0.04, seed: 13 },
-    companion: {
-      color: '#ffc483', // about 4,040 K
-      radius: 0.0085,
-      brightness: 0.5,
-      glare: 0.35,
-      place: { at: [-0.34, 0.26] },
-    },
+    axis: { rollDeg: 26, inclinationDeg: 60 },
+    texture: { amplitude: 0.15, scale: 21, speed: 0.24, cells: 1 },
+    spots: { darkness: 0.55, size: 0.04, seed: 11, count: 3 }, // a quiet star: a few small spots
+    companions: [
+      // The orange partner, about 4,040 K; tinted a little deeper than true, toward how observers describe it
+      { color: '#ffb873', radius: 0.0085, brightness: 0.9, glare: 0.38, place: { at: [0.33, 0.3] } },
+    ],
   },
   story: (distance) => [
     `This is Eta Cassiopeiae, from ${distance} away. It sits inside the “W” of Cassiopeia, and it is a near twin of the Sun.`,

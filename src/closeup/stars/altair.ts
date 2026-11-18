@@ -7,12 +7,15 @@ export const altair: CloseupStar = {
   designation: 'α Aquilae',
   radiusSun: 2.03, // at the equator; 1.63 pole to pole
   look: {
-    color: '#e6ecff', // about 7,700 K averaged over the surface
-    limbColor: '#efe9df',
+    color: '#dfe7ff', // about 8,500 K at the poles
+    limbColor: '#eef0f4',
     limbDarkening: 0.5,
-    spinSeconds: 14,
+    spinSeconds: 10,
+    axis: { rollDeg: 62, inclinationDeg: 57 }, // as imaged: one pole tipped toward us
     flattening: 0.2,
-    gravityDarkening: 0.42,
+    gravityDarkening: 0.34,
+    equatorColor: '#f8f2ea', // under 7,000 K
+    waves: [{ l: 3, m: 2, amplitude: 0.02, seconds: 3 }], // it also quivers: the brightest Delta Scuti star
   },
   story: (distance) => [
     `This is Altair, seen through a dark filter from ${distance} away. It spins so fast that it is visibly squashed.`,

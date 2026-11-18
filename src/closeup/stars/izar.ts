@@ -10,19 +10,22 @@ export const izar: CloseupStar = {
   designation: 'ε Boötis',
   radiusSun: 33,
   look: {
-    color: '#ffd6a2', // about 4,550 K
-    limbColor: '#e08c48',
+    color: '#ffd29a', // about 4,550 K
+    limbColor: '#de8238',
     limbDarkening: 0.7,
     whiten: 0.1,
-    spinSeconds: 600,
-    texture: { amplitude: 0.18, scale: 6, speed: 0.05 },
-    companion: {
-      color: '#cdd9ff', // about 9,000 K
-      radius: 0.0085,
-      brightness: 1,
-      glare: 0.45,
-      place: { at: [0.32, 0.29] },
-    },
+    spinSeconds: 320,
+    axis: { rollDeg: -28 },
+    texture: { amplitude: 0.2, scale: 7.5, speed: 0.05, cells: 0.6 },
+    companions: [
+      {
+        color: '#c2e0ff', // about 9,000 K; beside the orange it looks blue, even green
+        radius: 0.0085,
+        brightness: 1,
+        glare: 0.5,
+        place: { at: [0.26, 0.25] },
+      },
+    ],
   },
   story: (distance) => [
     `This is Izar, in the waist of Boötes the Herdsman, from ${distance} away.`,

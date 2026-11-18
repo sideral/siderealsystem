@@ -2,7 +2,8 @@ import type { CloseupStar } from '../star'
 
 /**
  * Figures: Mason et al. 2017 (the white dwarf's orbit and mass); Burrows et al. 2024 (the planet
- * claim withdrawn). Shows 40 Eridani A. The point is B and C together, about 400 AU away.
+ * claim withdrawn). Shows 40 Eridani A. The two points are B (white) and C (red), about 400 AU
+ * away and 35 AU from each other.
  */
 export const eridani40: CloseupStar = {
   id: '40-eridani',
@@ -15,20 +16,19 @@ export const eridani40: CloseupStar = {
     limbDarkening: 0.65,
     whiten: 0.15,
     spinSeconds: 190, // about 40 days in reality
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 },
-    spots: { darkness: 0.6, size: 0.06, seed: 67 },
-    companion: {
-      color: '#d7e1ff',
-      radius: 0.0085,
-      brightness: 1,
-      glare: 0.22,
-      place: { at: [-0.35, 0.26] },
-    },
+    axis: { rollDeg: 16 },
+    texture: { amplitude: 0.15, scale: 20, speed: 0.22, cells: 1 },
+    // The spots whose 40-day turn was once taken for a planet
+    spots: { darkness: 0.7, size: 0.06, seed: 66, count: 5, beltDeg: 21, faculae: 0.5 },
+    companions: [
+      { color: '#f2f5ff', radius: 0.0085, brightness: 1, glare: 0.22, place: { at: [-0.35, 0.26] } }, // B, the white dwarf: 16,500 K
+      { color: '#ff8f52', radius: 0.0085, brightness: 0.8, glare: 0.09, place: { at: [-0.322, 0.243] } }, // C, the red dwarf: 3,100 K
+    ],
   },
   story: (distance) => [
     `This is 40 Eridani A, from ${distance} away: an orange dwarf with two small partners far off, one of them a famous first.`,
     'It is about 5,100 K, a little cooler than the Sun, with a fine-grained surface and a few small spots.',
-    'The pale point in the distance is two stars too close together to tell apart from here: a white dwarf and a red dwarf.',
+    'The two points in the distance are its partners, side by side: a white dwarf, small and white-hot, and a dim red dwarf.',
     'That white dwarf was the first ever found. William Herschel saw it in 1783. Nobody knew it was strange until 1910.',
     'It was faint, so it should have been cool and red. But its light showed it was white-hot. That meant it had to be tiny.',
     'It is the dead core of a star that was once the heaviest of the three: half the Sun’s mass, squeezed to the size of Earth.',

@@ -11,13 +11,27 @@ export const mira: CloseupStar = {
     limbColor: '#c9501f',
     limbDarkening: 0.8,
     whiten: 0.05,
+    radius: 0.2,
     spinSeconds: 1200,
-    texture: { amplitude: 0.3, scale: 2.2, speed: 0.03 },
+    texture: { amplitude: 0.35, scale: 2.2, speed: 0.03, cells: 0.4 },
     // Real period 332 days; smallest and hottest near maximum light
-    pulse: { seconds: 16, radius: -0.08, brightness: 0.5 },
+    pulse: { seconds: 16, radius: -0.08, brightness: 0.5, skew: 0.3, dimColor: '#e0541f' },
     fuzz: 0.12,
-    wobble: 0.06,
+    wobble: 0.07,
     glare: 0.8,
+    envelope: { color: '#ff6a30', strength: 0.12, reach: 0.4, clumps: 0.6, speed: 0.05 },
+    // It ploughs through the galaxy's gas: a shock ahead and a long tail of cast-off gas behind
+    nebula: { kind: 'bowshock', color: '#8fb8ff', brightness: 0.25, angleDeg: 200, standoff: 0.4, tail: { brightness: 0.8, color: '#9cc0ff' } },
+    companions: [
+      {
+        color: '#cfe0ff', // Mira B, a white dwarf, with the gas it has caught
+        radius: 0.011,
+        brightness: 1,
+        glare: 0.3,
+        place: { at: [-0.31, 0.22] },
+        disc: { outer: 9, tilt: 0.4, color: '#a9c8ff', brightness: 0.35 },
+      },
+    ],
   },
   story: (distance) => [
     `This is Mira, a dying red giant, from ${distance} away. Put it in place of the Sun and it would reach to the orbit of Mars.`,
@@ -32,7 +46,7 @@ export const mira: CloseupStar = {
     'Estimated age: about 6 billion years. This is what the Sun will look like near its end, some 5 billion years from now.',
     'It is shedding its outer layers into space. In time only its core will be left: a white dwarf.',
     'It is about 300 light-years away, racing through the galaxy at 130 km/s. It trails a tail of cast-off gas 13 light-years long.',
-    'It has a small companion, probably a white dwarf, that catches some of the gas Mira throws off.',
+    'The point with a small disc is its companion, probably a white dwarf. It catches some of the gas Mira throws off.',
     'In 1596 David Fabricius saw it and took it for a new star. It faded, and then it came back.',
     'It was the first star known to change brightness on a cycle. In 1662 Johannes Hevelius named it Mira, “the wonderful”.',
     'No older name for it is known for certain. A star that vanishes for months is easy to leave off the map.',

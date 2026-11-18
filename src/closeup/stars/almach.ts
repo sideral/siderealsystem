@@ -2,7 +2,7 @@ import type { CloseupStar } from '../star'
 
 /**
  * Figures: Hipparcos distance; Washington Double Star Catalog. Shows the golden giant, with its
- * blue companions (three stars, about 1,000 AU away) as one point.
+ * blue companions (three stars, about 1,000 AU away) as three points, spread apart so they show.
  */
 export const almach: CloseupStar = {
   id: 'almach',
@@ -10,25 +10,25 @@ export const almach: CloseupStar = {
   designation: 'γ Andromedae',
   radiusSun: 80,
   look: {
-    color: '#ffd09a', // about 4,250 K
-    limbColor: '#dd8440',
-    limbDarkening: 0.72,
+    color: '#ffcc90', // about 4,250 K
+    limbColor: '#dc7f38',
+    limbDarkening: 0.73,
     whiten: 0.1,
     spinSeconds: 800,
-    texture: { amplitude: 0.25, scale: 4, speed: 0.04 },
-    companion: {
-      color: '#b6caff',
-      radius: 0.0085,
-      brightness: 1,
-      glare: 0.5,
-      place: { at: [0.33, 0.28] },
-    },
+    axis: { rollDeg: 40 },
+    texture: { amplitude: 0.3, scale: 4, speed: 0.04, cells: 0.5 },
+    companions: [
+      // The blue trio: a pair too tight for any telescope to split, and a third star close beside it
+      { color: '#b3c8ff', radius: 0.0085, brightness: 1, glare: 0.35, place: { at: [0.3, 0.3] } },
+      { color: '#bccfff', radius: 0.0085, brightness: 1, glare: 0.22, place: { at: [0.322, 0.309] } },
+      { color: '#cad7ff', radius: 0.0085, brightness: 1, glare: 0.28, place: { at: [0.335, 0.262] } },
+    ],
   },
   story: (distance) => [
     `This is Almach, from ${distance} away: a golden giant with a blue companion, one of the finest coloured pairs in the sky.`,
     'The giant is gold because it is cool: about 4,250 K. Its surface churns in big cells.',
-    'The blue point beside it is hot: over 10,000 K. A small telescope shows the two side by side, gold and blue.',
-    'That blue point is not one star but three, packed too tightly to tell apart. Almach is a family of four.',
+    'The blue points beside it are hot: over 10,000 K. A small telescope shows them as one blue star next to the gold.',
+    'That blue star is really three. Two of them sit too close together for any telescope to split. Almach is a family of four.',
     'The blue trio is about 30 times as far from the giant as Neptune is from the Sun.',
     'Size: the giant is about 80 times as wide as the Sun and gives off around 2,000 times as much light.',
     'Types: K3 II, an orange bright giant, with hot blue-white and white stars in their prime.',

@@ -11,8 +11,11 @@ export const bellatrix: CloseupStar = {
     limbColor: '#bfcdfd',
     limbDarkening: 0.35,
     whiten: 0.4,
-    spinSeconds: 40,
-    glare: 1.2,
+    spinSeconds: 55,
+    axis: { rollDeg: 24, inclinationDeg: 70 },
+    // Its slight variability, drawn as one slow wave and far stronger than the real change
+    waves: [{ l: 2, m: 2, amplitude: 0.06, seconds: 14 }],
+    glare: 1.3,
   },
   story: (distance) => [
     `This is Bellatrix, one of Orion’s shoulders, seen through a dark filter from ${distance} away.`,
@@ -24,6 +27,7 @@ export const bellatrix: CloseupStar = {
     'It sits near a dividing line. It may explode as a supernova, or it may settle into a heavy white dwarf.',
     'It is one of the 30 brightest stars in the night sky.',
     'For decades astronomers used it as a standard of steady brightness to compare other stars with. Then it turned out to vary a little.',
+    'The slow, faint ripple crossing it here stands for that change. The real one is far too small to see.',
     'Its name is Latin for “female warrior”. It is also called the Amazon Star.',
     'Inuit paired it with Betelgeuse as Akuttujuuk, “the two placed far apart”.',
     'When the two appeared before dawn in midwinter, the Sun was on its way back.',

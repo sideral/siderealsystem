@@ -1,6 +1,10 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Fossati et al. 2015; Tomkin 1998 (past brightness); Vallerga & Welsh 1995 (extreme ultraviolet). */
+/**
+ * Figures: Fossati et al. 2015; Tomkin 1998 (past brightness); Vallerga & Welsh 1995 (extreme ultraviolet).
+ * The violet glow stands for its extreme-ultraviolet light, which no eye can see. The point is
+ * its 7.5-magnitude companion, about 900 AU away.
+ */
 export const adhara: CloseupStar = {
   id: 'adhara',
   name: 'Adhara',
@@ -8,11 +12,16 @@ export const adhara: CloseupStar = {
   radiusSun: 13.9,
   look: {
     color: '#aec3ff', // about 22,900 K
-    limbColor: '#bfcdfd',
+    limbColor: '#c1c6ff',
     limbDarkening: 0.35,
-    whiten: 0.4,
+    whiten: 0.42,
     spinSeconds: 200,
-    glare: 1.3,
+    axis: { rollDeg: -10 },
+    glare: 1.4,
+    envelope: { color: '#8f6bff', strength: 0.24, reach: 0.65 }, // stands for the extreme ultraviolet
+    companions: [
+      { color: '#e9eeff', radius: 0.0085, brightness: 1, glare: 0.12, place: { at: [0.36, -0.1] } }, // its faint companion
+    ],
   },
   story: (distance) => [
     `This is Adhara, seen through a dark filter from ${distance} away. Today it is the 22nd-brightest star. It was once the first.`,
@@ -24,7 +33,9 @@ export const adhara: CloseupStar = {
     'Type: B2 II. “B” is a hot blue-white star. “II” marks a bright giant.',
     'Estimated age: about 22 million years. It is heavy enough to end as a supernova.',
     'It is about 430 light-years away now, and still drifting off.',
+    'The faint point beside it is a small companion star, some 900 times as far from it as Earth is from the Sun.',
     'In extreme ultraviolet light it is the brightest star in the whole sky.',
+    'The violet glow around it here stands for that light. No eye could see the real thing.',
     'That light strips the electrons from hydrogen atoms in the thin cloud of gas the Sun is passing through.',
     'Its name is from the Arabic for “the maidens”. It lies in the Great Dog, below Sirius.',
     'On Brazil’s flag it stands for the state of Tocantins.',

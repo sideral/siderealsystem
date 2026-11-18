@@ -7,12 +7,15 @@ export const alphard: CloseupStar = {
   designation: 'α Hydrae',
   radiusSun: 50,
   look: {
-    color: '#ffc686', // about 4,100 K
-    limbColor: '#d46d2c',
-    limbDarkening: 0.75,
+    color: '#ffc280', // about 4,100 K
+    limbColor: '#d0672a',
+    limbDarkening: 0.76,
     whiten: 0.08,
     spinSeconds: 800,
-    texture: { amplitude: 0.22, scale: 5, speed: 0.04 },
+    axis: { rollDeg: 32 },
+    texture: { amplitude: 0.17, scale: 3.2, speed: 0.03, cells: 0.35 }, // large, low-contrast cells
+    glare: 1.3,
+    envelope: { color: '#ff9a4d', strength: 0.1, reach: 0.8 }, // the solitary one: nothing near it but its own warm glow
   },
   story: (distance) => [
     `This is Alphard, the heart of Hydra the Water Snake, from ${distance} away.`,

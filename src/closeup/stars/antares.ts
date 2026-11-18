@@ -2,7 +2,8 @@ import type { CloseupStar } from '../star'
 
 /**
  * Figures: Ohnaka et al. 2013 and 2017 (VLTI size and surface map). Boorong: Stanbridge (1857).
- * The blue point is Antares B, a hot star about 530 AU away.
+ * The blue-green point is Antares B, a hot star about 530 AU away: really blue-white, but beside
+ * Antares it looks green. The amber haze is the gas and dust Antares has shed, lit by the star.
  */
 export const antares: CloseupStar = {
   id: 'antares',
@@ -10,30 +11,36 @@ export const antares: CloseupStar = {
   designation: 'α Scorpii',
   radiusSun: 680,
   look: {
-    color: '#ffa861', // about 3,660 K
-    limbColor: '#c24a1c',
-    limbDarkening: 0.75,
+    color: '#ffa55e', // about 3,660 K
+    limbColor: '#be451a',
+    limbDarkening: 0.76,
     whiten: 0.06,
     spinSeconds: 900,
-    texture: { amplitude: 0.8, scale: 1.8, speed: 0.035 },
-    pulse: { seconds: 28, radius: 0.015, brightness: 0.06 },
+    axis: { rollDeg: 25 },
+    texture: { amplitude: 0.8, scale: 1.9, speed: 0.035, cells: 0.4 },
+    pulse: { seconds: 28, radius: 0.015, brightness: 0.07, irregular: 0.3 },
     fuzz: 0.05,
-    wobble: 0.06,
+    wobble: 0.07,
     glare: 0.9,
-    companion: {
-      color: '#b9ccff',
-      radius: 0.0085,
-      brightness: 1,
-      glare: 0.3,
-      place: { at: [-0.36, 0.22] },
-    },
+    // The gas and dust it has shed, lit amber by the star itself
+    nebula: { kind: 'cloud', color: '#ffae5c', outerColor: '#b8601f', brightness: 0.2, scale: 3.5, lanes: 0.3, falloff: 5 },
+    companions: [
+      {
+        color: '#aee0f2', // Antares B, about 18,500 K: blue-white, though beside Antares it looks green
+        radius: 0.0085,
+        brightness: 1,
+        glare: 0.35,
+        place: { at: [-0.36, 0.2] },
+      },
+    ],
   },
   story: (distance) => [
     `This is Antares, the heart of the Scorpion, from ${distance} away. Placed where the Sun is, it would reach past Mars.`,
     'It glows orange-red because its surface is only about 3,660 K.',
     'Like Betelgeuse, it boils in a few enormous cells, so it looks patchy, and its edge is blurred by thin outer gas.',
     'In 2017 astronomers mapped its surface and the gas churning above it, the most detailed picture then made of another star.',
-    'The blue point is its companion, a hot star about 530 times farther from it than Earth is from the Sun.',
+    'The amber haze around it is gas and dust that Antares has shed, lit up by the star’s own light.',
+    'The blue-green point is its companion, a hot star about 530 times farther from it than Earth is from the Sun.',
     'Size: around 680 times as wide as the Sun and about 15 times as heavy. It gives off some 75,000 times as much light.',
     'Type: M1.5 Iab. “M” is the coolest, reddest class of star. “Iab” marks a supergiant.',
     'Estimated age: 11 to 15 million years. It is near its end and will explode as a supernova.',

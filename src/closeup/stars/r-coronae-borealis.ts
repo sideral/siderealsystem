@@ -15,9 +15,11 @@ export const rCoronaeBorealis: CloseupStar = {
     limbDarkening: 0.6,
     whiten: 0.2,
     spinSeconds: 600,
-    texture: { amplitude: 0.12, scale: 6, speed: 0.04 },
-    pulse: { seconds: 26, radius: 0, brightness: 0.55 },
+    texture: { amplitude: 0.14, scale: 6, speed: 0.04, cells: 0.4 },
+    pulse: { seconds: 9, radius: 0.004, brightness: 0.04 },
     fuzz: 0.02,
+    // Soot: clouds of carbon dust that gather over the star and black it out, then blow away
+    dust: { darkness: 0.97, scale: 1.6, cover: 0.92, seconds: 34, seed: 9 },
   },
   story: (distance) => [
     `This is R Coronae Borealis, from ${distance} away. Most variable stars flare up. This one blacks out.`,

@@ -15,15 +15,13 @@ export const cygni61: CloseupStar = {
     limbDarkening: 0.68,
     whiten: 0.12,
     spinSeconds: 170, // about 35 days in reality
-    texture: { amplitude: 0.09, scale: 16, speed: 0.18 },
-    spots: { darkness: 0.7, size: 0.09, seed: 51 },
-    companion: {
-      color: '#ffc689', // 4,080 K
-      radius: 0.0085,
-      brightness: 1,
-      glare: 0.4,
-      place: { at: [0.36, 0.24] },
-    },
+    axis: { rollDeg: 9, inclinationDeg: 70 },
+    texture: { amplitude: 0.16, scale: 17, speed: 0.2, cells: 1 },
+    // Its spot cycle, about 7 years, is one of the clearest known on any star but the Sun
+    spots: { darkness: 0.8, size: 0.075, seed: 51, count: 10, beltDeg: 24, cycleSeconds: 30, faculae: 0.55 },
+    companions: [
+      { color: '#ffc083', radius: 0.0085, brightness: 1, glare: 0.4, place: { at: [-0.36, 0.24] } }, // B: 4,080 K
+    ],
   },
   story: (distance) => [
     `This is 61 Cygni A, from ${distance} away. It is the first star whose distance was ever measured.`,

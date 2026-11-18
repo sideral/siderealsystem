@@ -1,19 +1,27 @@
 import type { CloseupStar } from '../star'
 
-/** Figures: Domiciano de Souza et al. 2014 (shape and temperatures from VLTI imaging). */
+/**
+ * Figures: Domiciano de Souza et al. 2014 (shape, temperatures and the angle of the axis on the
+ * sky, from VLTI imaging). Drawn nearer to side-on than we see it (about 60° in reality), to show
+ * the full bulge.
+ */
 export const achernar: CloseupStar = {
   id: 'achernar',
   name: 'Achernar',
   designation: 'α Eridani',
   radiusSun: 9.2, // at the equator; about 6.8 pole to pole
   look: {
-    color: '#b7c8ff', // about 15,000 K averaged over the surface
+    color: '#b1c4ff', // about 17,000 K at the poles
     limbColor: '#c6d2fd',
     limbDarkening: 0.4,
+    radius: 0.21,
     spinSeconds: 16,
+    axis: { rollDeg: 35, inclinationDeg: 78 }, // the axis lies at this angle on the sky
     flattening: 0.26,
-    gravityDarkening: 0.45,
-    ring: { inner: 1.25, outer: 2.6, tilt: 0.1, color: '#ffd9e6', brightness: 0.12 },
+    gravityDarkening: 0.34,
+    equatorColor: '#d3ddff', // about 12,700 K
+    glare: 1.2,
+    ring: { inner: 1.12, outer: 2.1, tilt: 0.21, color: '#ffc7dd', brightness: 0.13 }, // gas shed from the equator
   },
   story: (distance) => [
     `This is Achernar, seen through a dark filter from ${distance} away. It is the flattest bright star in the sky.`,

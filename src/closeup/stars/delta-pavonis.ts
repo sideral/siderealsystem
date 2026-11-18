@@ -8,12 +8,13 @@ export const deltaPavonis: CloseupStar = {
   radiusSun: 1.2,
   look: {
     color: '#ffebd9', // about 5,570 K
-    limbColor: '#f2b87c',
-    limbDarkening: 0.62,
-    whiten: 0.18,
-    spinSeconds: 110,
-    texture: { amplitude: 0.07, scale: 18, speed: 0.2 },
-    spots: { darkness: 0.5, size: 0.04, seed: 91 },
+    limbColor: '#f0b274',
+    limbDarkening: 0.64,
+    whiten: 0.17,
+    spinSeconds: 220, // an old star, turning slowly
+    axis: { rollDeg: 5 },
+    texture: { amplitude: 0.17, scale: 16, speed: 0.16, cells: 1 }, // beginning to swell: grain a little coarser than the Sun's
+    // No spots at all: slow spin, weak magnetism
   },
   story: (distance) => [
     `This is Delta Pavonis, in Pavo the Peacock, from ${distance} away. It shows what the Sun will be like a few billion years from now.`,
