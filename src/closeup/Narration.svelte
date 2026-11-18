@@ -98,7 +98,14 @@
 
   onMount(() => {
     instant = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const observer = new ResizeObserver(repaginate) // also fires once on observe
+    // Only a change of width can move line breaks. The height follows the page being shown
+    // (one line or two), and re-splitting on that would snap back to the beat's first page.
+    let width = -1
+    const observer = new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width === width) return
+      width = entry.contentRect.width
+      repaginate()
+    }) // also fires once on observe
     observer.observe(frame)
     void document.fonts.ready.then(repaginate) // the web font changes line breaks
     return () => {
