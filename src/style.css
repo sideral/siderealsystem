@@ -38,3 +38,44 @@ body {
 #logo:hover {
   background-position: 0 -50px;
 }
+
+#hero-icon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(40vmin, 320px);
+  height: auto;
+  margin: 0;
+  translate: -50% -50%;
+  pointer-events: none;
+  z-index: 1;
+  /* Same soft white halo as the logo's hover state, scaled up to the icon's size */
+  filter: drop-shadow(0 0 0.04em #fff) drop-shadow(0 0 0.12em rgba(255, 255, 255, 0.6));
+  font-size: min(40vmin, 320px);
+  animation:
+    hero-spin 20s linear infinite,
+    hero-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes hero-spin {
+  to {
+    rotate: -360deg;
+  }
+}
+
+/* Glow breathes between a faint halo and a strong one */
+@keyframes hero-pulse {
+  from {
+    filter: drop-shadow(0 0 0.01em rgba(255, 255, 255, 0.5))
+      drop-shadow(0 0 0.04em rgba(255, 255, 255, 0.2));
+  }
+  to {
+    filter: drop-shadow(0 0 0.05em #fff) drop-shadow(0 0 0.18em rgba(255, 255, 255, 0.75));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hero-icon {
+    animation: none;
+  }
+}
