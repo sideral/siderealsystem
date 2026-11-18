@@ -119,9 +119,14 @@
     >
   </p>
   <p class="text probe" bind:this={probe} aria-hidden="true">{probeText}</p>
-  <button type="button" class="hint" class:ready={done} onclick={advance}>
-    {last ? 'tap to start over' : 'tap to continue'}
-    <span class="count">{index + 1}/{pages.length}</span>
+  <button
+    type="button"
+    class="hint"
+    class:ready={done}
+    onclick={advance}
+    aria-label={`${last ? 'Start over' : 'Continue'} (page ${index + 1} of ${pages.length})`}
+  >
+    {index + 1}/{pages.length}
   </button>
 </section>
 
@@ -141,7 +146,6 @@
     text-align: center;
   }
   .text {
-    min-height: 3em; /* room for two lines, so the hint below never jumps */
     margin: 0;
     text-shadow: 0 0 6px #000;
   }
@@ -165,7 +169,8 @@
     pointer-events: none;
   }
   .hint {
-    margin-top: 0.9rem;
+    /* Sits right under the text; the padding keeps it an easy tap target */
+    margin-top: 0.1rem;
     padding: 0.3rem 0.8rem;
     border: 0;
     background: none;
@@ -185,10 +190,6 @@
     outline: 1px solid #9aa6c4;
     outline-offset: 2px;
     opacity: 1;
-  }
-  .count {
-    margin-left: 0.6em;
-    color: #5f6a86;
   }
   .sr-only {
     position: absolute;

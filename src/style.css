@@ -63,30 +63,56 @@ body {
   /* Same soft white halo as the logo's hover state, scaled up to the icon's size */
   filter: drop-shadow(0 0 0.04em #fff) drop-shadow(0 0 0.12em rgba(255, 255, 255, 0.6));
   font-size: min(40vmin, 320px);
+  /* Spins the whole time; grows in as it fades in, lingers, then shrinks away fast as it fades out */
   animation:
-    hero-spin 20s linear infinite,
-    hero-pulse 3s ease-in-out infinite alternate;
+    hero-spin 1.8s linear both,
+    hero-flourish 1.8s both;
 }
 
 @keyframes hero-spin {
+  from {
+    rotate: 0deg;
+  }
   to {
-    rotate: -360deg;
+    rotate: -540deg;
   }
 }
 
-/* Glow breathes between a faint halo and a strong one */
-@keyframes hero-pulse {
-  from {
-    filter: drop-shadow(0 0 0.01em rgba(255, 255, 255, 0.5))
-      drop-shadow(0 0 0.04em rgba(255, 255, 255, 0.2));
+@keyframes hero-flourish {
+  0% {
+    opacity: 0;
+    scale: 0.4;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.3, 1);
   }
-  to {
-    filter: drop-shadow(0 0 0.05em #fff) drop-shadow(0 0 0.18em rgba(255, 255, 255, 0.75));
+  35% {
+    opacity: 1;
+    scale: 1;
+  }
+  72% {
+    opacity: 1;
+    scale: 1.06;
+    animation-timing-function: cubic-bezier(0.6, 0, 0.9, 0.4);
+  }
+  100% {
+    opacity: 0;
+    scale: 0.1;
+  }
+}
+
+/* No spin or zoom: just a soft fade in and out */
+@keyframes hero-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  35%,
+  72% {
+    opacity: 1;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   #hero-icon {
-    animation: none;
+    animation: hero-fade 1.8s both;
   }
 }

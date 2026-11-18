@@ -13,11 +13,52 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Sidereal" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="icon" type="image/svg+xml" href="/img/sidereal-system-icon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/icons/icon-180.png" />
     <title>Sidereal System</title>
+    <!--
+      Loader: the logo-click flourish (src/style.css), inlined so it plays before any script or
+      stylesheet arrives. It spins in, keeps spinning while the app loads, and src/main.ts adds
+      .done to play the same quick zoom-out once the sky is drawn.
+    -->
+    <style>
+      html { background: #000; }
+      #loader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        width: min(40vmin, 320px);
+        height: auto;
+        translate: -50% -50%;
+        pointer-events: none;
+        font-size: min(40vmin, 320px);
+        filter: drop-shadow(0 0 0.04em #fff) drop-shadow(0 0 0.12em rgba(255, 255, 255, 0.6));
+        /* -300°/s, the click flourish's speed; in and settle are its first 72% (1.3s of 1.8s) */
+        animation:
+          loader-spin 1.2s linear infinite,
+          loader-in 0.63s cubic-bezier(0.2, 0.8, 0.3, 1) both,
+          loader-settle 0.67s linear 0.63s forwards;
+      }
+      #loader.done {
+        animation:
+          loader-spin 1.2s linear infinite,
+          loader-out 0.5s cubic-bezier(0.6, 0, 0.9, 0.4) forwards;
+      }
+      @keyframes loader-spin { to { rotate: -360deg; } }
+      @keyframes loader-in { from { opacity: 0; scale: 0.4; } to { opacity: 1; scale: 1; } }
+      @keyframes loader-settle { from { scale: 1; } to { scale: 1.06; } }
+      @keyframes loader-out { from { opacity: 1; scale: 1.06; } to { opacity: 0; scale: 0.1; } }
+      @keyframes loader-fade { from { opacity: 0; } to { opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) {
+        #loader { animation: loader-fade 0.63s both; }
+        #loader.done { animation: loader-fade 0.5s reverse forwards; }
+      }
+    </style>
   </head>
   <body>
+    <img id="loader" src="/img/sidereal-system-icon.svg" alt="" aria-hidden="true" />
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

@@ -24,6 +24,17 @@
     window.history.pushState({ star: id }, '')
     openStar = star
   }
+
+  /** Bumped on every logo click at home; each value plays the spinning-logo flourish once. */
+  let flourish = $state(0)
+
+  function onLogoClick(event: MouseEvent): void {
+    // Already home: nothing to load, so answer the click with the flourish instead
+    if (openStar !== null) return
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return
+    event.preventDefault()
+    flourish++
+  }
 </script>
 
 <svelte:window onpopstate={() => (openStar = starInHistory())} />
@@ -33,6 +44,16 @@
   <StarCloseup star={openStar} onclose={() => window.history.back()} />
 {/if}
 
-<!-- Spinning logo: kept, but not shown -->
-<img id="hero-icon" src="/img/sidereal-system-icon.svg" alt="" aria-hidden="true" hidden />
-<a id="logo" title="Sidereal System" href="/"></a>
+<!-- The logo is the way home; at home it plays the big spinning icon once instead of reloading -->
+{#key flourish}
+  {#if flourish > 0}
+    <img
+      id="hero-icon"
+      src="/img/sidereal-system-icon.svg"
+      alt=""
+      aria-hidden="true"
+      onanimationend={() => (flourish = 0)}
+    />
+  {/if}
+{/key}
+<a id="logo" title="Sidereal System" href="/" onclick={onLogoClick}></a>
