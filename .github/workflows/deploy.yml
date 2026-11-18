@@ -1,0 +1,88 @@
+name: Deploy Sidereal System
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: siderealsystem-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.repository == 'sideral/siderealsystem'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: production
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 22
+
+      - name: Test and build
+        run: |
+          npm install --global pnpm@11.3.0
+          pnpm install --frozen-lockfile
+          pnpm test
+          pnpm build
+
+      - name: Package release (static build only)
+        run: |
+          test -s dist/index.html
+          tar -czf "$RUNNER_TEMP/siderealsystem.tar.gz" dist
+
+      - name: Configure SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          for name in SSH_HOST SSH_PORT SSH_PRIVATE_KEY SSH_KNOWN_HOSTS; do
+            if [[ -z ${!name} ]]; then
+              echo "Missing repository secret: $name" >&2
+              exit 1
+            fi
+          done
+          [[ $SSH_HOST =~ ^[a-zA-Z0-9][a-zA-Z0-9.-]*$ ]] || { echo 'SSH_HOST must be an IPv4 address or DNS name.' >&2; exit 1; }
+          [[ $SSH_PORT =~ ^[0-9]+$ ]] || exit 1
+          install -d -m 700 ~/.ssh
+          umask 077
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/siderealsystem
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          cat > ~/.ssh/config <<EOF
+          Host siderealsystem-production
+            HostName $SSH_HOST
+            Port $SSH_PORT
+            User siderealsystem
+            IdentityFile ~/.ssh/siderealsystem
+            IdentitiesOnly yes
+            BatchMode yes
+            StrictHostKeyChecking yes
+            ConnectTimeout 15
+          EOF
+
+      - name: Upload and activate release
+        run: |
+          set -euo pipefail
+          release_id="${GITHUB_SHA}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          scp "$RUNNER_TEMP/siderealsystem.tar.gz" "siderealsystem-production:/var/www/siderealsystem/incoming/$release_id.tar.gz"
+          scp deploy/activate-release.sh "siderealsystem-production:/var/www/siderealsystem/incoming/$release_id.sh"
+          ssh siderealsystem-production "bash /var/www/siderealsystem/incoming/$release_id.sh $release_id"
+
+      - name: Check public site
+        run: |
+          curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors --max-time 15 https://siderealsystem.com/ |
+            grep -q '<title>Sidereal System</title>'
+
+      - name: Remove SSH credentials
+        if: always()
+        run: rm -f ~/.ssh/siderealsystem ~/.ssh/config ~/.ssh/known_hosts
