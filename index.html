@@ -29,8 +29,9 @@
         top: 50%;
         left: 50%;
         z-index: 2;
+        /* Explicit square size: with height auto it is 0 tall until the SVG loads, and starts off-centre */
         width: min(40vmin, 320px);
-        height: auto;
+        height: min(40vmin, 320px);
         translate: -50% -50%;
         pointer-events: none;
         font-size: min(40vmin, 320px);
