@@ -7,8 +7,19 @@ and open the template in the editor.
     Created on : 7-ago-2013, 22.50.18
     Author     : sideral
 */
+/* Ubuntu Mono, subset to Latin, accented Latin and Greek; licence in public/fonts/UBUNTU-FONT-LICENCE.txt */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/ubuntu-mono-regular.woff2') format('woff2');
+}
+
 html,
 body {
+  /* sideways swipes go to the page (the star slider), not the browser */
+  touch-action: pan-y;
   margin: 0;
   width: 100%;
   height: 100%;
@@ -29,14 +40,18 @@ body {
   width: 300px;
   height: 50px;
   position: absolute;
-  right: 0;
+  left: 50%;
   bottom: 10px;
   z-index: 1;
-  background: url('/img/sidereal-system.png') no-repeat 0 0;
+  translate: -50% 0;
+  background: url('/img/sidereal-system-logo.svg') no-repeat center / contain;
+  transition: filter 0.25s ease-out;
 }
 
-#logo:hover {
-  background-position: 0 -50px;
+/* Hover glow: the old PNG sprite's second frame, redone as a filter on the SVG */
+#logo:hover,
+#logo:focus-visible {
+  filter: brightness(1.2) drop-shadow(0 0 3px #fff) drop-shadow(0 0 7px rgba(255, 255, 255, 0.55));
 }
 
 #hero-icon {
