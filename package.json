@@ -18,8 +18,10 @@
     "download:iau-star-names": "tsx scripts/download/iau-star-names.ts",
     "download:iau-constellation-boundaries": "tsx scripts/download/iau-constellation-boundaries.ts",
     "download:openngc": "tsx scripts/download/openngc.ts",
-    "build:data": "tsx scripts/build/closeup-stars.ts",
-    "build:closeup-stars": "tsx scripts/build/closeup-stars.ts"
+    "download:wmm": "tsx scripts/download/wmm.ts",
+    "build:data": "tsx scripts/build/closeup-stars.ts && tsx scripts/build/wmm.ts",
+    "build:closeup-stars": "tsx scripts/build/closeup-stars.ts",
+    "build:wmm": "tsx scripts/build/wmm.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

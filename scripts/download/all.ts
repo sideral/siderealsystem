@@ -8,7 +8,7 @@
  *
  * ## Order
  * 1. Hipparcos (I/239) — 2. Yale BSC (V/50) — 3. IAU star names (IV/27A) — 4. Constellation boundaries (VI/42) —
- *    5. OpenNGC (GitHub zip).
+ *    5. OpenNGC (GitHub zip) — 6. World Magnetic Model (NOAA zip).
  *
  * On failure, logs the failing step and exits with code **1**.
  */
@@ -23,6 +23,7 @@ import { main as runHipparcos } from './hipparcos.js'
 import { main as runIauBoundaries } from './iau-constellation-boundaries.js'
 import { main as runIauNames } from './iau-star-names.js'
 import { main as runOpenngc } from './openngc.js'
+import { main as runWmm } from './wmm.js'
 
 const steps = [
   { name: 'hipparcos', run: runHipparcos },
@@ -30,6 +31,7 @@ const steps = [
   { name: 'iau-star-names', run: runIauNames },
   { name: 'iau-constellation-boundaries', run: runIauBoundaries },
   { name: 'openngc', run: runOpenngc },
+  { name: 'wmm', run: runWmm },
 ] as const
 
 export async function main(): Promise<void> {

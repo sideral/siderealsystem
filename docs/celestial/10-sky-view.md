@@ -12,6 +12,7 @@ This is the first end-to-end slice of the Phase A map ([07-milestones-map-projec
 - [W3C Device Orientation](https://www.w3.org/TR/orientation-event/): the alpha/beta/gamma angles and the `Z·X·Y` rotation order.
 - astropy 6.1 was used once, at dev time, to produce the reference altitudes and azimuths in `src/sky/frames.test.ts`. It is not a dependency.
 - Star positions: Yale Bright Star Catalogue (CDS V/50), via `data/dist/closeup-stars.json` ([01-data-stars-and-dsos.md](./01-data-stars-and-dsos.md)).
+- NOAA/BGS, *The US/UK World Magnetic Model for 2025–2030* (technical report): the WMM2025 coefficients, the method (equations 7–19) and the official test values, all 100 of which `src/sky/magnetic.test.ts` checks to 0.01°.
 
 ## Overview
 
@@ -23,6 +24,7 @@ This is the first end-to-end slice of the Phase A map ([07-milestones-map-projec
 | `time.ts` | `julianDate`, Greenwich and local mean sidereal time ([03](./03-time-and-observer.md)) |
 | `frames.ts` | Precession from J2000, equatorial → east-north-up, `horizontalFromEquatorial` ([04](./04-transforms-catalog-to-sky.md)) |
 | `camera.ts` | Camera from phone angles or from azimuth/altitude, compass correction, stereographic `project` / `unproject`, horizon shape, `pickNearest` ([05](./05-projection-and-rendering.md), [06](./06-input-ui-and-detail.md)) |
+| `magnetic.ts` | Magnetic declination from the World Magnetic Model (`data/dist/wmm.json`), to turn compass north into true north |
 | `sensors.ts` | Browser glue: orientation events, motion permission, geolocation, saved location, screen wake lock |
 | `catalog.ts` | Joins the close-up stars with their catalogue positions |
 | `SkyView.svelte` | Canvas, render loop, pointer input |
@@ -35,12 +37,13 @@ This is the first end-to-end slice of the Phase A map ([07-milestones-map-projec
 
 **Projection.** Stereographic, centred on the view direction: r = 2f·tan(θ/2), with the field of view (default 90°, 25°–130° by pinch or wheel) measured across the longer side of the screen. It keeps small shapes undistorted at wide fields and turns the horizon into an exact circle (radius 2f/|u_z|, centre 2f·(u_x, u_y)/u_z, with u the zenith in camera axes), which is how the ground is filled without sampling.
 
-**Drawing.** Canvas 2D (some 120 sprites and a circle per frame: WebGL would add nothing here). Each star is a pre-rendered glow sprite in its close-up colour, sized by magnitude (core radius 3.4 − 0.5·m px, clamped to 1–4.4). The ground is a faint veil; stars below the horizon show through it at 60% strength. **Nothing else is drawn**: no star names, no compass letters, no buttons or instructions. The screen is the stars, the horizon and the logo.
+**Drawing.** Canvas 2D (some 120 sprites and a circle per frame: WebGL would add nothing here). Each star is a pre-rendered glow sprite in its close-up colour, sized by magnitude (core radius 3.4 − 0.5·m px, clamped to 1–4.4). The ground is a faint veil; stars below the horizon show through it at 60% strength. The four compass points sit on the horizon, 14 px to the sky side of the line, N in red and the others pale. **Nothing else is drawn**: no star names, no buttons or instructions. The screen is the stars, the horizon, the compass points and the logo.
 
 **Following the phone**
 
 - Android fires `deviceorientationabsolute`: angles already referenced to the compass.
-- iOS fires `deviceorientation` relative to wherever the phone pointed when the page opened, plus `webkitCompassHeading`, the compass direction of the phone's **top edge**. `compassTurn` compares that heading with where the top edge points in the relative frame and returns the turn about the vertical that reconciles them. The first heading is taken as is; later ones nudge it, weighted by how far the top edge is from vertical (where a heading means nothing).
+- iOS fires `deviceorientation` relative to wherever the phone pointed when the page opened, plus `webkitCompassHeading`. That heading is the yaw of the same `Z·X·Y` angles (heading = 360° − alpha, had alpha been north-referenced), **not** the direction of the top edge: tipped back past upright to look at the sky, the top edge points behind you while the heading stays put. Reading it as the top edge put the sky 180° out on an iPhone. Since a turn about the vertical only shifts alpha, `compassTurn` returns alpha + heading. The first heading is taken as is; later ones nudge it, weighted by how far the top edge is from vertical (near upright, yaw and roll blur together and the heading is noisy).
+- Both platforms reference **magnetic** north. `magneticDeclination` (World Magnetic Model 2025, degree 12) gives the angle on to true north for the observer's place and the current date; it is recomputed whenever the location changes and added to the compass turn.
 - Readings are smoothed (30% of the way to the newest reading per frame).
 - With the phone followed, dragging sideways adds a manual turn on top: a way to line the view up by hand against a star you know.
 - `screen.orientation.angle` is applied, so landscape works.
@@ -58,8 +61,8 @@ This is the first end-to-end slice of the Phase A map ([07-milestones-map-projec
 
 **Known liberties and gaps**
 
-- **Not yet tried on a real phone.** The orientation path was exercised in a desktop browser with synthetic events, for both the Android and the iOS style of reading. In particular, how iOS reports `webkitCompassHeading` once the phone is tipped back past upright is assumed (top-edge direction), not confirmed.
-- The compass gives **magnetic** north. Magnetic declination (up to about ±20° depending on where you are) is not corrected; the sideways drag is the workaround.
+- **Tried on an iPhone, against Stellarium.** The 180° error past upright was found and fixed. That left about 11° against Stellarium, most of it uncorrected declination; the re-check with declination applied is still to do. Android is still untried; that `deviceorientationabsolute` references magnetic (not true) north is assumed from Android's rotation-vector sensor.
+- Declination uses the observer's location at sea level and is valid 2025–2030; past 2030 the model is still used (it drifts a fraction of a degree a year) until `pnpm download:wmm` fetches the next one.
 - Mean sidereal time; UTC used as UT1; no nutation, aberration, refraction or proper motion. Agreement with astropy is within about an arcminute, far below compass accuracy.
 - Magnitudes are the catalogue's single values: variable stars (Mira, R Coronae Borealis, Algol…) are drawn at a fixed brightness.
 - The sky is always dark: no daylight, twilight, Sun, Moon or planets.
@@ -70,8 +73,8 @@ This is the first end-to-end slice of the Phase A map ([07-milestones-map-projec
 2. **Done** — Time, frames, camera and projection modules, unit-tested against Meeus and astropy.
 3. **Done** — Sky view: canvas, drag/pinch/pick, horizon and ground, phone following, silent permissions.
 4. **Done** — App shell for phones; `pnpm dev:phone`.
-5. **Next (open)** — Try it on an iPhone XR and an Android phone; fix what the real sensors show (heading semantics past upright, smoothing constants, landscape).
-6. **Next (open)** — Magnetic declination from a small bundled model, so compass north becomes true north.
+5. **Partly done** — Tried on an iPhone (the heading past upright is fixed). Still open: an Android phone, smoothing constants, landscape.
+6. **Done** — Magnetic declination from the World Magnetic Model 2025 (`pnpm download:wmm`, `pnpm build:wmm` → `data/dist/wmm.json`), so compass north becomes true north.
 7. **Next (open)** — Grow from the 120 stars toward the merged catalogue in [01](./01-data-stars-and-dsos.md) (constellation lines, fainter stars, magnitude limit by field of view).
 8. **Next (open)** — A service worker, so the installed app opens with no network at all.
 

@@ -24,6 +24,13 @@ Before implementing sky math, we **vendor and merge** catalog data into typed of
 - Each entry in the script names the designation the catalogue row must carry, so a mistyped HR number fails the build. `src/sky/catalog.test.ts` fails if the script's list and `src/closeup/stars/` drift apart.
 - Loaded by `src/sky/catalog.ts` with a plain `import` (bundled; no runtime request).
 
+**Also built: `data/dist/wmm.json`** — the World Magnetic Model 2025, for turning a phone's magnetic compass heading into a true one ([10-sky-view.md](./10-sky-view.md)).
+
+- Downloaded by `scripts/download/wmm.ts` (`pnpm download:wmm`, also part of `pnpm download:data`) from NOAA NCEI (`WMM2025COF.zip`) into `data/raw/wmm/`, with the official test values beside it. Public domain (US Government work).
+- Built by `scripts/build/wmm.ts` (`pnpm build:wmm`, also part of `pnpm build:data`).
+- Shape: `{ source, model, epoch, validUntil, coefficients: [[n, m, g, h, gDot, hDot], …] }`: Schmidt semi-normalised Gauss coefficients in nT at `epoch` (2025.0) and their yearly change, degree 12 (90 rows, about 2 KB).
+- Loaded by `src/sky/magnetic.ts` with a plain `import`. Refresh every five years, when NOAA publishes the next model.
+
 **Star fields (target)** — domain-oriented column concepts: [terminology: typical stellar row](../reference/terminology.md#star-record-fields).
 
 
