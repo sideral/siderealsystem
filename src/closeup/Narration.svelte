@@ -140,8 +140,16 @@
 <style>
   .narration {
     position: fixed;
-    /* under the star, but never so low that it runs into the logo at the bottom */
-    top: min(calc(var(--star-y) + var(--star-r) + 4.25rem), calc(100% - 12rem));
+    /* Centred a little past halfway down the gap from the star's bottom edge to the logo's top
+       (the logo is 50px tall, 10px off the bottom), so it reads closer to the logo than to the
+       star; 2.5rem is about half the block (two lines and the page counter). Never so low that
+       it runs into the logo. */
+    top: min(
+      calc(
+        0.4 * (var(--star-y) + var(--star-r)) + 0.6 * (100% - env(safe-area-inset-bottom, 0px) - 60px) - 2.5rem
+      ),
+      calc(100% - 12rem)
+    );
     left: 50%;
     z-index: 1;
     width: min(92vw, 46rem);
