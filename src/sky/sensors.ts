@@ -73,7 +73,7 @@ export function watchOrientation(onReading: (reading: OrientationReading) => voi
     let compass: CompassTurn | null = null
     if (absolute) compass = { turn: 0, confidence: 1 }
     else if (typeof e.webkitCompassHeading === 'number' && e.webkitCompassHeading >= 0)
-      compass = compassTurn(rotation, e.webkitCompassHeading)
+      compass = compassTurn(rotation, e.alpha, e.webkitCompassHeading)
     onReading({ rotation, compass })
   }
 

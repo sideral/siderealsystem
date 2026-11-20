@@ -82,31 +82,48 @@ describe('cameraFromDevice', () => {
 })
 
 describe('compassTurn', () => {
+  const turnFor = (alpha: number, beta: number, gamma: number, heading: number) =>
+    compassTurn(deviceRotation(alpha, beta, gamma), alpha, heading)
+
   it('is zero when the relative frame already agrees with the compass', () => {
     // alpha 30° turns the top edge 30° west of north: a compass heading of 330°
-    expect(compassTurn(deviceRotation(30, 20, 5), 330)?.turn).toBeCloseTo(0, 9)
+    expect(turnFor(30, 20, 5, 330)?.turn).toBeCloseTo(0, 9)
   })
 
   it('gives the turn that lines the top edge up with the heading', () => {
     const rotation = deviceRotation(0, 20, 0) // relative frame says: top edge north
-    const turn = compassTurn(rotation, 90)?.turn // compass says: top edge east
+    const turn = compassTurn(rotation, 0, 90)?.turn // compass says: top edge east
     expect(turn).toBeCloseTo(90 * DEG, 9)
     const camera = turnCamera(cameraFromDevice(rotation), turn ?? 0)
     expect(horizontalFromVector(camera.up).azRad / DEG).toBeCloseTo(90, 9)
   })
 
-  it('accounts for the top edge pointing backward once the phone is tipped past upright', () => {
-    // Back of the phone toward north, tipped back to look 45° up: the top edge points south
-    expect(compassTurn(deviceRotation(0, 135, 0), 180)?.turn).toBeCloseTo(0, 9)
+  it('keeps the heading once the phone is tipped back past upright to look at the sky', () => {
+    // Back of the phone toward north, tipped back to look 45° up. The top edge now points
+    // south, but iOS still reports heading 0: no turn is needed, and the camera looks north.
+    const rotation = deviceRotation(0, 135, 0)
+    const turn = compassTurn(rotation, 0, 0)?.turn
+    expect(turn).toBeCloseTo(0, 9)
+    const looking = horizontalFromVector(turnCamera(cameraFromDevice(rotation), turn ?? 0).forward)
+    expect(looking.azRad / DEG).toBeCloseTo(0, 9)
+    expect(looking.altRad / DEG).toBeCloseTo(45, 9)
+  })
+
+  it('looks where the compass says when the relative frame started elsewhere', () => {
+    // Looking 30° up toward the east, but the relative frame thinks the back faces 70° further on
+    const rotation = deviceRotation(-160, 120, 0) // back of the phone at azimuth 160° in that frame
+    const turn = compassTurn(rotation, -160, 90)?.turn // iOS: heading 90°, east
+    const looking = horizontalFromVector(turnCamera(cameraFromDevice(rotation), turn ?? 0).forward)
+    expect(looking.azRad / DEG).toBeCloseTo(90, 9)
   })
 
   it('declines when the top edge is close to vertical, and trusts it more the flatter it lies', () => {
-    expect(compassTurn(deviceRotation(0, 88, 0), 123)).toBeNull()
-    const upright = compassTurn(deviceRotation(0, 105, 0), 180)
+    expect(turnFor(0, 88, 0, 123)).toBeNull()
+    const upright = turnFor(0, 105, 0, 0)
     expect(upright?.turn).toBeCloseTo(0, 9)
     expect(upright?.confidence).toBeGreaterThan(0.2)
     expect(upright?.confidence).toBeLessThan(0.6)
-    expect(compassTurn(deviceRotation(0, 30, 0), 0)?.confidence).toBe(1)
+    expect(turnFor(0, 30, 0, 0)?.confidence).toBe(1)
   })
 })
 

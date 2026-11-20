@@ -74,18 +74,22 @@ export interface CompassTurn {
  * How far to turn a phone-relative frame so that it agrees with a compass.
  *
  * iOS reports orientation relative to wherever the phone pointed when the page opened, plus a
- * separate compass heading: the direction of the phone's **top edge**, clockwise from north.
- * This compares that heading with where the top edge points in the relative frame.
+ * separate compass heading. That heading is the yaw of the same Z·X·Y angles, measured
+ * clockwise from north: heading = 360° − alpha, had alpha been north-referenced. It is **not**
+ * the direction of the top edge: tip the phone back past upright to look at the sky and the top
+ * edge swings round behind you while the heading stays put. Taking it for the top edge put
+ * the sky 180° out. Since turning the frame about the vertical only shifts alpha, the turn is
+ * simply alpha + heading.
  *
- * A top edge pointing nearly straight up or down has no compass direction: within about 6° of
- * vertical this returns null, and confidence only reaches 1 about 30° away from it.
+ * Near upright (top edge within about 6° of vertical) yaw and roll blur together and the
+ * heading is noisy: this returns null there, and confidence only reaches 1 about 30° away.
  */
-export function compassTurn(rotation: Mat3, headingDeg: number): CompassTurn | null {
+export function compassTurn(rotation: Mat3, alphaDeg: number, headingDeg: number): CompassTurn | null {
   const top = mulMatVec(rotation, [0, 1, 0])
   const horizontal = Math.hypot(top[0], top[1])
   if (horizontal < 0.1) return null
   return {
-    turn: wrapPi(headingDeg * DEG - Math.atan2(top[0], top[1])),
+    turn: wrapPi((alphaDeg + headingDeg) * DEG),
     confidence: Math.min(1, (horizontal - 0.1) / 0.4),
   }
 }
