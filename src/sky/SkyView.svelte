@@ -5,8 +5,8 @@
    * screen is behind the phone in the real sky, above or below the horizon. Without sensors,
    * drag to look around. Tap a star to open its close-up.
    *
-   * There is no interface here on purpose, and no labels: only the stars, the ground and the
-   * horizon line. Location is asked for on load, and
+   * There is no interface here on purpose: only the stars, the ground, the horizon line and the
+   * four compass points on it. Location is asked for on load, and
    * motion access on the first touch (iOS only grants it from a touch). If either is refused
    * the view quietly falls back: an approximate place, and dragging instead of pointing.
    */
@@ -25,6 +25,7 @@
     unproject,
   } from './camera'
   import { SKY_STARS } from './catalog'
+  import { magneticDeclination } from './magnetic'
   import { type Observer, horizontalFromVector, skyMatrix } from './frames'
   import {
     guessObserver,
@@ -63,7 +64,8 @@
   let alt = 30 * DEG
   let fovDeg = DEFAULT_FOV_DEG
   let deviceToSky: Mat3 | null = null // compass mode: latest sensor reading
-  let compass = 0 // turn that lines the sensor frame up with north
+  let compass = 0 // turn that lines the sensor frame up with magnetic north
+  let declination = 0 // and from magnetic north on to true north, for where the observer is
   let manualTurn = 0 // the user's own correction on top, by dragging sideways
   let camera: Camera = cameraFromHorizontal(az, alt)
   let view: Viewport = { width: 1, height: 1, fovRad: fovDeg * DEG }
@@ -71,6 +73,12 @@
 
   let stopWatching: (() => void) | undefined
   let releaseScreen: (() => void) | undefined
+
+  function setObserver(next: Observer): void {
+    observer = next
+    declination = magneticDeclination(next.latRad, next.lonRad)
+  }
+  setObserver(observer)
 
   function starDirections(now: Date): Vec3[] {
     const toSky = skyMatrix(julianDate(now), observer)
@@ -94,7 +102,7 @@
   async function useLocation(): Promise<void> {
     if (!window.isSecureContext) return // browsers only share location with https pages
     try {
-      observer = await locate()
+      setObserver(await locate())
       saveObserver(observer)
       if (mode === 'drag') lookAtBrightest()
     } catch {
@@ -178,6 +186,29 @@
     ctx.stroke()
   }
 
+  const CARDINALS: [string, number][] = [['N', 0], ['E', 90], ['S', 180], ['W', 270]]
+
+  /** N, E, S and W on the horizon, lifted a little to the sky side of the line. */
+  function drawCardinals(ctx: CanvasRenderingContext2D): void {
+    ctx.font = '600 15px system-ui, -apple-system, sans-serif'
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    for (const [letter, azDeg] of CARDINALS) {
+      const az = azDeg * DEG
+      const onHorizon = project([Math.sin(az), Math.cos(az), 0], camera, view)
+      const above = project([Math.sin(az), Math.cos(az), 0.02], camera, view)
+      if (!onHorizon || !above) continue
+      const dx = above.x - onHorizon.x
+      const dy = above.y - onHorizon.y
+      const len = Math.hypot(dx, dy) || 1
+      const x = onHorizon.x + (dx / len) * 14
+      const y = onHorizon.y + (dy / len) * 14
+      if (x < -20 || x > view.width + 20 || y < -20 || y > view.height + 20) continue
+      ctx.fillStyle = letter === 'N' ? 'rgba(255, 140, 120, 0.95)' : 'rgba(190, 205, 240, 0.85)'
+      ctx.fillText(letter, x, y)
+    }
+  }
+
   function drawStars(ctx: CanvasRenderingContext2D, sprites: HTMLCanvasElement[]): void {
     SKY_STARS.forEach(({ position }, index) => {
       const direction = directions[index]
@@ -200,7 +231,7 @@
     const dpr = Math.min(window.devicePixelRatio || 1, 3)
     const sprites = SKY_STARS.map((s) => makeSprite(s.star.look.color, coreRadius(s.position.magV), dpr))
 
-    observer = loadObserver() ?? observer
+    setObserver(loadObserver() ?? observer)
     lookAtBrightest()
     void useLocation()
     const canFollow = hasOrientationSensor()
@@ -224,7 +255,7 @@
       view = { ...view, fovRad: fovDeg * DEG }
       directions = starDirections(new Date())
       if (mode === 'compass' && deviceToSky) {
-        const target = turnCamera(cameraFromDevice(deviceToSky, screenAngleDeg()), compass + manualTurn)
+        const target = turnCamera(cameraFromDevice(deviceToSky, screenAngleDeg()), compass + declination + manualTurn)
         camera = blendCameras(camera, target, SENSOR_SMOOTHING)
       } else {
         camera = cameraFromHorizontal(az, alt)
@@ -235,6 +266,7 @@
       ctx.fillRect(0, 0, view.width, view.height)
       drawGround(ctx)
       drawStars(ctx, sprites)
+      drawCardinals(ctx)
     }
     raf = requestAnimationFrame(frame)
 

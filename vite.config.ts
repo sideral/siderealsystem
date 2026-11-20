@@ -29,7 +29,11 @@ function devCertificate(): { key: Buffer; cert: Buffer } {
 
 export default defineConfig(({ mode }) => ({
   plugins: [svelte()],
-  server: mode === 'phone' ? { host: true, https: devCertificate() } : {},
+  server: {
+    // An ngrok tunnel gives the phone https without the self-signed certificate warning.
+    allowedHosts: ['.ngrok-free.app', '.ngrok-free.dev', '.ngrok.app'],
+    ...(mode === 'phone' ? { host: true, https: devCertificate() } : {}),
+  },
   test: {
     environment: 'node',
     include: ['src/**/*.test.ts'],
